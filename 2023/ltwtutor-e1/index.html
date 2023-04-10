@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="小猪之最Thepig">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://tmallking1.github.io/2023/ltwtutor-e1/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="写在前面这是一个  由Hex-Dragon所制作的游艺街   的改版教程，作者是《游艺街 小猪之最改版服》（下简称《LTW派》）的作者小猪之最Thepig。 游艺街也出来一段时间了，但是改版里面目前貌似只有我这个版本还在维护……刚好新的最终轮游戏也做出来了，就先写篇教程解析一下龙猫他们写的数据包吧。本教程以《LTW派》的山丘之王游戏为例讲解。  《LTW派》的山丘之王为每0.5秒给予中央红区玩家一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="游艺街改版教程 - 添加新的小游戏">
+<meta property="og:url" content="https://tmallking1.github.io/2023/ltwtutor-e1/index.html">
+<meta property="og:site_name" content="小猪之最Thepig">
+<meta property="og:description" content="写在前面这是一个  由Hex-Dragon所制作的游艺街   的改版教程，作者是《游艺街 小猪之最改版服》（下简称《LTW派》）的作者小猪之最Thepig。 游艺街也出来一段时间了，但是改版里面目前貌似只有我这个版本还在维护……刚好新的最终轮游戏也做出来了，就先写篇教程解析一下龙猫他们写的数据包吧。本教程以《LTW派》的山丘之王游戏为例讲解。  《LTW派》的山丘之王为每0.5秒给予中央红区玩家一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor1.png">
+<meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor2.png">
+<meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor3.png">
+<meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor4.png">
+<meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor5.png">
+<meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor7.png">
+<meta property="article:published_time" content="2023-04-10T15:39:26.000Z">
+<meta property="article:modified_time" content="2023-04-10T15:42:44.113Z">
+<meta property="article:author" content="小猪之最">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor1.png">
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/avatar.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/avatar.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            游艺街改版教程 - 添加新的小游戏 -
+        
+        XIAOZHU ZHIZUI
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/assets/fonts.css">
+
+    <!--- Font Part-->
+    
+    
+    
+        <link href="" rel="stylesheet">
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"tmallking1.github.io","root":"/","language":"zh-CN"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"/images/light.png","dark":"/images/dark.png"},"title":"小猪之最Thepig","subtitle":{"text":["0/1 已准备 | 需要 3 人以开始游戏"],"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#ff6a6a","dark":"#ff6a6a"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/TmallKing1","bilibili":"https://space.bilibili.com/381671770"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"audios":[{"name":null,"artist":null,"url":null,"cover":null},{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                XIAOZHU ZHIZUI
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        首页
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            
+            
+                <div class="article-title">
+                    <h1 class="article-title-regular">游艺街改版教程 - 添加新的小游戏</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">小猪之最Thepig</span>
+                            
+                                <span class="author-label"></span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-04-10 23:39:26</span>
+        <span class="mobile">2023-04-10 23:39</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-04-10 23:42:44</span>
+            <span class="mobile">2023-04-10 23:42</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>这是一个  由Hex-Dragon所制作的<a class="link"   target="_blank" rel="noopener" href="https://www.mcbbs.net/thread-1421715-1-1.html" >游艺街 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>  的改版教程，作者是《游艺街 小猪之最改版服》（下简称《LTW派》）的作者小猪之最Thepig。</p>
+<p>游艺街也出来一段时间了，但是改版里面目前貌似只有我这个版本还在维护……刚好新的最终轮游戏也做出来了，就先写篇教程解析一下龙猫他们写的数据包吧。本教程以《LTW派》的山丘之王游戏为例讲解。</p>
+<blockquote>
+<p>《LTW派》的山丘之王为每0.5秒给予中央红区玩家一点能量值，本教程中的代码为每1秒给予中央红区玩家一点能量值。</p>
+</blockquote>
+<p>注意本教程并不负责MC命令和数据包基础知识。</p>
+<h2 id="官方的小游戏策划建议"><a href="#官方的小游戏策划建议" class="headerlink" title="官方的小游戏策划建议"></a>官方的小游戏策划建议</h2><p>以下内容来自函数文件<code>ltw/main/player_enter.mcfunction</code>内的注释，我将其进行了一定的排版处理。</p>
+<blockquote>
+<p>小游戏最佳实践</p>
+<ul>
+<li><p>需要有玩家交互</p>
+<p>即使是间接交互也比没有好，PVP 击退可能是不错的选项，但最好不要纯 PVP 砍人</p>
+</li>
+<li><p>必须能体现玩家的技术或策略</p>
+<p>单纯的狂点左键或长按 W 是没有意思的，至少要给玩家发挥的空间</p>
+</li>
+<li><p>结果不能仅依靠玩家的熟练度</p>
+<p>全靠玩家水平不是说不行，而是这不适合“派对游戏”，跑酷就是一个负面例子</p>
+</li>
+<li><p>规则应该尽量简单易学</p>
+<p>除非必要，不要增加单个游戏的规则复杂度，这会提高学习成本，让新人难以入门</p>
+</li>
+<li><p>在制作时考虑给道具留下发挥空间</p>
+<p>玩家有远程攻击，有鞘翅，有金苹果，有护甲和剑，有击退棒，让它们可以得到应用</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="第零步-准备工作"><a href="#第零步-准备工作" class="headerlink" title="第零步 - 准备工作"></a>第零步 - 准备工作</h2><ol>
+<li>在你的电脑上安装<a class="link"   target="_blank" rel="noopener" href="https://code.visualstudio.com/" >Visual Studio Code <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</li>
+<li>在VSCode里安装扩展<a class="link"   target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=SPGoding.datapack-language-server" >Data-pack Helper Plus <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</li>
+<li>关闭VSCode，因为我们第二步才会用到它。</li>
+</ol>
+<h2 id="第一步-小游戏场景的处理"><a href="#第一步-小游戏场景的处理" class="headerlink" title="第一步 - 小游戏场景的处理"></a>第一步 - 小游戏场景的处理</h2><p>游艺街各个小游戏的场景普遍比较小，并且如果你从主大厅切换旁观者模式朝外边飞，会发现游戏的场景原型都建在主大厅的外面。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor1.png"
+                     
+                ></p>
+<p>但是我们在真正玩游戏的时候，并没有在游戏场景周围发现其他游戏的场景或者主大厅。这是因为在每轮游戏开始时，游戏场景都会用结构方块重新加载。从数据包中可以发现，我们游玩每个小游戏的位置都在<code>x=1000</code>且<code>z=1000n</code>（<code>n</code>为正整数）附近。</p>
+<p>因为小游戏中的许多场景内的方块都会在游玩时发生改变（例如地陷圣坛），所以使用结构方块保存并在每局游戏开始前调用结构方块进行加载可以很轻松地使游戏场景恢复到最初的状态。即使你确信你的游戏场景不会被轻易改变，使用结构方块保存仍然可以减少测试中出现的不可抗力因素带来的影响。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor2.png"
+                     
+                ></p>
+<p>你可以先在主大厅的附近建造一个场景，然后使用结构方块保存。保存的结构名称中的命名空间最好为<code>mini</code>，方便管理（例如《山丘之王》游戏的结构名称为<code>mini:koth</code>）。最后前往你的新游戏地点，例如<code>(1000,y,9000)</code>，然后放置结构方块并加载你的地图。</p>
+<p>你也可以先在自己的世界把地图建造好并用结构方块保存，然后再前往你的存档文件夹，将<code>generated/structures/mini/xyz.nbt</code>文件复制到游艺街存档内相同的位置。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor3.png"
+                     
+                ></p>
+<p>需要注意的是，原版的结构方块最多只能储存48x48x48的内容。如果你的游戏场景比最大范围还大，那就需要多个结构方块来储存。</p>
+<h2 id="第二步-小游戏基础框架编写"><a href="#第二步-小游戏基础框架编写" class="headerlink" title="第二步 - 小游戏基础框架编写"></a>第二步 - 小游戏基础框架编写</h2><p>使用VSCode打开游艺街数据包（<code>服务端文件夹/world/datapacks/LTW3</code>）。</p>
+<p>看到我们熟悉的<code>data</code>文件夹和<code>pack.mcmeta</code>文件后，展开<code>data</code>文件夹，会发现里面有7个子文件夹（命名空间）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor4.png"
+                     
+                ></p>
+<p>以下为各个文件夹内文件的主要功能（可选择性阅读，我们修改的主要是mini文件夹的内容）：</p>
+<ul>
+<li><p>backup：备份文件夹。里面有一个压缩包文件<code>slime.zip</code>，储存的是官方废案小游戏《夺命足球》的函数文件。</p>
+</li>
+<li><p>item：与游戏内物品有关的文件夹，例如奖励积分、奖励物品、商店物品和游戏中锁定第九格物品栏等。存放奖励物品的战利品表也在这个文件夹里面。</p>
+</li>
+<li><p>lib：一些常用的函数库。例如<code>random</code>随机函数、<code>sounds</code>常用音效库等。</p>
+</li>
+<li><p>ltw：全局游戏相关文件夹。下面是其中<code>functions</code>文件夹中各个子文件夹和文件的介绍</p>
+<ul>
+<li><p><code>advancement</code>子文件夹表示玩家达成进度时执行的函数，即给予绿宝石+增加统计数据。在之后的进度编写中需要调用这些函数。</p>
+</li>
+<li><p><code>clock</code>子文件夹内为游戏中周期性执行的函数（tick1、tick2等），但我们要修改的并不是这里的内容。</p>
+</li>
+<li><p><code>main</code>子文件夹内是一些事件函数，不需要管它。</p>
+</li>
+<li><p><code>state</code>子文件夹里面的子文件夹表示服务器的各个状态：0表示等待中，3表示小游戏预处理，4表示展示小游戏，5表示小游戏进行中，6表示小游戏结束且选择奖励前，7表示选择奖励时。</p>
+</li>
+<li><p><code>init</code>函数可以重置服务器状态，测试时如果想重置可以输入命令<code>/function ltw:init</code>来重置服务器状态。</p>
+</li>
+</ul>
+</li>
+<li><p>minecraft：原版相关文件夹。因为游艺街服务器禁用了原版数据包，取消了原版进度和可直接通过获取物品获得合成表的功能，所以需要在minecraft命名空间内添加原版的一些内容。</p>
+<ul>
+<li>但是，<code>loot_tables/gameplay/fishing.json</code>似乎并不是原版的，原因你自己拿鱼竿钓一下鱼就知道了。</li>
+</ul>
+</li>
+<li><p>mini：小游戏相关文件夹。里面存放了和各个小游戏相关的文件。我们所做的修改和添加都是围绕这个文件夹进行的。</p>
+</li>
+<li><p>test：测试相关文件夹。提供了测试各个小游戏和奖励物品、跳过剩余时间和将剩余时间设为「无限长」的方法。</p>
+</li>
+</ul>
+<h3 id="A-新建文件夹！"><a href="#A-新建文件夹！" class="headerlink" title="A. 新建文件夹！"></a>A. 新建文件夹！</h3><p>俗话说的好，当你新建一个文件夹时，项目就正式开始了。</p>
+<p>事不宜迟，我们立马建一个，在<code>mini/functions/</code>目录下。</p>
+<blockquote>
+<p>koth为King of The Hill（山丘之王）的简称。在此请为你自己的小游戏取一个相对短而好记的名称。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor5.png"
+                     
+                ></p>
+<p>在正式开始之前，先给你的小游戏取一个编号。小游戏分为三种类型：首轮小游戏、普通小游戏和终轮小游戏。</p>
+<ul>
+<li>首轮小游戏的编号为20*（例如核爆刺客为201）</li>
+<li>普通小游戏的编号为*（例如地陷圣坛为2，月夜狩猎为5）</li>
+<li>终轮小游戏的编号为10*（例如钢铁狂潮为101，贸易专家为102）</li>
+</ul>
+<p>如果你需要写一个普通小游戏，编号最好从6开始。当然，官方用过的编号只有1-5、101、102和201，你想定什么编号都可以。在此我将山丘之王的编号定为6。</p>
+<h3 id="B-应该写什么？"><a href="#B-应该写什么？" class="headerlink" title="B. 应该写什么？"></a>B. 应该写什么？</h3><p>一个完整的小游戏应该至少包含以下函数文件：</p>
+<ul>
+<li><p><code>game_end.mcfunction</code>：游戏结束执行的方法。至少包含删除强制加载区块的命令。</p>
+</li>
+<li><p><code>game_init.mcfunction</code>：初始化。一般还要有<code>game_init2.mcfunction</code>用来清理残余实体，初始化操作复杂的游戏还要有<code>game_init3</code>、<code>game_init4</code>等等。</p>
+</li>
+<li><p><code>game_start.mcfunction</code>：游戏正式开始时执行的方法。</p>
+</li>
+<li><p><code>give_effect.mcfunction</code>：玩家进入游戏时会被给予的效果（夜视、抗性等等，视游戏类型不同而定）。</p>
+</li>
+<li><p><code>player_enter.mcfunction</code>：玩家进入游戏时，在玩家自己身上执行的方法。这里的玩家既包括游戏开始时服务器内的玩家，也包括游戏中途加入的玩家，因此需要对这两种玩家分别进行处理。</p>
+</li>
+<li><p><code>player_intro.mcfunction</code>：展示小游戏时，在每个玩家自己身上执行的方法。一般是将玩家传送到游戏场地、给予夜视和使用<code>tellraw</code>命令对玩家展示游戏规则三条命令。</p>
+</li>
+<li><p><code>tickx.mcfunction</code>：x为1、2、5或20。表示游戏过程中周期性执行的方法，例如tick1为每1游戏刻（约0.05秒）执行一次。一般的周期性命令都放在tick2中，每秒执行的命令放在tick20中。</p>
+</li>
+<li><p><code>watcher_limit.mcfunction</code>：限制旁观者的活动范围。如果没有这个方法，那么旁观者甚至可以在游戏时跑到主大厅去，并且会加载很多不必要的区块，影响服务器性能。</p>
+<blockquote>
+<p>实测直接用命令<code>/gamerule spectatorsGenerateChunks false</code>进行旁观者加载区块限制会出现bug，某些游戏结束后的区块不能正常加载。</p>
+</blockquote>
+</li>
+</ul>
+<p>这些只是必须有的文件。除此之外，<code>game</code>文件夹和一些其他的文件一般也会存在，用来封装特定游戏内的事件等。实际上，这些函数都是由<code>mini/main/</code>目录下的同名函数调用的。因此在你的文件夹添加这些函数时，确保在<code>mini/main/</code>目录下的函数内添加了调用这些函数的命令。例如：</p>
+<p><code>data/mini/main/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 计分板初始化</span><br><span class="line">scoreboard players reset * mini_score</span><br><span class="line">scoreboard players reset * mini_heart</span><br><span class="line">scoreboard players reset * health</span><br><span class="line"></span><br><span class="line"># 小游戏初始化</span><br><span class="line">execute if score $mini_type mem matches 1 run function mini:parkour/game_init</span><br><span class="line">execute if score $mini_type mem matches 2 run function mini:tntrun/game_init</span><br><span class="line">execute if score $mini_type mem matches 3 run function mini:hotpm/game_init</span><br><span class="line">execute if score $mini_type mem matches 4 run function mini:colormatch/game_init</span><br><span class="line">execute if score $mini_type mem matches 5 run function mini:phantom/game_init</span><br><span class="line">## 下面一行是你新添加的</span><br><span class="line">execute if score $mini_type mem matches 6 run function mini:koth/game_init</span><br><span class="line"></span><br><span class="line">execute if score $mini_type mem matches 201 run function mini:ass/game_init</span><br><span class="line">execute if score $mini_type mem matches 101 run function mini:iron/game_init</span><br><span class="line">execute if score $mini_type mem matches 102 run function mini:trade/game_init</span><br></pre></td></tr></table></figure></div>
+
+<p>其他文件也类似，把game_init更换为对应的文件名即可。至于<code>main</code>文件夹内的这些函数是如何执行的，你无需多操心，因为龙猫他们已经把调用这些函数的方法写好了。</p>
+<h3 id="C-游戏开始前的操作"><a href="#C-游戏开始前的操作" class="headerlink" title="C. 游戏开始前的操作"></a>C. 游戏开始前的操作</h3><p>首先找到你在第一步中放结构方块的地方，把它的坐标记下来。在我这里是<code>985 4 8985</code>。</p>
+<p>然后在你的游戏场景附近找到一个与游戏场景俯视图大小相等或稍大的正方体，确保把你的游戏场景完全包括进去。记下正方体体对角线上的两个点的坐标，类似于你用WorldEdit等工具划范围。在我这里是<code>985 5 8985</code>和<code>1016 36 9016</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor7.png"
+                     
+                ></p>
+<p>然后编写旁观者范围限制和场景初始化命令。</p>
+<p><code>data/mini/koth/watcher_limit.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 观察者限制飞行范围</span><br><span class="line">## dx dy dz确定范围大小，可用确定的两点对应坐标相减获得这三个值</span><br><span class="line">execute as @a[gamemode=spectator] unless entity @s[x=986.0,y=5.0,z=8986.0,dx=30,dy=31,dz=30] run spectate</span><br><span class="line">execute as @a[gamemode=spectator] unless entity @s[x=986.0,y=5.0,z=8986.0,dx=30,dy=31,dz=30] run tp @s[team=!debugging] 1001.0 14 9001.0 -45 90</span><br></pre></td></tr></table></figure></div>
+
+<p><code>data/mini/koth/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 初始化山丘地图</span><br><span class="line">## 将游戏场景区域标记为强制加载，确保初始化操作的顺利进行</span><br><span class="line">forceload add 985 8985 1016 9016</span><br><span class="line">## 放置结构方块，用于生成游戏场景。这里的结构方块posX、posY、posZ配置应该与你在第一步中放置的结构方块一样</span><br><span class="line">setblock 985 4 8985 structure_block[mode=load]&#123;metadata: &quot;&quot;, mirror: &quot;NONE&quot;, ignoreEntities: 1b, powered: 0b, seed: 0L, rotation: &quot;NONE&quot;, posX: 0, posY: 1, posZ: 0, sizeX: 32, sizeY: 32, sizeZ: 32, mode: &quot;LOAD&quot;, integrity: 1.0f, showair: 0b, name: &quot;mini:koth&quot;&#125;</span><br><span class="line">## 在结构方块边上的一个方块处放置红石块用于激活结构方块。由于放置后红石块即被游戏场景取代，因此不需要考虑放置失败的问题</span><br><span class="line">setblock 985 5 8985 redstone_block</span><br></pre></td></tr></table></figure></div>
+
+<p>接下来是对游戏全局的一些操作，加在上述命令的后面。</p>
+<p><code>data/mini/koth/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">## 设置游戏结束后排名显示中是否显示玩家所获得的小游戏内分数。这里山丘之王小游戏的排名是依照 HUD 右侧计分板显示的能量值排序的，因此游戏结束后可以对所有玩家显示分数（能量值）。若你的游戏为竞速类、死亡淘汰类或者其他不使用自定义分数排名的小游戏，请将该值设为0</span><br><span class="line">scoreboard players set $show_score mem 1</span><br><span class="line">## 重置奖励物品生成的冷却时间</span><br><span class="line">scoreboard players set $new_item_cd mem 0</span><br><span class="line">## 这是一个冒险模式小游戏，因此生存模式的值为0。如果你做的是一个生存模式小游戏，请将该值设为1，以防止系统锁定第九格物品栏。</span><br><span class="line">scoreboard players set $survival mem 0</span><br><span class="line">## 重置每0.1秒减少1的计时器，这条命令仅在你的游戏不需要使用这类计时器的情况下添加</span><br><span class="line">scoreboard players set $countdown_fast mem 0</span><br><span class="line">## 是否启用与遗迹寻宝小游戏中类似的节奏方块，如果你的场景中没有这类方块可以不写该命令</span><br><span class="line">scoreboard players set $tempo_enable mem 0</span><br></pre></td></tr></table></figure></div>
+
+<p>如果你的游戏还有其他需要初始化的全局变量或玩家变量，一并写在<code>game_init.mcfunction</code>中。例如：</p>
+<p><code>data/mini/koth/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">## 重置能量值计分板</span><br><span class="line">scoreboard players reset * power_count</span><br></pre></td></tr></table></figure></div>
+
+<p>如果你的游戏中出现了和我一样的原版游艺街没有出现过的计分项（例如<code>power_count</code>），需要在<code>init.mcfunction</code>中添加：</p>
+<p><code>data/mini/koth/init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 重置计分板</span><br><span class="line">scoreboard objectives remove power_count</span><br><span class="line">scoreboard objectives add power_count dummy &quot;能量值&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p><code>data/mini/main/init.mcfunction</code></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 初始化</span><br><span class="line">function mini:tntrun/init</span><br><span class="line">function mini:hotpm/init</span><br><span class="line">function mini:phantom/init</span><br><span class="line">## 山丘之王的初始化方法</span><br><span class="line">function mini:koth/init</span><br><span class="line"></span><br><span class="line">function mini:iron/init</span><br><span class="line">function mini:ass/init</span><br><span class="line">function mini:trade/init</span><br></pre></td></tr></table></figure></div>
+
+<p>接下来是伤害管理：</p>
+<p><code>data/mini/main/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 伤害管理</span><br><span class="line">## 官方的函数中总有这一条，原本是用来控制消除金苹果/附魔金苹果/不死图腾产生的伤害吸收效果的，但是这个值设为0或1都会清除效果，所以设置这个值似乎并没有什么意义</span><br><span class="line">scoreboard players set $remove_resistance mem 0</span><br><span class="line">## 是否能够对玩家造成伤害与击退</span><br><span class="line">team modify playing friendlyFire true</span><br><span class="line">## 玩家碰撞设定</span><br><span class="line">team modify playing collisionRule always</span><br><span class="line">## 是否显示玩家的死亡信息</span><br><span class="line">team modify playing deathMessageVisibility never</span><br><span class="line">## 火焰伤害是否启用</span><br><span class="line">gamerule fireDamage false</span><br><span class="line">## 摔落伤害是否启用</span><br><span class="line">gamerule fallDamage false</span><br><span class="line">## 溺水伤害是否启用</span><br><span class="line">gamerule drowningDamage false</span><br><span class="line">## 自然生命恢复是否启用</span><br><span class="line">gamerule naturalRegeneration true</span><br></pre></td></tr></table></figure></div>
+
+<p>接下来是剩余的初始化操作，一般是清理&#x2F;生成实体和对地图进行一定的初始化，放在上述初始化之后0.75秒进行。在山丘之王小游戏中只需要清理实体即可。</p>
+<p><code>data/mini/main/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schedule function mini:koth/game_init2 15t replace</span><br></pre></td></tr></table></figure></div>
+
+<p><code>data/mini/main/game_init2.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 清理残余实体</span><br><span class="line">## 如果你的游戏中没有出现箭、物品、苦力怕和三叉戟以外的物品，直接调用mini:main中的清理实体方法即可</span><br><span class="line">function mini:main/kill_entity</span><br></pre></td></tr></table></figure></div>
+
+<p>然后是对你的小游戏进行介绍，可以仿照官方写的介绍进行编写。「免疫击退效果在本轮无效」是无奈之举，一般的游戏需要尽量避免这种情况发生。</p>
+<p><code>data/mini/main/player_intro.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 向单个玩家展示小游戏介绍</span><br><span class="line">## 给予夜视效果</span><br><span class="line">effect give @s night_vision 1000000 0 true</span><br><span class="line">## 传送玩家到游戏场景</span><br><span class="line">tp @s[team=!debugging] 1001.0 14 9001.0 -45 90</span><br><span class="line">## 向玩家展示介绍</span><br><span class="line">tellraw @s [&quot;&quot;,&#123;&quot;text&quot;:&quot;\n &gt;&gt; 山丘之王 &gt;&gt;\n\n&quot;,&quot;color&quot;:&quot;gold&quot;,&quot;bold&quot;:true&#125;,&quot; 保持在红色区域即可 &quot;,&#123;&quot;text&quot;:&quot;获得能量值&quot;,&quot;color&quot;:&quot;gold&quot;&#125;,&quot;。\n 能量值最多的玩家即可获胜！\n\n&quot;,&#123;&quot;text&quot;: &quot; &lt;只能击退玩家&gt; &quot;,&quot;color&quot;:&quot;yellow&quot;&#125;,&#123;&quot;text&quot;: &quot; &lt;免疫击退效果在本轮无效&gt;&quot;,&quot;color&quot;:&quot;light_purple&quot;&#125;,&quot;\n&quot;]</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="D-游戏开始时的操作"><a href="#D-游戏开始时的操作" class="headerlink" title="D. 游戏开始时的操作"></a>D. 游戏开始时的操作</h3><p>主要包含三个方法。首先是游戏开始时对小游戏整体的修改</p>
+<p><code>data/mini/main/game_start.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 游戏结束倒计时，我这里为120秒</span><br><span class="line">scoreboard players set $countdown mem 120</span><br><span class="line"></span><br><span class="line"># HUD，通常为玩家所看到的游戏相关信息</span><br><span class="line">scoreboard objectives setdisplay list power_count</span><br><span class="line">scoreboard objectives setdisplay belowName power_count</span><br><span class="line">scoreboard objectives setdisplay sidebar power_count</span><br><span class="line">## boss栏颜色，1，2，3，4分别代表红、黄、绿、蓝，0代表按照每个玩家在bossbar_color的计分项内的分数对每个玩家显示不同颜色的boss栏（例如炸弹狂魔里面获得炸弹与未获得炸弹的玩家看到的boss栏不一样）</span><br><span class="line">scoreboard players set $bossbar_color mem 4</span><br><span class="line">## boss栏倒计时的最大值</span><br><span class="line">scoreboard players set $countdown_max mem 120</span><br><span class="line">## boss栏类型，0，1，2分别代表关闭boss栏、显示快速倒计时（0.1秒减少1单位）和显示标准倒计时（1秒减少1单位）</span><br><span class="line">scoreboard players set $bossbar_type mem 2</span><br><span class="line">## 调用显示boss栏方法</span><br><span class="line">function lib:bossbar/show</span><br><span class="line">## 更改每种颜色的boss栏的名字</span><br><span class="line">bossbar set mini:red name &quot;剩余时间&quot;</span><br><span class="line">bossbar set mini:yellow name &quot;剩余时间&quot;</span><br><span class="line">bossbar set mini:blue name &quot;剩余时间&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>接下来是每个玩家进入游戏时的方法。这里的玩家有三种：参与游戏的玩家（<code>team=playing,tag=!rejoining</code>）、未参与游戏的旁观者（<code>team=watching</code>）和中途退出而后又加入游戏的玩家（<code>team=playing,tag=rejoining</code>）。</p>
+<p><code>data/mini/main/player_enter.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 单个玩家开始小游戏时执行</span><br><span class="line">## 对自己播放音乐</span><br><span class="line">function lib:sounds/music/mini_middle</span><br><span class="line">## 清理标题显示区</span><br><span class="line">title @s clear</span><br><span class="line">title @s actionbar &quot;&quot;</span><br><span class="line"></span><br><span class="line"># 给予状态效果</span><br><span class="line">effect clear @s</span><br><span class="line">function mini:koth/give_effect</span><br><span class="line"></span><br><span class="line"># 设置玩家生命</span><br><span class="line">attribute @s generic.max_health base set 20</span><br><span class="line"></span><br><span class="line"># 传送玩家</span><br><span class="line">## 此处依据你设定的场景坐标而改。在我的游戏中玩家会出生在空中，因此会有以下这一条给予缓降效果的命令。传送玩家</span><br><span class="line">effect give @s[team=playing] slow_falling 3</span><br><span class="line">tp @s[team=playing] 1001.0 30.0 9001.0</span><br><span class="line"></span><br><span class="line"># 调整模式</span><br><span class="line">## 将调试者以外的玩家调整为旁观模式</span><br><span class="line">gamemode spectator @s[team=!debugging]</span><br><span class="line">## 将参与游戏而非中途重新加入的玩家调整为冒险模式</span><br><span class="line">gamemode adventure @s[team=playing,tag=!rejoining]</span><br><span class="line"></span><br><span class="line"># 解除免疫击退效果</span><br><span class="line">attribute @s[team=playing,tag=!rejoining] generic.knockback_resistance modifier add e0edf3eb-5aea-4a18-9b9e-1bde9df27ab5 &quot;&quot; -1.0 multiply</span><br></pre></td></tr></table></figure></div>
+
+<p>解除免疫击退效果的影响是永久的，因此需要在玩家进入游戏时先取消免疫击退的限制，然后如果需要限制免疫击退才会执行上面的最后一条命令。如果你的游戏中没有这一项则不需要进行任何操作。</p>
+<p><code>data/ltw/main/player_enter.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 存储UUID</span><br><span class="line">execute store result score @s UUID run data get entity @s UUID[0]</span><br><span class="line"></span><br><span class="line"># 解除限制免疫击退</span><br><span class="line">## 注意是在这里添加</span><br><span class="line">attribute @s[team=playing,tag=!rejoining] generic.knockback_resistance modifier remove e0edf3eb-5aea-4a18-9b9e-1bde9df27ab5</span><br><span class="line"></span><br><span class="line"># 如果是旁观者或局号不对头：开始旁观</span><br><span class="line">execute if entity @s[team=!playing] run function ltw:main/player_enter_watcher</span><br><span class="line">execute if entity @s[team=playing] unless score @s game_id = $ game_id run function ltw:main/player_enter_watcher</span><br><span class="line"># 如果不是旁观且局号正确：游戏中掉线</span><br><span class="line">execute if entity @s[team=playing] if score @s game_id = $ game_id run function ltw:main/player_enter_rejoin</span><br></pre></td></tr></table></figure></div>
+
+<p>最后是给予玩家状态效果：</p>
+<p><code>data/mini/koth/give_effect.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 状态效果</span><br><span class="line">## 饱和</span><br><span class="line">effect give @s saturation 1000000 0 true</span><br><span class="line">## 夜视</span><br><span class="line">effect give @s night_vision 1000000 0 true</span><br><span class="line">## 抗性</span><br><span class="line">effect give @s resistance 1000000 4 true</span><br><span class="line">## 如果还有其它状态效果，加在下面即可</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="E-游戏结束时的操作"><a href="#E-游戏结束时的操作" class="headerlink" title="E. 游戏结束时的操作"></a>E. 游戏结束时的操作</h3><p>结束时的操作相对简单，只有一个<code>game_end.mcfunction</code>函数。</p>
+<p><code>data/mini/koth/game_end.mcfunction</code></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 当前游戏结束时触发</span><br><span class="line">## 取消在game_init.mcfunction定义的强制加载区域</span><br><span class="line">forceload remove 985 8985 1016 9016</span><br><span class="line"></span><br><span class="line"># 计算积分</span><br><span class="line">## 游艺街默认使用玩家淘汰的顺序来决定最终的排名，即每有一人淘汰时给剩余还在场上的玩家的mini_score分数加1。如果想要使用自定义的分数进行排名，直接把玩家对应的分数赋值给mini_score即可</span><br><span class="line">## 如果你在game_init.mcfunction设置了$show_score为1，在游戏结束后玩家的mini_score值会在排名列表里显示出来</span><br><span class="line">scoreboard players set @a[team=playing] mini_score 0</span><br><span class="line">execute as @a[team=playing] run scoreboard players operation @s mini_score += @s power_count</span><br><span class="line"></span><br><span class="line"># 解除限制免疫击退</span><br><span class="line">## 和之前一样，需要解除玩家的免疫击退限制，让玩家可以在其他游戏中正常使用免疫击退的道具（最好还是加上这句）</span><br><span class="line">execute as @a run attribute @s generic.knockback_resistance modifier remove e0edf3eb-5aea-4a18-9b9e-1bde9df27ab5</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="第三步-小游戏特殊事件编写"><a href="#第三步-小游戏特殊事件编写" class="headerlink" title="第三步 - 小游戏特殊事件编写"></a>第三步 - 小游戏特殊事件编写</h2><p>一个小游戏只有基础框架是没有任何实际内容的，甚至连游戏都无法正常结束。因此需要为每个小游戏编写自己的事件，这些事件一般会在<code>tick2.mcfunction</code>、<code>tick20.mcfunction</code>等周期性执行的函数中触发。本教程只提供山丘之王小游戏的事件编写，但其中的某些内容（例如倒计时检测、奖励物品生成）也可用于其它小游戏。</p>
+<p>此内容将在不久后更新，敬请期待。</p>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 游艺街改版教程 - 添加新的小游戏</li>
+        <li><strong>作者:</strong> 小猪之最Thepig</li>
+        <li><strong>创建于:</strong> 2023-04-10 23:39:26</li>
+        
+            <li>
+                <strong>更新于:</strong> 2023-04-10 23:42:44
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://ltw.pigest.top/2023/ltwtutor-e1/
+        </li>
+        <li>
+            <strong>版权声明:</strong> 本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a> 进行许可。
+        </li>
+    </ul>
+</div>
+
+                </div>
+            
+
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/server/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">游艺街 小猪之最改版服</span>
+                                    <span class="post-nav-item">下一篇</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+                <div class="comment-container">
+                    <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;评论
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-pjax>
+        import { init } from 'https://evan.beee.top/js/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+                </div>
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">游艺街改版教程 - 添加新的小游戏</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E7%9A%84%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%AD%96%E5%88%92%E5%BB%BA%E8%AE%AE"><span class="nav-text">官方的小游戏策划建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E9%9B%B6%E6%AD%A5-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-text">第零步 - 准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%9C%BA%E6%99%AF%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-text">第一步 - 小游戏场景的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%B0%8F%E6%B8%B8%E6%88%8F%E5%9F%BA%E7%A1%80%E6%A1%86%E6%9E%B6%E7%BC%96%E5%86%99"><span class="nav-text">第二步 - 小游戏基础框架编写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%81"><span class="nav-text">A. 新建文件夹！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-%E5%BA%94%E8%AF%A5%E5%86%99%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">B. 应该写什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-%E6%B8%B8%E6%88%8F%E5%BC%80%E5%A7%8B%E5%89%8D%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">C. 游戏开始前的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D-%E6%B8%B8%E6%88%8F%E5%BC%80%E5%A7%8B%E6%97%B6%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">D. 游戏开始时的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#E-%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9D%9F%E6%97%B6%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-text">E. 游戏结束时的操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%B0%8F%E6%B8%B8%E6%88%8F%E7%89%B9%E6%AE%8A%E4%BA%8B%E4%BB%B6%E7%BC%96%E5%86%99"><span class="nav-text">第三步 - 小游戏特殊事件编写</span></a></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">小猪之最Thepig</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
+                <br>
+            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.0</a>
+        </div>
+        
+        
+        
+            <div id="start_div" style="display:none">
+                2022/8/17 11:45:14
+            </div>
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/navbarShrink.js"></script>
+
+<script src="/js/tools/scrollTopBottom.js"></script>
+
+<script src="/js/tools/lightDarkSwitch.js"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/layouts/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
