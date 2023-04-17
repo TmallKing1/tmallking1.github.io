@@ -19,12 +19,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="写在前面这是一个  由Hex-Dragon所制作的游艺街   的改版教程，作者是《游艺街 小猪之最改版服》（下简称《LTW派》）的作者小猪之最Thepig。 游艺街也出来一段时间了，但是改版里面目前貌似只有我这个版本还在维护……刚好新的最终轮游戏也做出来了，就先写篇教程解析一下龙猫他们写的数据包吧。本教程以《LTW派》的山丘之王游戏为例讲解。  《LTW派》的山丘之王为每0.5秒给予中央红区玩家一">
+        <meta name="description" content="一篇较详尽的《游艺街》地图修改教程，目前尚未完工">
 <meta property="og:type" content="article">
 <meta property="og:title" content="游艺街改版教程 - 添加新的小游戏">
 <meta property="og:url" content="https://tmallking1.github.io/2023/ltwtutor-e1/index.html">
 <meta property="og:site_name" content="小猪之最Thepig">
-<meta property="og:description" content="写在前面这是一个  由Hex-Dragon所制作的游艺街   的改版教程，作者是《游艺街 小猪之最改版服》（下简称《LTW派》）的作者小猪之最Thepig。 游艺街也出来一段时间了，但是改版里面目前貌似只有我这个版本还在维护……刚好新的最终轮游戏也做出来了，就先写篇教程解析一下龙猫他们写的数据包吧。本教程以《LTW派》的山丘之王游戏为例讲解。  《LTW派》的山丘之王为每0.5秒给予中央红区玩家一">
+<meta property="og:description" content="一篇较详尽的《游艺街》地图修改教程，目前尚未完工">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor1.png">
 <meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor2.png">
@@ -33,8 +33,9 @@
 <meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor5.png">
 <meta property="og:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor7.png">
 <meta property="article:published_time" content="2023-04-10T15:39:26.000Z">
-<meta property="article:modified_time" content="2023-04-10T15:42:44.113Z">
+<meta property="article:modified_time" content="2023-04-17T04:15:54.005Z">
 <meta property="article:author" content="小猪之最">
+<meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://tmallking1.github.io/img/ltwtutor/ltwtutor1.png">
     
@@ -70,7 +71,7 @@
     <script id="hexo-configurations">
     let Global = window.Global || {};
     Global.hexo_config = {"hostname":"tmallking1.github.io","root":"/","language":"zh-CN"};
-    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"/images/light.png","dark":"/images/dark.png"},"title":"小猪之最Thepig","subtitle":{"text":["0/1 已准备 | 需要 3 人以开始游戏"],"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#ff6a6a","dark":"#ff6a6a"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/TmallKing1","bilibili":"https://space.bilibili.com/381671770"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"audios":[{"name":null,"artist":null,"url":null,"cover":null},{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":true,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":true,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true},"home_banner":{"enable":true,"image":{"light":"/images/light.png","dark":"/images/dark.png"},"title":"小猪之最Thepig","subtitle":{"text":["君子曰：学不可以已","一个Minecraft云玩家的个人博客"],"typing_speed":50,"backing_speed":40,"starting_delay":500,"backing_delay":2000,"loop":false,"smart_backspace":true},"text_color":{"light":"#ff6a6a","dark":"#ff6a6a"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/TmallKing1","bilibili":"https://space.bilibili.com/381671770"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"audios":[{"name":null,"artist":null,"url":null,"cover":null},{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.0","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Friends":{"path":"/links/","icon":"fa-solid fa-link"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
     Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
     
@@ -147,6 +148,22 @@
                                 
                             </li>
                     
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/links/"  >
+                                    
+                                        
+                                            <i class="fa-solid fa-link"></i>
+                                        
+                                        友情链接
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
                     
                 </ul>
             </div>
@@ -173,6 +190,21 @@
                                     <i class="fa-regular fa-house"></i>
                                 
                                 首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/links/"  >
+                             
+                                
+                                    <i class="fa-solid fa-link"></i>
+                                
+                                友情链接
                             
                         </a>
                     </li>
@@ -233,13 +265,24 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-04-10 23:42:44</span>
-            <span class="mobile">2023-04-10 23:42</span>
+            <span class="desktop">2023-04-17 12:15:54</span>
+            <span class="mobile">2023-04-17 12:15</span>
             <span class="hover-info">更新</span>
         </span>
     
 
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%95%99%E7%A8%8B/">教程</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -474,7 +517,7 @@
         <li><strong>创建于:</strong> 2023-04-10 23:39:26</li>
         
             <li>
-                <strong>更新于:</strong> 2023-04-10 23:42:44
+                <strong>更新于:</strong> 2023-04-17 12:15:54
             </li>
         
         <li>
@@ -489,6 +532,14 @@
                 </div>
             
 
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>&nbsp;
+                        </li>
+                    
+                </ul>
             
 
             
@@ -531,50 +582,6 @@
             
 
 
-            
-                <div class="comment-container">
-                    <div class="comments-container">
-    <div id="comment-anchor"></div>
-    <div class="comment-area-title">
-        <i class="fa-solid fa-comments"></i>&nbsp;评论
-    </div>
-    
-
-        
-            
- 
-    <div id="waline"></div>
-    <script type="module"  data-pjax>
-        import { init } from 'https://evan.beee.top/js/waline.mjs';
-
-        function loadWaline() {
-            init({
-                el: '#waline',
-                serverURL: 'https://example.example.com',
-                lang: 'zh-CN',
-                dark: 'body[class~="dark-mode"]',
-                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
-            });
-        }
-
-        if ('true') {
-            const loadWalineTimeout = setTimeout(() => {
-                loadWaline();
-                clearTimeout(loadWalineTimeout);
-            }, 1000);
-        } else {
-            window.addEventListener('DOMContentLoaded', loadWaline);
-        }
-        
-    </script>
-
-
-
-        
-    
-</div>
-
-                </div>
             
         </div>
 
@@ -680,10 +687,6 @@
         
 
         <!-- go comment -->
-        
-            <li class="go-comment">
-                <i class="fa-regular fa-comments"></i>
-            </li>
         
     </ul>
 </div>
