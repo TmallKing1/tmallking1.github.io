@@ -46,7 +46,7 @@
 <p>游艺街也出来一段时间了，但是改版里面目前貌似只有我这个版本还在维护……刚好新的最终轮游戏也做出来了，就先写篇教程解析一下龙猫他们写的数据包吧。本教程以《LTW派》的山丘之王游戏为例讲解。</p>
 <p>注意本教程并不负责MC命令和数据包基础知识。</p>
 <p>本教程的修改版数据包存放在<a class="link"   href="https://github.com/TmallKing1/LTW3-RemakeTutorial" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，包含了我制作的山丘之王小游戏的场景结构。你可以直接将《游艺街》的原版数据包替换为修改后的数据包然后删除原有的山丘之王结构来体验一下这个新的小游戏。<del>白嫖党狂喜</del></p>
-<h2 id="官方的小游戏策划建议"><a href="#官方的小游戏策划建议" class="headerlink" title="官方的小游戏策划建议"></a>官方的小游戏策划建议</h2><p>以下内容来自函数文件<code>ltw/main/player_enter.mcfunction</code>内的注释，我将其进行了一定的排版处理。</p>
+<h2 id="官方的小游戏策划建议"><a href="#官方的小游戏策划建议" class="headerlink" title="官方的小游戏策划建议"></a>官方的小游戏策划建议</h2><p>以下内容来自函数文件<code>data/ltw/functions/main/player_enter.mcfunction</code>内的注释，我将其进行了一定的排版处理。</p>
 <blockquote>
 <p>小游戏最佳实践</p>
 <ul>
