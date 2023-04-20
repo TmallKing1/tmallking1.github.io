@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
+    <url>/2023/dhpfix/</url>
+    <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
+<p>开始之前请确保你将大憨批的命令树版本调为了1.19.4。</p>
+<h2 id="Step-1-查看你的存储路径"><a href="#Step-1-查看你的存储路径" class="headerlink" title="Step 1.查看你的存储路径"></a>Step 1.查看你的存储路径</h2><p>打开VSCode，点击左下角的「问题」，切换到「输出」选项卡，将滚动条滚动到顶部直到看到globalStoragePath &#x3D; ***。将***复制到剪贴板并在资源管理器打开。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix1.png"
+                     
+                ></p>
+<p>打开后的界面如图所示，如果没有1.19.4文件夹则新建一个，然后进入1.19.4文件夹。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix2.png"
+                     
+                ></p>
+<h2 id="Step-2-下载所需文件"><a href="#Step-2-下载所需文件" class="headerlink" title="Step 2.下载所需文件"></a>Step 2.下载所需文件</h2><p>由于国内无法访问raw.githubusercontent.com，所以此处需要的文件我传到了<a class="link"   href="https://xzzz.lanzoum.com/ipgYt0t7yvjg" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，下载压缩包然后把所有文件解压进1.19.4文件夹。解压完毕后的1.19.4文件夹如图所示：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix3.png"
+                     
+                ></p>
+<p>需要注意的是Nbtdoc.json的原文件有一个错误：展示实体的billboard标签为一个复合标签而不是枚举（而在Minecraft里面是一个拥有四个可取值的枚举）。压缩包内的文件夹已修正了这个错误。</p>
+<h2 id="Step-3-完成！"><a href="#Step-3-完成！" class="headerlink" title="Step 3.完成！"></a>Step 3.完成！</h2><p>打开VSCode，发现1.19.4的特性全部都支持啦，甚至还能支持1.20的新物品（</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix4.png"
+                     
+                ></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>游艺街改版教程 - 添加新的小游戏</title>
+    <url>/2023/ltwtutor-e1/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>这是一个  由Hex-Dragon所制作的<a class="link"   href="https://www.mcbbs.net/thread-1421715-1-1.html" >游艺街 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>  的改版教程，作者是《游艺街 小猪之最改版服》（下简称《LTW派》）的作者小猪之最Thepig。</p>
+<p>游艺街也出来一段时间了，但是改版里面目前貌似只有我这个版本还在维护……刚好新的最终轮游戏也做出来了，就先写篇教程解析一下龙猫他们写的数据包吧。本教程以《LTW派》的山丘之王游戏为例讲解。</p>
+<blockquote>
+<p>《LTW派》的山丘之王为每0.5秒给予中央红区玩家一点能量值，本教程中的代码为每1秒给予中央红区玩家一点能量值。</p>
+</blockquote>
+<p>注意本教程并不负责MC命令和数据包基础知识。</p>
+<h2 id="官方的小游戏策划建议"><a href="#官方的小游戏策划建议" class="headerlink" title="官方的小游戏策划建议"></a>官方的小游戏策划建议</h2><p>以下内容来自函数文件<code>ltw/main/player_enter.mcfunction</code>内的注释，我将其进行了一定的排版处理。</p>
+<blockquote>
+<p>小游戏最佳实践</p>
+<ul>
+<li>需要有玩家交互<br>即使是间接交互也比没有好，PVP 击退可能是不错的选项，但最好不要纯 PVP 砍人</li>
+<li>必须能体现玩家的技术或策略<br>单纯的狂点左键或长按 W 是没有意思的，至少要给玩家发挥的空间</li>
+<li>结果不能仅依靠玩家的熟练度<br>全靠玩家水平不是说不行，而是这不适合“派对游戏”，跑酷就是一个负面例子</li>
+<li>规则应该尽量简单易学<br>除非必要，不要增加单个游戏的规则复杂度，这会提高学习成本，让新人难以入门</li>
+<li>在制作时考虑给道具留下发挥空间<br>玩家有远程攻击，有鞘翅，有金苹果，有护甲和剑，有击退棒，让它们可以得到应用</li>
+</ul>
+</blockquote>
+<h2 id="第零步-准备工作"><a href="#第零步-准备工作" class="headerlink" title="第零步 - 准备工作"></a>第零步 - 准备工作</h2><ol>
+<li>在你的电脑上安装<a class="link"   href="https://code.visualstudio.com/" >Visual Studio Code <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</li>
+<li>在VSCode里安装扩展<a class="link"   href="https://marketplace.visualstudio.com/items?itemName=SPGoding.datapack-language-server" >Data-pack Helper Plus <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</li>
+<li>关闭VSCode，因为我们第二步才会用到它。</li>
+</ol>
+<h2 id="第一步-小游戏场景的处理"><a href="#第一步-小游戏场景的处理" class="headerlink" title="第一步 - 小游戏场景的处理"></a>第一步 - 小游戏场景的处理</h2><p>游艺街各个小游戏的场景普遍比较小，并且如果你从主大厅切换旁观者模式朝外边飞，会发现游戏的场景原型都建在主大厅的外面。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor1.png"
+                     
+                ></p>
+<p>但是我们在真正玩游戏的时候，并没有在游戏场景周围发现其他游戏的场景或者主大厅。这是因为在每轮游戏开始时，游戏场景都会用结构方块重新加载。从数据包中可以发现，我们游玩每个小游戏的位置都在<code>x=1000</code>且<code>z=1000n</code>（<code>n</code>为正整数）附近。</p>
+<p>因为小游戏中的许多场景内的方块都会在游玩时发生改变（例如地陷圣坛），所以使用结构方块保存并在每局游戏开始前调用结构方块进行加载可以很轻松地使游戏场景恢复到最初的状态。即使你确信你的游戏场景不会被轻易改变，使用结构方块保存仍然可以减少测试中出现的不可抗力因素带来的影响。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor2.png"
+                     
+                ></p>
+<p>你可以先在主大厅的附近建造一个场景，然后使用结构方块保存。保存的结构名称中的命名空间最好为<code>mini</code>，方便管理（例如《山丘之王》游戏的结构名称为<code>mini:koth</code>）。最后前往你的新游戏地点，例如<code>(1000,y,9000)</code>，然后放置结构方块并加载你的地图。</p>
+<p>你也可以先在自己的世界把地图建造好并用结构方块保存，然后再前往你的存档文件夹，将<code>generated/structures/mini/xyz.nbt</code>文件复制到游艺街存档内相同的位置。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor3.png"
+                     
+                ></p>
+<p>需要注意的是，原版的结构方块最多只能储存48x48x48的内容。如果你的游戏场景比最大范围还大，那就需要多个结构方块来储存。</p>
+<h2 id="第二步-小游戏基础框架编写"><a href="#第二步-小游戏基础框架编写" class="headerlink" title="第二步 - 小游戏基础框架编写"></a>第二步 - 小游戏基础框架编写</h2><p>使用VSCode打开游艺街数据包（<code>服务端文件夹/world/datapacks/LTW3</code>）。</p>
+<p>看到我们熟悉的<code>data</code>文件夹和<code>pack.mcmeta</code>文件后，展开<code>data</code>文件夹，会发现里面有7个子文件夹（命名空间）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor4.png"
+                     
+                ></p>
+<p>以下为各个文件夹内文件的主要功能（可选择性阅读，我们修改的主要是mini文件夹的内容）：</p>
+<ul>
+<li><p>backup：备份文件夹。里面有一个压缩包文件<code>slime.zip</code>，储存的是官方废案小游戏《夺命足球》的函数文件。</p>
+</li>
+<li><p>item：与游戏内物品有关的文件夹，例如奖励积分、奖励物品、商店物品和游戏中锁定第九格物品栏等。存放奖励物品的战利品表也在这个文件夹里面。</p>
+</li>
+<li><p>lib：一些常用的函数库。例如<code>random</code>随机函数、<code>sounds</code>常用音效库等。</p>
+</li>
+<li><p>ltw：全局游戏相关文件夹。下面是其中<code>functions</code>文件夹中各个子文件夹和文件的介绍</p>
+<ul>
+<li><p><code>advancement</code>子文件夹表示玩家达成进度时执行的函数，即给予绿宝石+增加统计数据。在之后的进度编写中需要调用这些函数。</p>
+</li>
+<li><p><code>clock</code>子文件夹内为游戏中周期性执行的函数（tick1、tick2等），但我们要修改的并不是这里的内容。</p>
+</li>
+<li><p><code>main</code>子文件夹内是一些事件函数，不需要管它。</p>
+</li>
+<li><p><code>state</code>子文件夹里面的子文件夹表示服务器的各个状态：0表示等待中，3表示小游戏预处理，4表示展示小游戏，5表示小游戏进行中，6表示小游戏结束且选择奖励前，7表示选择奖励时。</p>
+</li>
+<li><p><code>init</code>函数可以重置服务器状态，测试时如果想重置可以输入命令<code>/function ltw:init</code>来重置服务器状态。</p>
+</li>
+</ul>
+</li>
+<li><p>minecraft：原版相关文件夹。因为游艺街服务器禁用了原版数据包，取消了原版进度和可直接通过获取物品获得合成表的功能，所以需要在minecraft命名空间内添加原版的一些内容。</p>
+<ul>
+<li>但是，<code>loot_tables/gameplay/fishing.json</code>似乎并不是原版的，原因你自己拿鱼竿钓一下鱼就知道了。</li>
+</ul>
+</li>
+<li><p>mini：小游戏相关文件夹。里面存放了和各个小游戏相关的文件。我们所做的修改和添加都是围绕这个文件夹进行的。</p>
+</li>
+<li><p>test：测试相关文件夹。提供了测试各个小游戏和奖励物品、跳过剩余时间和将剩余时间设为「无限长」的方法。</p>
+</li>
+</ul>
+<h3 id="A-新建文件夹！"><a href="#A-新建文件夹！" class="headerlink" title="A. 新建文件夹！"></a>A. 新建文件夹！</h3><p>俗话说的好，当你新建一个文件夹时，项目就正式开始了。</p>
+<p>事不宜迟，我们立马建一个，在<code>mini/functions/</code>目录下。</p>
+<blockquote>
+<p>koth为King of The Hill（山丘之王）的简称。在此请为你自己的小游戏取一个相对短而好记的名称。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor5.png"
+                     
+                ></p>
+<p>在正式开始之前，先给你的小游戏取一个编号。小游戏分为三种类型：首轮小游戏、普通小游戏和终轮小游戏。</p>
+<ul>
+<li>首轮小游戏的编号为20*（例如核爆刺客为201）</li>
+<li>普通小游戏的编号为*（例如地陷圣坛为2，月夜狩猎为5）</li>
+<li>终轮小游戏的编号为10*（例如钢铁狂潮为101，贸易专家为102）</li>
+</ul>
+<p>如果你需要写一个普通小游戏，编号最好从6开始。当然，官方用过的编号只有1-5、101、102和201，你想定什么编号都可以。在此我将山丘之王的编号定为6。</p>
+<h3 id="B-应该写什么？"><a href="#B-应该写什么？" class="headerlink" title="B. 应该写什么？"></a>B. 应该写什么？</h3><p>一个完整的小游戏应该至少包含以下函数文件：</p>
+<ul>
+<li><p><code>game_end.mcfunction</code>：游戏结束执行的方法。至少包含删除强制加载区块的命令。</p>
+</li>
+<li><p><code>game_init.mcfunction</code>：初始化。一般还要有<code>game_init2.mcfunction</code>用来清理残余实体，初始化操作复杂的游戏还要有<code>game_init3</code>、<code>game_init4</code>等等。</p>
+</li>
+<li><p><code>game_start.mcfunction</code>：游戏正式开始时执行的方法。</p>
+</li>
+<li><p><code>give_effect.mcfunction</code>：玩家进入游戏时会被给予的效果（夜视、抗性等等，视游戏类型不同而定）。</p>
+</li>
+<li><p><code>player_enter.mcfunction</code>：玩家进入游戏时，在玩家自己身上执行的方法。这里的玩家既包括游戏开始时服务器内的玩家，也包括游戏中途加入的玩家，因此需要对这两种玩家分别进行处理。</p>
+</li>
+<li><p><code>player_intro.mcfunction</code>：展示小游戏时，在每个玩家自己身上执行的方法。一般是将玩家传送到游戏场地、给予夜视和使用<code>tellraw</code>命令对玩家展示游戏规则三条命令。</p>
+</li>
+<li><p><code>tickx.mcfunction</code>：x为1、2、5或20。表示游戏过程中周期性执行的方法，例如tick1为每1游戏刻（约0.05秒）执行一次。一般的周期性命令都放在tick2中，每秒执行的命令放在tick20中。</p>
+</li>
+<li><p><code>watcher_limit.mcfunction</code>：限制旁观者的活动范围。如果没有这个方法，那么旁观者甚至可以在游戏时跑到主大厅去，并且会加载很多不必要的区块，影响服务器性能。</p>
+<blockquote>
+<p>实测直接用命令<code>/gamerule spectatorsGenerateChunks false</code>进行旁观者加载区块限制会出现bug，某些游戏结束后的区块不能正常加载。</p>
+</blockquote>
+</li>
+</ul>
+<p>这些只是必须有的文件。除此之外，<code>game</code>文件夹和一些其他的文件一般也会存在，用来封装特定游戏内的事件等。实际上，这些函数都是由<code>mini/main/</code>目录下的同名函数调用的。因此在你的文件夹添加这些函数时，确保在<code>mini/main/</code>目录下的函数内添加了调用这些函数的命令。例如：</p>
+<p><code>data/mini/main/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 计分板初始化</span><br><span class="line">scoreboard players reset * mini_score</span><br><span class="line">scoreboard players reset * mini_heart</span><br><span class="line">scoreboard players reset * health</span><br><span class="line"></span><br><span class="line"># 小游戏初始化</span><br><span class="line">execute if score $mini_type mem matches 1 run function mini:parkour/game_init</span><br><span class="line">execute if score $mini_type mem matches 2 run function mini:tntrun/game_init</span><br><span class="line">execute if score $mini_type mem matches 3 run function mini:hotpm/game_init</span><br><span class="line">execute if score $mini_type mem matches 4 run function mini:colormatch/game_init</span><br><span class="line">execute if score $mini_type mem matches 5 run function mini:phantom/game_init</span><br><span class="line">## 下面一行是你新添加的</span><br><span class="line">execute if score $mini_type mem matches 6 run function mini:koth/game_init</span><br><span class="line"></span><br><span class="line">execute if score $mini_type mem matches 201 run function mini:ass/game_init</span><br><span class="line">execute if score $mini_type mem matches 101 run function mini:iron/game_init</span><br><span class="line">execute if score $mini_type mem matches 102 run function mini:trade/game_init</span><br></pre></td></tr></table></figure></div>
+
+<p>其他文件也类似，把game_init更换为对应的文件名即可。至于<code>main</code>文件夹内的这些函数是如何执行的，你无需多操心，因为龙猫他们已经把调用这些函数的方法写好了。</p>
+<h3 id="C-游戏开始前的操作"><a href="#C-游戏开始前的操作" class="headerlink" title="C. 游戏开始前的操作"></a>C. 游戏开始前的操作</h3><p>首先找到你在第一步中放结构方块的地方，把它的坐标记下来。在我这里是<code>985 4 8985</code>。</p>
+<p>然后在你的游戏场景附近找到一个与游戏场景俯视图大小相等或稍大的正方体，确保把你的游戏场景完全包括进去。记下正方体体对角线上的两个点的坐标，类似于你用WorldEdit等工具划范围。在我这里是<code>985 5 8985</code>和<code>1016 36 9016</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwtutor/ltwtutor7.png"
+                     
+                ></p>
+<p>然后编写旁观者范围限制和场景初始化命令。</p>
+<p><code>data/mini/koth/watcher_limit.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 观察者限制飞行范围</span><br><span class="line">## dx dy dz确定范围大小，可用确定的两点对应坐标相减获得这三个值</span><br><span class="line">execute as @a[gamemode=spectator] unless entity @s[x=986.0,y=5.0,z=8986.0,dx=30,dy=31,dz=30] run spectate</span><br><span class="line">execute as @a[gamemode=spectator] unless entity @s[x=986.0,y=5.0,z=8986.0,dx=30,dy=31,dz=30] run tp @s[team=!debugging] 1001.0 14 9001.0 -45 90</span><br></pre></td></tr></table></figure></div>
+
+<p><code>data/mini/koth/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 初始化山丘地图</span><br><span class="line">## 将游戏场景区域标记为强制加载，确保初始化操作的顺利进行</span><br><span class="line">forceload add 985 8985 1016 9016</span><br><span class="line">## 放置结构方块，用于生成游戏场景。这里的结构方块posX、posY、posZ配置应该与你在第一步中放置的结构方块一样</span><br><span class="line">setblock 985 4 8985 structure_block[mode=load]&#123;metadata: &quot;&quot;, mirror: &quot;NONE&quot;, ignoreEntities: 1b, powered: 0b, seed: 0L, rotation: &quot;NONE&quot;, posX: 0, posY: 1, posZ: 0, sizeX: 32, sizeY: 32, sizeZ: 32, mode: &quot;LOAD&quot;, integrity: 1.0f, showair: 0b, name: &quot;mini:koth&quot;&#125;</span><br><span class="line">## 在结构方块边上的一个方块处放置红石块用于激活结构方块。由于放置后红石块即被游戏场景取代，因此不需要考虑放置失败的问题</span><br><span class="line">setblock 985 5 8985 redstone_block</span><br></pre></td></tr></table></figure></div>
+
+<p>接下来是对游戏全局的一些操作，加在上述命令的后面。</p>
+<p><code>data/mini/koth/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">## 设置游戏结束后排名显示中是否显示玩家所获得的小游戏内分数。这里山丘之王小游戏的排名是依照 HUD 右侧计分板显示的能量值排序的，因此游戏结束后可以对所有玩家显示分数（能量值）。若你的游戏为竞速类、死亡淘汰类或者其他不使用自定义分数排名的小游戏，请将该值设为0</span><br><span class="line">scoreboard players set $show_score mem 1</span><br><span class="line">## 重置奖励物品生成的冷却时间</span><br><span class="line">scoreboard players set $new_item_cd mem 0</span><br><span class="line">## 这是一个冒险模式小游戏，因此生存模式的值为0。如果你做的是一个生存模式小游戏，请将该值设为1，以防止系统锁定第九格物品栏。</span><br><span class="line">scoreboard players set $survival mem 0</span><br><span class="line">## 重置每0.1秒减少1的计时器，这条命令仅在你的游戏不需要使用这类计时器的情况下添加</span><br><span class="line">scoreboard players set $countdown_fast mem 0</span><br><span class="line">## 是否启用与遗迹寻宝小游戏中类似的节奏方块，如果你的场景中没有这类方块可以不写该命令</span><br><span class="line">scoreboard players set $tempo_enable mem 0</span><br></pre></td></tr></table></figure></div>
+
+<p>如果你的游戏还有其他需要初始化的全局变量或玩家变量，一并写在<code>game_init.mcfunction</code>中。例如：</p>
+<p><code>data/mini/koth/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">## 重置能量值计分板</span><br><span class="line">scoreboard players reset * power_count</span><br></pre></td></tr></table></figure></div>
+
+<p>如果你的游戏中出现了和我一样的原版游艺街没有出现过的计分项（例如<code>power_count</code>），需要在<code>init.mcfunction</code>中添加：</p>
+<p><code>data/mini/koth/init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 重置计分板</span><br><span class="line">scoreboard objectives remove power_count</span><br><span class="line">scoreboard objectives add power_count dummy &quot;能量值&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p><code>data/mini/main/init.mcfunction</code></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 初始化</span><br><span class="line">function mini:tntrun/init</span><br><span class="line">function mini:hotpm/init</span><br><span class="line">function mini:phantom/init</span><br><span class="line">## 山丘之王的初始化方法</span><br><span class="line">function mini:koth/init</span><br><span class="line"></span><br><span class="line">function mini:iron/init</span><br><span class="line">function mini:ass/init</span><br><span class="line">function mini:trade/init</span><br></pre></td></tr></table></figure></div>
+
+<p>接下来是伤害管理：</p>
+<p><code>data/mini/main/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 伤害管理</span><br><span class="line">## 官方的函数中总有这一条，原本是用来控制消除金苹果/附魔金苹果/不死图腾产生的伤害吸收效果的，但是这个值设为0或1都会清除效果，所以设置这个值似乎并没有什么意义</span><br><span class="line">scoreboard players set $remove_resistance mem 0</span><br><span class="line">## 是否能够对玩家造成伤害与击退</span><br><span class="line">team modify playing friendlyFire true</span><br><span class="line">## 玩家碰撞设定</span><br><span class="line">team modify playing collisionRule always</span><br><span class="line">## 是否显示玩家的死亡信息</span><br><span class="line">team modify playing deathMessageVisibility never</span><br><span class="line">## 火焰伤害是否启用</span><br><span class="line">gamerule fireDamage false</span><br><span class="line">## 摔落伤害是否启用</span><br><span class="line">gamerule fallDamage false</span><br><span class="line">## 溺水伤害是否启用</span><br><span class="line">gamerule drowningDamage false</span><br><span class="line">## 自然生命恢复是否启用</span><br><span class="line">gamerule naturalRegeneration true</span><br></pre></td></tr></table></figure></div>
+
+<p>接下来是剩余的初始化操作，一般是清理&#x2F;生成实体和对地图进行一定的初始化，放在上述初始化之后0.75秒进行。在山丘之王小游戏中只需要清理实体即可。</p>
+<p><code>data/mini/main/game_init.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">schedule function mini:koth/game_init2 15t replace</span><br></pre></td></tr></table></figure></div>
+
+<p><code>data/mini/main/game_init2.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 清理残余实体</span><br><span class="line">## 如果你的游戏中没有出现箭、物品、苦力怕和三叉戟以外的物品，直接调用mini:main中的清理实体方法即可</span><br><span class="line">function mini:main/kill_entity</span><br></pre></td></tr></table></figure></div>
+
+<p>然后是对你的小游戏进行介绍，可以仿照官方写的介绍进行编写。「免疫击退效果在本轮无效」是无奈之举，一般的游戏需要尽量避免这种情况发生。</p>
+<p><code>data/mini/main/player_intro.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 向单个玩家展示小游戏介绍</span><br><span class="line">## 给予夜视效果</span><br><span class="line">effect give @s night_vision 1000000 0 true</span><br><span class="line">## 传送玩家到游戏场景</span><br><span class="line">tp @s[team=!debugging] 1001.0 14 9001.0 -45 90</span><br><span class="line">## 向玩家展示介绍</span><br><span class="line">tellraw @s [&quot;&quot;,&#123;&quot;text&quot;:&quot;\n &gt;&gt; 山丘之王 &gt;&gt;\n\n&quot;,&quot;color&quot;:&quot;gold&quot;,&quot;bold&quot;:true&#125;,&quot; 保持在红色区域即可 &quot;,&#123;&quot;text&quot;:&quot;获得能量值&quot;,&quot;color&quot;:&quot;gold&quot;&#125;,&quot;。\n 能量值最多的玩家即可获胜！\n\n&quot;,&#123;&quot;text&quot;: &quot; &lt;只能击退玩家&gt; &quot;,&quot;color&quot;:&quot;yellow&quot;&#125;,&#123;&quot;text&quot;: &quot; &lt;免疫击退效果在本轮无效&gt;&quot;,&quot;color&quot;:&quot;light_purple&quot;&#125;,&quot;\n&quot;]</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="D-游戏开始时的操作"><a href="#D-游戏开始时的操作" class="headerlink" title="D. 游戏开始时的操作"></a>D. 游戏开始时的操作</h3><p>主要包含三个方法。首先是游戏开始时对小游戏整体的修改</p>
+<p><code>data/mini/main/game_start.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 游戏结束倒计时，我这里为120秒</span><br><span class="line">scoreboard players set $countdown mem 120</span><br><span class="line"></span><br><span class="line"># HUD，通常为玩家所看到的游戏相关信息</span><br><span class="line">scoreboard objectives setdisplay list power_count</span><br><span class="line">scoreboard objectives setdisplay belowName power_count</span><br><span class="line">scoreboard objectives setdisplay sidebar power_count</span><br><span class="line">## boss栏颜色，1，2，3，4分别代表红、黄、绿、蓝，0代表按照每个玩家在bossbar_color的计分项内的分数对每个玩家显示不同颜色的boss栏（例如炸弹狂魔里面获得炸弹与未获得炸弹的玩家看到的boss栏不一样）</span><br><span class="line">scoreboard players set $bossbar_color mem 4</span><br><span class="line">## boss栏倒计时的最大值</span><br><span class="line">scoreboard players set $countdown_max mem 120</span><br><span class="line">## boss栏类型，0，1，2分别代表关闭boss栏、显示快速倒计时（0.1秒减少1单位）和显示标准倒计时（1秒减少1单位）</span><br><span class="line">scoreboard players set $bossbar_type mem 2</span><br><span class="line">## 调用显示boss栏方法</span><br><span class="line">function lib:bossbar/show</span><br><span class="line">## 更改每种颜色的boss栏的名字</span><br><span class="line">bossbar set mini:red name &quot;剩余时间&quot;</span><br><span class="line">bossbar set mini:yellow name &quot;剩余时间&quot;</span><br><span class="line">bossbar set mini:blue name &quot;剩余时间&quot;</span><br></pre></td></tr></table></figure></div>
+
+<p>接下来是每个玩家进入游戏时的方法。这里的玩家有三种：参与游戏的玩家（<code>team=playing,tag=!rejoining</code>）、未参与游戏的旁观者（<code>team=watching</code>）和中途退出而后又加入游戏的玩家（<code>team=playing,tag=rejoining</code>）。</p>
+<p><code>data/mini/main/player_enter.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 单个玩家开始小游戏时执行</span><br><span class="line">## 对自己播放音乐</span><br><span class="line">function lib:sounds/music/mini_middle</span><br><span class="line">## 清理标题显示区</span><br><span class="line">title @s clear</span><br><span class="line">title @s actionbar &quot;&quot;</span><br><span class="line"></span><br><span class="line"># 给予状态效果</span><br><span class="line">effect clear @s</span><br><span class="line">function mini:koth/give_effect</span><br><span class="line"></span><br><span class="line"># 设置玩家生命</span><br><span class="line">attribute @s generic.max_health base set 20</span><br><span class="line"></span><br><span class="line"># 传送玩家</span><br><span class="line">## 此处依据你设定的场景坐标而改。在我的游戏中玩家会出生在空中，因此会有以下这一条给予缓降效果的命令。传送玩家</span><br><span class="line">effect give @s[team=playing] slow_falling 3</span><br><span class="line">tp @s[team=playing] 1001.0 30.0 9001.0</span><br><span class="line"></span><br><span class="line"># 调整模式</span><br><span class="line">## 将调试者以外的玩家调整为旁观模式</span><br><span class="line">gamemode spectator @s[team=!debugging]</span><br><span class="line">## 将参与游戏而非中途重新加入的玩家调整为冒险模式</span><br><span class="line">gamemode adventure @s[team=playing,tag=!rejoining]</span><br><span class="line"></span><br><span class="line"># 解除免疫击退效果</span><br><span class="line">attribute @s[team=playing,tag=!rejoining] generic.knockback_resistance modifier add e0edf3eb-5aea-4a18-9b9e-1bde9df27ab5 &quot;&quot; -1.0 multiply</span><br></pre></td></tr></table></figure></div>
+
+<p>解除免疫击退效果的影响是永久的，因此需要在玩家进入游戏时先取消免疫击退的限制，然后如果需要限制免疫击退才会执行上面的最后一条命令。如果你的游戏中没有这一项则不需要进行任何操作。</p>
+<p><code>data/ltw/main/player_enter.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 存储UUID</span><br><span class="line">execute store result score @s UUID run data get entity @s UUID[0]</span><br><span class="line"></span><br><span class="line"># 解除限制免疫击退</span><br><span class="line">## 注意是在这里添加</span><br><span class="line">attribute @s[team=playing,tag=!rejoining] generic.knockback_resistance modifier remove e0edf3eb-5aea-4a18-9b9e-1bde9df27ab5</span><br><span class="line"></span><br><span class="line"># 如果是旁观者或局号不对头：开始旁观</span><br><span class="line">execute if entity @s[team=!playing] run function ltw:main/player_enter_watcher</span><br><span class="line">execute if entity @s[team=playing] unless score @s game_id = $ game_id run function ltw:main/player_enter_watcher</span><br><span class="line"># 如果不是旁观且局号正确：游戏中掉线</span><br><span class="line">execute if entity @s[team=playing] if score @s game_id = $ game_id run function ltw:main/player_enter_rejoin</span><br></pre></td></tr></table></figure></div>
+
+<p>最后是给予玩家状态效果：</p>
+<p><code>data/mini/koth/give_effect.mcfunction</code>：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 状态效果</span><br><span class="line">## 饱和</span><br><span class="line">effect give @s saturation 1000000 0 true</span><br><span class="line">## 夜视</span><br><span class="line">effect give @s night_vision 1000000 0 true</span><br><span class="line">## 抗性</span><br><span class="line">effect give @s resistance 1000000 4 true</span><br><span class="line">## 如果还有其它状态效果，加在下面即可</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="E-游戏结束时的操作"><a href="#E-游戏结束时的操作" class="headerlink" title="E. 游戏结束时的操作"></a>E. 游戏结束时的操作</h3><p>结束时的操作相对简单，只有一个<code>game_end.mcfunction</code>函数。</p>
+<p><code>data/mini/koth/game_end.mcfunction</code></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 当前游戏结束时触发</span><br><span class="line">## 取消在game_init.mcfunction定义的强制加载区域</span><br><span class="line">forceload remove 985 8985 1016 9016</span><br><span class="line"></span><br><span class="line"># 计算积分</span><br><span class="line">## 游艺街默认使用玩家淘汰的顺序来决定最终的排名，即每有一人淘汰时给剩余还在场上的玩家的mini_score分数加1。如果想要使用自定义的分数进行排名，直接把玩家对应的分数赋值给mini_score即可</span><br><span class="line">## 如果你在game_init.mcfunction设置了$show_score为1，在游戏结束后玩家的mini_score值会在排名列表里显示出来</span><br><span class="line">scoreboard players set @a[team=playing] mini_score 0</span><br><span class="line">execute as @a[team=playing] run scoreboard players operation @s mini_score += @s power_count</span><br><span class="line"></span><br><span class="line"># 解除限制免疫击退</span><br><span class="line">## 和之前一样，需要解除玩家的免疫击退限制，让玩家可以在其他游戏中正常使用免疫击退的道具（最好还是加上这句）</span><br><span class="line">execute as @a run attribute @s generic.knockback_resistance modifier remove e0edf3eb-5aea-4a18-9b9e-1bde9df27ab5</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="第三步-小游戏特殊事件编写"><a href="#第三步-小游戏特殊事件编写" class="headerlink" title="第三步 - 小游戏特殊事件编写"></a>第三步 - 小游戏特殊事件编写</h2><p>一个小游戏只有基础框架是没有任何实际内容的，甚至连游戏都无法正常结束。因此需要为每个小游戏编写自己的事件，这些事件一般会在<code>tick2.mcfunction</code>、<code>tick20.mcfunction</code>等周期性执行的函数中触发。本教程只提供山丘之王小游戏的事件编写，但其中的某些内容（例如倒计时检测、奖励物品生成）也可用于其它小游戏。</p>
+<p>此内容将在不久后更新，敬请期待。</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>游艺街 小猪之最改版服</title>
+    <url>/2023/server/</url>
+    <content><![CDATA[<h2 id="服务器概要"><a href="#服务器概要" class="headerlink" title="服务器概要"></a>服务器概要</h2><p>IP:加群查看（以下）</p>
+<p>版本：1.19.4（已经更新了）</p>
+<p>如果装了viafabric&#x2F;viaforge模组那随便什么版本都可以</p>
+<p>服务器要求正版验证，无特殊情况不关（改东西除外）</p>
+<p>建议搭配资源包使用：</p>
+<p>小猪之最·服务器群：<a class="link"   href="https://jq.qq.com/?_wv=1027&k=riOZLTPw" >607471033 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="加群被拒绝的可能原因"><a href="#加群被拒绝的可能原因" class="headerlink" title="加群被拒绝的可能原因"></a>加群被拒绝的可能原因</h3><p>服务器群采用自动审批，若加群请求被拒绝，原因可能为下面几条中的一条或多条：</p>
+<ul>
+<li><p>输入的玩家名不符合Minecraft玩家名规范</p>
+</li>
+<li><p>输入的玩家名在Minecraft正版玩家列表中不存在</p>
+</li>
+<li><p>输入的玩家名已被其他用户绑定（如果你认为你的玩家名被他人误绑，请联系小猪之最）</p>
+</li>
+</ul>
+<h2 id="各个官服没有的游戏的详细规则"><a href="#各个官服没有的游戏的详细规则" class="headerlink" title="各个官服没有的游戏的详细规则"></a>各个官服没有的游戏的详细规则</h2><h3 id="山丘之王-KOTH"><a href="#山丘之王-KOTH" class="headerlink" title="山丘之王 - KOTH"></a>山丘之王 - KOTH</h3><p>游戏总限时120秒。</p>
+<p>处在地图中央红区的玩家每秒会获得1点能量值，玩家可以用快捷栏第9格的击退鱼（未处于中央红区时为「强力击退鱼」，击退力更加强大）来将准备登上红区的玩家打出红区或阻止其他玩家进入红区。</p>
+<p>倒计时小于等于75秒时，处在地图中央红区的玩家每秒会获得2点能量值，而不是1点。</p>
+<p>当某种条件满足时，游戏内会定期刷新奖励物资，其位于距离中央红区最远的地方。奖励物资除常见的积分、金粒和生存模式物品外，还有当局的能量值奖励，甚至还有能量值翻倍&#x2F;减半这类可能使得玩家「翻盘」的物品。</p>
+<p>倒计时结束后，将依据能量值从大到小排列名次。</p>
+<h3 id="钻石风暴-DIAMOND"><a href="#钻石风暴-DIAMOND" class="headerlink" title="钻石风暴 - DIAMOND"></a>钻石风暴 - DIAMOND</h3><p>将游戏「钢铁狂潮」的需求物品从铁锭改成了钻石，掉落的物品数量为1&#x2F;2而不是1&#x2F;3，其它不变。</p>
+<h3 id="矿车抢座-SEAT"><a href="#矿车抢座-SEAT" class="headerlink" title="矿车抢座 - SEAT"></a>矿车抢座 - SEAT</h3><p>每轮游戏开始时场地上会生成一定数量的矿车，玩家在该轮的限定时间之内保持坐在矿车上即可获得该轮的胜利。由于矿车数量总比当前存活玩家数量少，所以一定会有玩家因抢不到矿车而在一轮中失败并失去1条生命。</p>
+<p>玩家可以通过攻击其他玩家来阻止对方占领矿车，或将对方赶下矿车（10%概率），或将对方打下虚空。被打下虚空的玩家同样会减少1条生命。</p>
+<p>当时间结束时若仍有未占领的矿车，则会进入加时赛。加时赛期间，在普通赛成功占领矿车的玩家会被传送到休息区。并且剩余的矿车一旦被占领，占领者视为胜利并传送到休息区，直至剩下矿车数为0或时间结束（此时所有未处于休息区的玩家均失败）。</p>
+<p>生命为0的玩家会被淘汰，使用金苹果和附魔金苹果可增加生命数。</p>
+<p>最后未被淘汰的玩家胜利。</p>
+<h3 id="遗迹遍历-PARKOUR-OLD"><a href="#遗迹遍历-PARKOUR-OLD" class="headerlink" title="遗迹遍历 - PARKOUR_OLD"></a>遗迹遍历 - PARKOUR_OLD</h3><p>跑酷地图与「遗迹寻宝」完全相同，但（几乎）没有可供拾取的各种物品，取而代之的是10个目标点。</p>
+<p>玩家需要尽可能快地遍历所有目标点来获得游戏的胜利。若一名玩家遍历了所有目标点，则他视为通关并转为旁观模式，同时排入游戏排行榜。若有3名玩家遍历了所有目标点，则游戏会直接结束，前三名按照这三名玩家的完成速度决出。若时间结束时完成人数小于3，则剩下的玩家会依据遍历的目标点数目排在已完成的玩家后（此时这些玩家允许并列）。</p>
+<h3 id="尸海寻路-ZOMBIE"><a href="#尸海寻路-ZOMBIE" class="headerlink" title="尸海寻路 - ZOMBIE"></a>尸海寻路 - ZOMBIE</h3><p>游戏的目标是积累尽可能多的能量值，能量值最高的玩家获得胜利。</p>
+<p>游戏开始后，僵尸会从两个固定的生成点不断生成。玩家拥有一把攻击力为4.3且攻速极快的木剑（只能在本局使用），用来对付成群的僵尸。地图周围的水区域会对玩家及僵尸造成伤害，且对僵尸造成的伤害更高。</p>
+<p>每秒每名存活玩家会获得1点能量值，当玩家击杀僵尸时会获得额外的能量值。</p>
+<p>各种僵尸的特性：</p>
+<ul>
+<li><p>普通僵尸：生命值30，击杀获得3能量值。</p>
+</li>
+<li><p>发射器僵尸：生命值30，每2秒会发射1根普通箭矢，击杀获得5能量值。</p>
+</li>
+<li><p>附魔发射器僵尸：生命值30，每2秒会发射1根缓慢+虚弱箭矢，击杀获得7能量值。</p>
+</li>
+<li><p>持剑僵尸：生命值30，持有下界合金剑，攻击伤害高于普通僵尸，击杀获得7能量值。</p>
+</li>
+<li><p>黑曜石僵尸：生命值200，击杀获得20能量值。</p>
+</li>
+<li><p>TNT僵尸：生命值30，每次被攻击有10%的概率自爆。击杀获得20能量值。</p>
+</li>
+</ul>
+<p>游戏进行过程中会随时间触发固定事件：</p>
+<ul>
+<li><p>僵尸生命值提升（40s）：所有原来生命值上限为30的僵尸生命值上限提升至50，且满血僵尸的当前生命值也提升至50。</p>
+</li>
+<li><p>僵尸攻击伤害提升（40s）：所有非持剑僵尸的攻击伤害提升0.5倍。</p>
+</li>
+<li><p>僵尸移动速度与击退抗性提升（60s）：字面意思。</p>
+</li>
+<li><p>进入强制死亡（60s）：所有存活中玩家会被给予时长近乎无限的凋零效果。</p>
+</li>
+</ul>
+<h3 id="掘一死箭-ARROW"><a href="#掘一死箭-ARROW" class="headerlink" title="掘一死箭 - ARROW"></a>掘一死箭 - ARROW</h3><p>游戏场地设在一个有3层TNT分布的塔内。开始10秒后玩家会获得一把可无限使用的弓和一根光灵箭。将箭射在TNT方块上即可点燃TNT使其变为实体状态，TNT不会爆炸，并会在点燃一秒后消失。如果射出的箭为满蓄力，则会在落地时额外向周围发射4根分裂箭，并点燃周围的TNT。</p>
+<p>玩家的目标是通过射击其他玩家脚下的TNT使其坠落到下面一层，并最终落入水中。落入水中的玩家会被淘汰，坚持到最后没有落入水中的玩家可获得第一名。</p>
+<h3 id="富翁之路-HOPPER"><a href="#富翁之路-HOPPER" class="headerlink" title="富翁之路 - HOPPER"></a>富翁之路 - HOPPER</h3><p>这是一个最终轮游戏，时间限制为6分钟。Hopper是漏斗的意思，因此玩家的目标是合成漏斗矿车、收集各种矿石和其他物资并放进漏斗矿车中出售以获得现金。排名按照现金从多到少排名。需要注意的是，本游戏中漏斗和矿车不一定需要用铁锭合成，用粗铁也是可以的。</p>
+<p>地图为一个32x32x32区域，每个方块都是随机生成的，出生点和死亡后的重生点也是随机的，不过系统会保证玩家的出生点附近没有水和岩浆（它们都会被替换为木头，也算是减小了出生点附近没木头的概率）。</p>
+<p>玩家在拥有10个粗铁或铁锭和1个箱子后，可以合成漏斗矿车。你需要按切换副手按键（默认为<code>f</code>）来部署漏斗矿车。部署后的矿车内有3个可以放物品的栏位、1个末影之眼和1本附魔书。将鼠标放在末影之眼上可以查看本轮游戏中所有可出售物品对应的价值，点击末影之眼可以回收漏斗矿车（因为它不能直接通过攻击来回收）。将需要出售的物品放入漏斗矿车后，点击附魔书即可出售。成功出售之后玩家会获得现金，同时漏斗矿车和漏斗矿车内可出售的物品不会回收，而不可出售的物品会通过掉落物的形式返还。如果漏斗矿车内没有任何可出售的物品，出售不会成功，同时漏斗矿车也不会回收。<del>其实在这种情况下我本来是想做成直接回收漏斗矿车的</del></p>
+<p>可出售的物品皆有其固定的基础价值。此外，游戏开始时，系统会随机指定2种物品价值变为基础价值的2倍，1种物品价值变为基础价值的5倍。一次出售获得的总现金在数值上等于漏斗矿车内前三栏物品的总价值之和。</p>
+]]></content>
+      <tags>
+        <tag>服务器</tag>
+      </tags>
+  </entry>
+</search>
