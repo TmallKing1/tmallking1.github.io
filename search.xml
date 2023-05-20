@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
-    <url>/2023/dhpfix/</url>
-    <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
-<p>开始之前请确保你将大憨批的命令树版本调为了1.19.4。</p>
-<h2 id="Step-1-查看你的存储路径"><a href="#Step-1-查看你的存储路径" class="headerlink" title="Step 1.查看你的存储路径"></a>Step 1.查看你的存储路径</h2><p>打开VSCode，点击左下角的「问题」，切换到「输出」选项卡，将滚动条滚动到顶部直到看到globalStoragePath &#x3D; ***。将***复制到剪贴板并在资源管理器打开。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix1.png"
-                     
-                ></p>
-<p>打开后的界面如图所示，如果没有1.19.4文件夹则新建一个，然后进入1.19.4文件夹。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix2.png"
-                     
-                ></p>
-<h2 id="Step-2-下载所需文件"><a href="#Step-2-下载所需文件" class="headerlink" title="Step 2.下载所需文件"></a>Step 2.下载所需文件</h2><p>由于国内无法访问raw.githubusercontent.com，所以此处需要的文件我传到了<a class="link"   href="https://xzzz.lanzoum.com/ipgYt0t7yvjg" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，下载压缩包然后把所有文件解压进1.19.4文件夹。解压完毕后的1.19.4文件夹如图所示：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix3.png"
-                     
-                ></p>
-<p>需要注意的是Nbtdoc.json的原文件有一个错误：展示实体的billboard标签为一个复合标签而不是枚举（而在Minecraft里面是一个拥有四个可取值的枚举）。压缩包内的文件夹已修正了这个错误。</p>
-<h2 id="Step-3-完成！"><a href="#Step-3-完成！" class="headerlink" title="Step 3.完成！"></a>Step 3.完成！</h2><p>打开VSCode，发现1.19.4的特性全部都支持啦，甚至还能支持1.20的新物品（</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix4.png"
-                     
-                ></p>
-]]></content>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>游艺街改版教程 - 添加新的小游戏</title>
     <url>/2023/ltwtutor-e1/</url>
     <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>这是一个<strong>「由Hex-Dragon所制作的<a class="link"   href="https://www.mcbbs.net/thread-1421715-1-1.html" >《游艺街》 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>」</strong>的改版教程，作者是《游艺街 小猪之最改版服》（下简称《LTW派》）的作者小猪之最Thepig。</p>
@@ -356,6 +317,45 @@
                      
                 ></p>
 <p>教程结束，期待更多的《游艺街》改版会因此产生！</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
+    <url>/2023/dhpfix/</url>
+    <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
+<p>开始之前请确保你将大憨批的命令树版本调为了1.19.4。</p>
+<h2 id="Step-1-查看你的存储路径"><a href="#Step-1-查看你的存储路径" class="headerlink" title="Step 1.查看你的存储路径"></a>Step 1.查看你的存储路径</h2><p>打开VSCode，点击左下角的「问题」，切换到「输出」选项卡，将滚动条滚动到顶部直到看到globalStoragePath &#x3D; ***。将***复制到剪贴板并在资源管理器打开。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix1.png"
+                     
+                ></p>
+<p>打开后的界面如图所示，如果没有1.19.4文件夹则新建一个，然后进入1.19.4文件夹。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix2.png"
+                     
+                ></p>
+<h2 id="Step-2-下载所需文件"><a href="#Step-2-下载所需文件" class="headerlink" title="Step 2.下载所需文件"></a>Step 2.下载所需文件</h2><p>由于国内无法访问raw.githubusercontent.com，所以此处需要的文件我传到了<a class="link"   href="https://xzzz.lanzoum.com/ipgYt0t7yvjg" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，下载压缩包然后把所有文件解压进1.19.4文件夹。解压完毕后的1.19.4文件夹如图所示：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix3.png"
+                     
+                ></p>
+<p>需要注意的是Nbtdoc.json的原文件有一个错误：展示实体的billboard标签为一个复合标签而不是枚举（而在Minecraft里面是一个拥有四个可取值的枚举）。压缩包内的文件夹已修正了这个错误。</p>
+<h2 id="Step-3-完成！"><a href="#Step-3-完成！" class="headerlink" title="Step 3.完成！"></a>Step 3.完成！</h2><p>打开VSCode，发现1.19.4的特性全部都支持啦，甚至还能支持1.20的新物品（</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix4.png"
+                     
+                ></p>
 ]]></content>
       <tags>
         <tag>教程</tag>
