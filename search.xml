@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Clickable Items 模组</title>
+    <url>/2023/clickable-items/</url>
+    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
+<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
+<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
+<p>执行命令的权限等级始终为2。</p>
+<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
+<p>列表中的命令会按照索引从低到高的顺序执行。</p>
+<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
+<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
+<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
+<p>耐久度的减少会受到耐久附魔的减免影响。</p>
+<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
+<p>对于可堆叠的物品，在使用后只会消失一个。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <tags>
+        <tag>自制模组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
     <url>/2023/dhpfix/</url>
     <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
