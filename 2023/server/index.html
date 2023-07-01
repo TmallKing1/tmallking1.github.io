@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://www.pigest.top/img/ltwpi/ltwpi1.png">
 <meta property="og:image" content="https://www.pigest.top/img/ltwpi/ltwpi2.png">
 <meta property="article:published_time" content="2023-04-03T11:37:51.000Z">
-<meta property="article:modified_time" content="2023-05-29T12:03:17.997Z">
+<meta property="article:modified_time" content="2023-07-01T15:02:30.792Z">
 <meta property="article:author" content="小猪之最">
 <meta property="article:tag" content="服务器">
 <meta name="twitter:card" content="summary">
@@ -336,8 +336,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-05-29 20:03:17</span>
-            <span class="mobile">2023-05-29 20:03</span>
+            <span class="desktop">2023-07-01 23:02:30</span>
+            <span class="mobile">2023-07-01 23:02</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -359,12 +359,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.4k 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.8k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>15 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>16 分钟</span>
         </span>
     
     
@@ -454,7 +454,7 @@
 <p>倒计时小于等于75秒时，处在地图中央红区的玩家每秒会获得2点能量值，而不是1点。</p>
 <p>当某种条件满足时，游戏内会定期刷新奖励物资，其位于距离中央红区最远的地方。奖励物资除常见的积分、金粒和生存模式物品外，还有当局的能量值奖励，甚至还有能量值翻倍&#x2F;减半这类可能使得玩家「翻盘」的物品。</p>
 <p>倒计时结束后，将依据能量值从大到小排列名次。</p>
-<h3 id="钻石风暴-DIAMOND"><a href="#钻石风暴-DIAMOND" class="headerlink" title="钻石风暴 - DIAMOND"></a>钻石风暴 - DIAMOND</h3><div class="note default"><p>游戏总限时<strong>300秒</strong>。</p>
+<h3 id="钻石风暴-DIAMOND"><a href="#钻石风暴-DIAMOND" class="headerlink" title="钻石风暴 - DIAMOND"></a>钻石风暴 - DIAMOND</h3><div class="note default"><p>游戏总限时<strong>300秒</strong>，目标是积累尽可能多的能量值，能量值最高的玩家获得胜利。</p>
 </div>
 
 <p>将游戏「钢铁狂潮」的需求物品从铁锭改成了钻石，掉落的物品数量为1&#x2F;2而不是1&#x2F;3，其它不变。</p>
@@ -537,6 +537,23 @@
 <p>物资区有两个特殊生成点。当场上没有奖励物品、奖励物资（末影箱）和持有奖励物资的玩家后，奖励物资有可能在特殊生成点生成。奖励物资在被运回起点后不会为玩家加分或影响倒计时与桥，取而代之的是生成一个随机品质的奖励物品。奖励物资的其他属性与普通物资相同。</p>
 <p>玩家初始有3条生命值，掉入河中会损失一条生命值且会丢失携带的物资。生命值可通过使用金苹果或附魔金苹果增加，也可通过使用不死图腾抵抗最后一条生命的流失。</p>
 <p>当倒计时为零或场上没有存活玩家时，游戏结束。排名依据为玩家成功运输物资的数量。</p>
+<h3 id="子弹时间-BULLET"><a href="#子弹时间-BULLET" class="headerlink" title="子弹时间 - BULLET"></a>子弹时间 - BULLET</h3><div class="note success"><p>本游戏的设计者为<a class="link"   target="_blank" rel="noopener" href="https://github.com/JesKi13567" >JK137 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，由小猪之最使用数据包实现。</p>
+</div>
+
+<div class="note info"><p>游戏的目标是积累尽可能多的能量值，能量值最高的玩家获得胜利。</p>
+</div>
+
+<p>玩家会自高塔天花板下方向底部缓慢降落，同时五种生物会不断生成在高塔天花板下方的外围，且降落速度比玩家稍快。玩家可以无限制使用没有任何附魔的弓与箭来击杀其它生物（当然也可以射玩家，不过没有伤害只有击退），但不允许近战。</p>
+<p>各种生物的特性如下所示：</p>
+<ul>
+<li>僵尸：15生命值，击杀后获得4能量值。</li>
+<li>卫道士：25生命值，击杀后获得10能量值。</li>
+<li>女巫：15生命值，击杀后获得6能量值，且下一发射出的箭会变为凋零箭。</li>
+<li>唤魔者：20生命值，击杀后获得8能量值，且击杀者会被传送到原位置的上方一格位置处。</li>
+<li>村民：1生命值，头顶有一个具有4生命值的「苹果」。击杀「苹果」后获得40能量值，同时村民本体消失。击杀村民本体会失去25能量值。玩家的能量值不会小于零。</li>
+</ul>
+<p>当玩家距离高塔墙壁过近时，任何「获得能量值」的操作均会失效。</p>
+<p>玩家降落到高塔底部时会进入旁观模式，所有玩家均进入旁观模式后游戏结束。</p>
 
             </div>
 
@@ -549,7 +566,7 @@
         <li><strong>创建于:</strong> 2023-04-03 19:37:51</li>
         
             <li>
-                <strong>更新于:</strong> 2023-05-29 20:03:17
+                <strong>更新于:</strong> 2023-07-01 23:02:30
             </li>
         
         <li>
@@ -608,7 +625,7 @@
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">游艺街 小猪之最改版服</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A6%82%E8%A6%81"><span class="nav-text">服务器概要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E7%BE%A4%E8%A2%AB%E6%8B%92%E7%BB%9D%E7%9A%84%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0"><span class="nav-text">加群被拒绝的可能原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E7%89%88%E6%9C%8D%E6%96%B0%E6%9C%BA%E5%88%B6%E4%BB%8B%E7%BB%8D"><span class="nav-text">改版服新机制介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AE%E6%95%B0%E8%B0%83%E6%95%B4"><span class="nav-text">轮数调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F%E6%A8%A1%E5%BC%8F"><span class="nav-text">游戏模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E5%80%8D%E5%A5%96%E5%8A%B1"><span class="nav-text">双倍奖励</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E8%84%89%E5%BC%82%E5%B8%B8"><span class="nav-text">地脉异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8C%E5%9C%BA%E4%BF%AE%E6%94%B9"><span class="nav-text">赌场修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%88%E6%84%BF%E7%B3%BB%E7%BB%9F"><span class="nav-text">祈愿系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%90%E6%97%B6%E6%B4%BB%E5%8A%A8"><span class="nav-text">限时活动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E5%AE%83%E4%BF%AE%E6%94%B9"><span class="nav-text">其它修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%84%E4%B8%AA%E5%AE%98%E6%9C%8D%E6%B2%A1%E6%9C%89%E7%9A%84%E6%B8%B8%E6%88%8F%E7%9A%84%E8%AF%A6%E7%BB%86%E8%A7%84%E5%88%99"><span class="nav-text">各个官服没有的游戏的详细规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%B1%E4%B8%98%E4%B9%8B%E7%8E%8B-KOTH"><span class="nav-text">山丘之王 - KOTH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%92%BB%E7%9F%B3%E9%A3%8E%E6%9A%B4-DIAMOND"><span class="nav-text">钻石风暴 - DIAMOND</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%BF%E8%BD%A6%E6%8A%A2%E5%BA%A7-SEAT"><span class="nav-text">矿车抢座 - SEAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%97%E8%BF%B9%E9%81%8D%E5%8E%86-PARKOUR-OLD"><span class="nav-text">遗迹遍历 - PARKOUR_OLD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B8%E6%B5%B7%E5%AF%BB%E8%B7%AF-ZOMBIE"><span class="nav-text">尸海寻路 - ZOMBIE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%98%E4%B8%80%E6%AD%BB%E7%AE%AD-ARROW"><span class="nav-text">掘一死箭 - ARROW</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%8C%E7%BF%81%E4%B9%8B%E8%B7%AF-HOPPER"><span class="nav-text">富翁之路 - HOPPER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B1%E9%99%A9%E8%BF%90%E8%BE%93-RIVER"><span class="nav-text">危险运输 - RIVER</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A6%82%E8%A6%81"><span class="nav-text">服务器概要</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E7%BE%A4%E8%A2%AB%E6%8B%92%E7%BB%9D%E7%9A%84%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0"><span class="nav-text">加群被拒绝的可能原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E7%89%88%E6%9C%8D%E6%96%B0%E6%9C%BA%E5%88%B6%E4%BB%8B%E7%BB%8D"><span class="nav-text">改版服新机制介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AE%E6%95%B0%E8%B0%83%E6%95%B4"><span class="nav-text">轮数调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F%E6%A8%A1%E5%BC%8F"><span class="nav-text">游戏模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E5%80%8D%E5%A5%96%E5%8A%B1"><span class="nav-text">双倍奖励</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E8%84%89%E5%BC%82%E5%B8%B8"><span class="nav-text">地脉异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8C%E5%9C%BA%E4%BF%AE%E6%94%B9"><span class="nav-text">赌场修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A5%88%E6%84%BF%E7%B3%BB%E7%BB%9F"><span class="nav-text">祈愿系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%90%E6%97%B6%E6%B4%BB%E5%8A%A8"><span class="nav-text">限时活动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E5%AE%83%E4%BF%AE%E6%94%B9"><span class="nav-text">其它修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%84%E4%B8%AA%E5%AE%98%E6%9C%8D%E6%B2%A1%E6%9C%89%E7%9A%84%E6%B8%B8%E6%88%8F%E7%9A%84%E8%AF%A6%E7%BB%86%E8%A7%84%E5%88%99"><span class="nav-text">各个官服没有的游戏的详细规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%B1%E4%B8%98%E4%B9%8B%E7%8E%8B-KOTH"><span class="nav-text">山丘之王 - KOTH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%92%BB%E7%9F%B3%E9%A3%8E%E6%9A%B4-DIAMOND"><span class="nav-text">钻石风暴 - DIAMOND</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%BF%E8%BD%A6%E6%8A%A2%E5%BA%A7-SEAT"><span class="nav-text">矿车抢座 - SEAT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%97%E8%BF%B9%E9%81%8D%E5%8E%86-PARKOUR-OLD"><span class="nav-text">遗迹遍历 - PARKOUR_OLD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B8%E6%B5%B7%E5%AF%BB%E8%B7%AF-ZOMBIE"><span class="nav-text">尸海寻路 - ZOMBIE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%98%E4%B8%80%E6%AD%BB%E7%AE%AD-ARROW"><span class="nav-text">掘一死箭 - ARROW</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%8C%E7%BF%81%E4%B9%8B%E8%B7%AF-HOPPER"><span class="nav-text">富翁之路 - HOPPER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B1%E9%99%A9%E8%BF%90%E8%BE%93-RIVER"><span class="nav-text">危险运输 - RIVER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E5%BC%B9%E6%97%B6%E9%97%B4-BULLET"><span class="nav-text">子弹时间 - BULLET</span></a></li></ol></li></ol>
 
     </div>
 </div>

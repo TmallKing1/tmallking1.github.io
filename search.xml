@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
-    <url>/2023/dhpfix/</url>
-    <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
-<p>开始之前请确保你将大憨批的命令树版本调为了1.19.4。</p>
-<h2 id="Step-1-查看你的存储路径"><a href="#Step-1-查看你的存储路径" class="headerlink" title="Step 1.查看你的存储路径"></a>Step 1.查看你的存储路径</h2><p>打开VSCode，点击左下角的「问题」，切换到「输出」选项卡，将滚动条滚动到顶部直到看到globalStoragePath &#x3D; ***。将***复制到剪贴板并在资源管理器打开。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix1.png"
-                     
-                ></p>
-<p>打开后的界面如图所示，如果没有1.19.4文件夹则新建一个，然后进入1.19.4文件夹。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix2.png"
-                     
-                ></p>
-<h2 id="Step-2-下载所需文件"><a href="#Step-2-下载所需文件" class="headerlink" title="Step 2.下载所需文件"></a>Step 2.下载所需文件</h2><p>由于国内无法访问raw.githubusercontent.com，所以此处需要的文件我传到了<a class="link"   href="https://xzzz.lanzoum.com/ipgYt0t7yvjg" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，下载压缩包然后把所有文件解压进1.19.4文件夹。解压完毕后的1.19.4文件夹如图所示：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix3.png"
-                     
-                ></p>
-<p>需要注意的是Nbtdoc.json的原文件有一个错误：展示实体的billboard标签为一个复合标签而不是枚举（而在Minecraft里面是一个拥有四个可取值的枚举）。压缩包内的文件夹已修正了这个错误。</p>
-<h2 id="Step-3-完成！"><a href="#Step-3-完成！" class="headerlink" title="Step 3.完成！"></a>Step 3.完成！</h2><p>打开VSCode，发现1.19.4的特性全部都支持啦，甚至还能支持1.20的新物品（</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix4.png"
-                     
-                ></p>
-]]></content>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Clickable Items 模组</title>
     <url>/2023/clickable-items/</url>
     <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
@@ -401,45 +362,42 @@
       </tags>
   </entry>
   <entry>
-    <title>Disable the End 模组</title>
-    <url>/2023/disable-the-end/</url>
-    <content><![CDATA[<p>本模组提供了一些在fabric服务器上较为常用的功能，如禁用末地传送门、禁用带名生物死亡日志、禁言玩家等。</p>
-<p>模组名为「Disable the End」，是因为这个模组最初仅仅是为了禁用末地传送门而写的。</p>
-<h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><p>请在<a class="link"   href="https://github.com/TmallKing1/DisableTheEnd/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载最新版本的模组。测试过的Minecraft版本为1.20.1，无法确定是否可以运行在其它版本的Minecraft上。</p>
-<p>模组仅可被装在带有Fabric loader与Fabric API专用服务端（Dedicated Server）的mods文件夹里。装在客户端侧很有可能会出现bug。</p>
-<h2 id="功能介绍与配置说明"><a href="#功能介绍与配置说明" class="headerlink" title="功能介绍与配置说明"></a>功能介绍与配置说明</h2><p>第一次启动服务器时，模组会在「<code>服务端根目录/config/disabletheend</code>」处生成一个名为<code>disable_the_end.json</code>的配置文件。任何对配置文件做出的修改均可在服务端控制台或最高等级权限管理员使用命令<code>/dte reload</code>来重载。</p>
-<h3 id="禁用末地传送门（默认开启）"><a href="#禁用末地传送门（默认开启）" class="headerlink" title="禁用末地传送门（默认开启）"></a>禁用末地传送门（默认开启）</h3><p>在配置文件中的<code>disable_end_portal</code>键进行配置。true为禁用末地传送门，false为不做变化。</p>
-<p>当此键对应的值为true时，所有玩家无法通过末地传送门进入末路之地维度（返回传送门同理）。</p>
-<h3 id="禁用带名生物死亡日志（默认开启）"><a href="#禁用带名生物死亡日志（默认开启）" class="headerlink" title="禁用带名生物死亡日志（默认开启）"></a>禁用带名生物死亡日志（默认开启）</h3><p>在配置文件中的<code>disable_named_entity_log</code>键进行配置。true为禁用，false为不做变化。</p>
-<p>当此键对应的值为true时，命名过的生物死亡后不会在服务器控制台产生日志。</p>
-<p>一般用于使用纯数据包实现的玩法的服务器。</p>
-<h3 id="禁用服务器玩家匿名（默认关闭）"><a href="#禁用服务器玩家匿名（默认关闭）" class="headerlink" title="禁用服务器玩家匿名（默认关闭）"></a>禁用服务器玩家匿名（默认关闭）</h3><p>在配置文件中的<code>anti_anonymous</code>键进行配置。true为禁用，false为不做变化。</p>
-<p>当此键对应的值为true时，玩家客户端的「允许列入服务器玩家列表」设置会被忽略，即服务器在接受到玩家列表查询请求时，总是显示所有的玩家名（包括上述设置为「关」的玩家）。</p>
-<h3 id="强制玩家出生点（默认关闭）"><a href="#强制玩家出生点（默认关闭）" class="headerlink" title="强制玩家出生点（默认关闭）"></a>强制玩家出生点（默认关闭）</h3><p>有两种配置方法：在配置文件中的<code>force_spawn</code>键进行配置，或在游戏内使用命令配置。此处介绍后一种。</p>
-<p>当<code>force_spawn.enabled</code>键对应的值为true时，玩家每次进入服务器时的位置总是在设定的位置上。</p>
-<p>强制玩家出生点的默认位置是世界原点(0,0,0)，若需开启此功能请修改强制出生点位置。</p>
-<h4 id="命令（需要权限等级2）"><a href="#命令（需要权限等级2）" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/forcespawn enable</code></p>
-<p>启用强制玩家出生点功能。</p>
-<p><code>/forcespawn disable</code></p>
-<p>禁用强制玩家出生点功能。</p>
-<p><code>/forcespawn setpos &lt;location: vec3&gt;</code></p>
-<p>设置强制玩家出生点的位置。此命令不会改变玩家进入服务器时的视角朝向。可以使用相对坐标与局部坐标。</p>
-<p><code>/forcespawn setrotation &lt;rotation: rotation&gt;</code></p>
-<p>设置强制玩家出生点的朝向。可以使用相对朝向。</p>
-<h3 id="记分板记分项复制"><a href="#记分板记分项复制" class="headerlink" title="记分板记分项复制"></a>记分板记分项复制</h3><h4 id="命令（需要权限等级2）-1"><a href="#命令（需要权限等级2）-1" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/scoreboard objectives copy &lt;from&gt; &lt;to&gt; [displayName]</code></p>
-<p>将一个记分项追踪的所有分数复制到一个新的记分项，并为新的记分项指定显示名称。</p>
-<p><code>&lt;from&gt;</code>：要复制分数的记分项名称。</p>
-<p><code>&lt;to&gt;</code>：将要复制到的新记分项的名称，不能与已有的记分项重合。</p>
-<p><code>[displayname]</code>：一个JSON文本，新记分项的显示名称。</p>
-<h3 id="玩家禁言"><a href="#玩家禁言" class="headerlink" title="玩家禁言"></a>玩家禁言</h3><p>本模组可实现不会自动解除永久禁言与可自动解除的临时禁言。禁言后的玩家不能发送聊天消息且无法使用<code>/say</code>与<code>/me</code>命令。</p>
-<p>禁言的玩家列表保存在「<code>服务器根目录/muted-players.json</code>」处。当有一名玩家的禁言时间已到且尝试发送聊天消息或使用上述命令时，系统会自动将该玩家从禁言列表中移除，并允许该玩家的此次操作。</p>
-<h4 id="命令（需要权限等级2）-2"><a href="#命令（需要权限等级2）-2" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/mute &lt;player&gt; [time] [reason]</code></p>
-<p>将玩家以指定的原因禁言指定的时间。原因和时间会在玩家尝试发送聊天消息或使用<code>/say</code>与<code>/me</code>命令时对发送者显示。如果未指定时间则为永久禁言。</p>
-<p><code>/unmute &lt;player&gt;</code></p>
-<p>取消禁言一名玩家。当且仅当该玩家的临时禁言时间未到或被永久禁言时可用。</p>
+    <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
+    <url>/2023/dhpfix/</url>
+    <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
+<p>开始之前请确保你将大憨批的命令树版本调为了1.19.4。</p>
+<h2 id="Step-1-查看你的存储路径"><a href="#Step-1-查看你的存储路径" class="headerlink" title="Step 1.查看你的存储路径"></a>Step 1.查看你的存储路径</h2><p>打开VSCode，点击左下角的「问题」，切换到「输出」选项卡，将滚动条滚动到顶部直到看到globalStoragePath &#x3D; ***。将***复制到剪贴板并在资源管理器打开。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix1.png"
+                     
+                ></p>
+<p>打开后的界面如图所示，如果没有1.19.4文件夹则新建一个，然后进入1.19.4文件夹。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix2.png"
+                     
+                ></p>
+<h2 id="Step-2-下载所需文件"><a href="#Step-2-下载所需文件" class="headerlink" title="Step 2.下载所需文件"></a>Step 2.下载所需文件</h2><p>由于国内无法访问raw.githubusercontent.com，所以此处需要的文件我传到了<a class="link"   href="https://xzzz.lanzoum.com/ipgYt0t7yvjg" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，下载压缩包然后把所有文件解压进1.19.4文件夹。解压完毕后的1.19.4文件夹如图所示：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix3.png"
+                     
+                ></p>
+<p>需要注意的是Nbtdoc.json的原文件有一个错误：展示实体的billboard标签为一个复合标签而不是枚举（而在Minecraft里面是一个拥有四个可取值的枚举）。压缩包内的文件夹已修正了这个错误。</p>
+<h2 id="Step-3-完成！"><a href="#Step-3-完成！" class="headerlink" title="Step 3.完成！"></a>Step 3.完成！</h2><p>打开VSCode，发现1.19.4的特性全部都支持啦，甚至还能支持1.20的新物品（</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix4.png"
+                     
+                ></p>
 ]]></content>
       <tags>
-        <tag>自制模组</tag>
+        <tag>教程</tag>
       </tags>
   </entry>
   <entry>
@@ -519,7 +477,7 @@
 <p>倒计时小于等于75秒时，处在地图中央红区的玩家每秒会获得2点能量值，而不是1点。</p>
 <p>当某种条件满足时，游戏内会定期刷新奖励物资，其位于距离中央红区最远的地方。奖励物资除常见的积分、金粒和生存模式物品外，还有当局的能量值奖励，甚至还有能量值翻倍&#x2F;减半这类可能使得玩家「翻盘」的物品。</p>
 <p>倒计时结束后，将依据能量值从大到小排列名次。</p>
-<h3 id="钻石风暴-DIAMOND"><a href="#钻石风暴-DIAMOND" class="headerlink" title="钻石风暴 - DIAMOND"></a>钻石风暴 - DIAMOND</h3><div class="note default"><p>游戏总限时<strong>300秒</strong>。</p>
+<h3 id="钻石风暴-DIAMOND"><a href="#钻石风暴-DIAMOND" class="headerlink" title="钻石风暴 - DIAMOND"></a>钻石风暴 - DIAMOND</h3><div class="note default"><p>游戏总限时<strong>300秒</strong>，目标是积累尽可能多的能量值，能量值最高的玩家获得胜利。</p>
 </div>
 
 <p>将游戏「钢铁狂潮」的需求物品从铁锭改成了钻石，掉落的物品数量为1&#x2F;2而不是1&#x2F;3，其它不变。</p>
@@ -602,9 +560,68 @@
 <p>物资区有两个特殊生成点。当场上没有奖励物品、奖励物资（末影箱）和持有奖励物资的玩家后，奖励物资有可能在特殊生成点生成。奖励物资在被运回起点后不会为玩家加分或影响倒计时与桥，取而代之的是生成一个随机品质的奖励物品。奖励物资的其他属性与普通物资相同。</p>
 <p>玩家初始有3条生命值，掉入河中会损失一条生命值且会丢失携带的物资。生命值可通过使用金苹果或附魔金苹果增加，也可通过使用不死图腾抵抗最后一条生命的流失。</p>
 <p>当倒计时为零或场上没有存活玩家时，游戏结束。排名依据为玩家成功运输物资的数量。</p>
+<h3 id="子弹时间-BULLET"><a href="#子弹时间-BULLET" class="headerlink" title="子弹时间 - BULLET"></a>子弹时间 - BULLET</h3><div class="note success"><p>本游戏的设计者为<a class="link"   href="https://github.com/JesKi13567" >JK137 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，由小猪之最使用数据包实现。</p>
+</div>
+
+<div class="note info"><p>游戏的目标是积累尽可能多的能量值，能量值最高的玩家获得胜利。</p>
+</div>
+
+<p>玩家会自高塔天花板下方向底部缓慢降落，同时五种生物会不断生成在高塔天花板下方的外围，且降落速度比玩家稍快。玩家可以无限制使用没有任何附魔的弓与箭来击杀其它生物（当然也可以射玩家，不过没有伤害只有击退），但不允许近战。</p>
+<p>各种生物的特性如下所示：</p>
+<ul>
+<li>僵尸：15生命值，击杀后获得4能量值。</li>
+<li>卫道士：25生命值，击杀后获得10能量值。</li>
+<li>女巫：15生命值，击杀后获得6能量值，且下一发射出的箭会变为凋零箭。</li>
+<li>唤魔者：20生命值，击杀后获得8能量值，且击杀者会被传送到原位置的上方一格位置处。</li>
+<li>村民：1生命值，头顶有一个具有4生命值的「苹果」。击杀「苹果」后获得40能量值，同时村民本体消失。击杀村民本体会失去25能量值。玩家的能量值不会小于零。</li>
+</ul>
+<p>当玩家距离高塔墙壁过近时，任何「获得能量值」的操作均会失效。</p>
+<p>玩家降落到高塔底部时会进入旁观模式，所有玩家均进入旁观模式后游戏结束。</p>
 ]]></content>
       <tags>
         <tag>服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Disable the End 模组</title>
+    <url>/2023/disable-the-end/</url>
+    <content><![CDATA[<p>本模组提供了一些在fabric服务器上较为常用的功能，如禁用末地传送门、禁用带名生物死亡日志、禁言玩家等。</p>
+<p>模组名为「Disable the End」，是因为这个模组最初仅仅是为了禁用末地传送门而写的。</p>
+<h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><p>请在<a class="link"   href="https://github.com/TmallKing1/DisableTheEnd/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载最新版本的模组。测试过的Minecraft版本为1.20.1，无法确定是否可以运行在其它版本的Minecraft上。</p>
+<p>模组仅可被装在带有Fabric loader与Fabric API专用服务端（Dedicated Server）的mods文件夹里。装在客户端侧很有可能会出现bug。</p>
+<h2 id="功能介绍与配置说明"><a href="#功能介绍与配置说明" class="headerlink" title="功能介绍与配置说明"></a>功能介绍与配置说明</h2><p>第一次启动服务器时，模组会在「<code>服务端根目录/config/disabletheend</code>」处生成一个名为<code>disable_the_end.json</code>的配置文件。任何对配置文件做出的修改均可在服务端控制台或最高等级权限管理员使用命令<code>/dte reload</code>来重载。</p>
+<h3 id="禁用末地传送门（默认开启）"><a href="#禁用末地传送门（默认开启）" class="headerlink" title="禁用末地传送门（默认开启）"></a>禁用末地传送门（默认开启）</h3><p>在配置文件中的<code>disable_end_portal</code>键进行配置。true为禁用末地传送门，false为不做变化。</p>
+<p>当此键对应的值为true时，所有玩家无法通过末地传送门进入末路之地维度（返回传送门同理）。</p>
+<h3 id="禁用带名生物死亡日志（默认开启）"><a href="#禁用带名生物死亡日志（默认开启）" class="headerlink" title="禁用带名生物死亡日志（默认开启）"></a>禁用带名生物死亡日志（默认开启）</h3><p>在配置文件中的<code>disable_named_entity_log</code>键进行配置。true为禁用，false为不做变化。</p>
+<p>当此键对应的值为true时，命名过的生物死亡后不会在服务器控制台产生日志。</p>
+<p>一般用于使用纯数据包实现的玩法的服务器。</p>
+<h3 id="禁用服务器玩家匿名（默认关闭）"><a href="#禁用服务器玩家匿名（默认关闭）" class="headerlink" title="禁用服务器玩家匿名（默认关闭）"></a>禁用服务器玩家匿名（默认关闭）</h3><p>在配置文件中的<code>anti_anonymous</code>键进行配置。true为禁用，false为不做变化。</p>
+<p>当此键对应的值为true时，玩家客户端的「允许列入服务器玩家列表」设置会被忽略，即服务器在接受到玩家列表查询请求时，总是显示所有的玩家名（包括上述设置为「关」的玩家）。</p>
+<h3 id="强制玩家出生点（默认关闭）"><a href="#强制玩家出生点（默认关闭）" class="headerlink" title="强制玩家出生点（默认关闭）"></a>强制玩家出生点（默认关闭）</h3><p>有两种配置方法：在配置文件中的<code>force_spawn</code>键进行配置，或在游戏内使用命令配置。此处介绍后一种。</p>
+<p>当<code>force_spawn.enabled</code>键对应的值为true时，玩家每次进入服务器时的位置总是在设定的位置上。</p>
+<p>强制玩家出生点的默认位置是世界原点(0,0,0)，若需开启此功能请修改强制出生点位置。</p>
+<h4 id="命令（需要权限等级2）"><a href="#命令（需要权限等级2）" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/forcespawn enable</code></p>
+<p>启用强制玩家出生点功能。</p>
+<p><code>/forcespawn disable</code></p>
+<p>禁用强制玩家出生点功能。</p>
+<p><code>/forcespawn setpos &lt;location: vec3&gt;</code></p>
+<p>设置强制玩家出生点的位置。此命令不会改变玩家进入服务器时的视角朝向。可以使用相对坐标与局部坐标。</p>
+<p><code>/forcespawn setrotation &lt;rotation: rotation&gt;</code></p>
+<p>设置强制玩家出生点的朝向。可以使用相对朝向。</p>
+<h3 id="记分板记分项复制"><a href="#记分板记分项复制" class="headerlink" title="记分板记分项复制"></a>记分板记分项复制</h3><h4 id="命令（需要权限等级2）-1"><a href="#命令（需要权限等级2）-1" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/scoreboard objectives copy &lt;from&gt; &lt;to&gt; [displayName]</code></p>
+<p>将一个记分项追踪的所有分数复制到一个新的记分项，并为新的记分项指定显示名称。</p>
+<p><code>&lt;from&gt;</code>：要复制分数的记分项名称。</p>
+<p><code>&lt;to&gt;</code>：将要复制到的新记分项的名称，不能与已有的记分项重合。</p>
+<p><code>[displayname]</code>：一个JSON文本，新记分项的显示名称。</p>
+<h3 id="玩家禁言"><a href="#玩家禁言" class="headerlink" title="玩家禁言"></a>玩家禁言</h3><p>本模组可实现不会自动解除永久禁言与可自动解除的临时禁言。禁言后的玩家不能发送聊天消息且无法使用<code>/say</code>与<code>/me</code>命令。</p>
+<p>禁言的玩家列表保存在「<code>服务器根目录/muted-players.json</code>」处。当有一名玩家的禁言时间已到且尝试发送聊天消息或使用上述命令时，系统会自动将该玩家从禁言列表中移除，并允许该玩家的此次操作。</p>
+<h4 id="命令（需要权限等级2）-2"><a href="#命令（需要权限等级2）-2" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/mute &lt;player&gt; [time] [reason]</code></p>
+<p>将玩家以指定的原因禁言指定的时间。原因和时间会在玩家尝试发送聊天消息或使用<code>/say</code>与<code>/me</code>命令时对发送者显示。如果未指定时间则为永久禁言。</p>
+<p><code>/unmute &lt;player&gt;</code></p>
+<p>取消禁言一名玩家。当且仅当该玩家的临时禁言时间未到或被永久禁言时可用。</p>
+]]></content>
+      <tags>
+        <tag>自制模组</tag>
       </tags>
   </entry>
 </search>
