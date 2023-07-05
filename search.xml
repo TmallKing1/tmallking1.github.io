@@ -1,84 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Clickable Items 模组</title>
-    <url>/2023/clickable-items/</url>
-    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
-<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
-<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
-<p>执行命令的权限等级始终为2。</p>
-<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
-<p>列表中的命令会按照索引从低到高的顺序执行。</p>
-<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
-<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
-<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
-<p>耐久度的减少会受到耐久附魔的减免影响。</p>
-<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
-<p>对于可堆叠的物品，在使用后只会消失一个。</p>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>自制模组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
-    <url>/2023/dhpfix/</url>
-    <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
-<p>开始之前请确保你将大憨批的命令树版本调为了1.19.4。</p>
-<h2 id="Step-1-查看你的存储路径"><a href="#Step-1-查看你的存储路径" class="headerlink" title="Step 1.查看你的存储路径"></a>Step 1.查看你的存储路径</h2><p>打开VSCode，点击左下角的「问题」，切换到「输出」选项卡，将滚动条滚动到顶部直到看到globalStoragePath &#x3D; ***。将***复制到剪贴板并在资源管理器打开。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix1.png"
-                     
-                ></p>
-<p>打开后的界面如图所示，如果没有1.19.4文件夹则新建一个，然后进入1.19.4文件夹。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix2.png"
-                     
-                ></p>
-<h2 id="Step-2-下载所需文件"><a href="#Step-2-下载所需文件" class="headerlink" title="Step 2.下载所需文件"></a>Step 2.下载所需文件</h2><p>由于国内无法访问raw.githubusercontent.com，所以此处需要的文件我传到了<a class="link"   href="https://xzzz.lanzoum.com/ipgYt0t7yvjg" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，下载压缩包然后把所有文件解压进1.19.4文件夹。解压完毕后的1.19.4文件夹如图所示：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix3.png"
-                     
-                ></p>
-<p>需要注意的是Nbtdoc.json的原文件有一个错误：展示实体的billboard标签为一个复合标签而不是枚举（而在Minecraft里面是一个拥有四个可取值的枚举）。压缩包内的文件夹已修正了这个错误。</p>
-<h2 id="Step-3-完成！"><a href="#Step-3-完成！" class="headerlink" title="Step 3.完成！"></a>Step 3.完成！</h2><p>打开VSCode，发现1.19.4的特性全部都支持啦，甚至还能支持1.20的新物品（</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix4.png"
-                     
-                ></p>
-]]></content>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Disable the End 模组</title>
     <url>/2023/disable-the-end/</url>
     <content><![CDATA[<p>本模组提供了一些在fabric服务器上较为常用的功能，如禁用末地传送门、禁用带名生物死亡日志、禁言玩家等。</p>
@@ -121,17 +43,39 @@
       </tags>
   </entry>
   <entry>
-    <title>Scoreboard Helper 模组</title>
-    <url>/2023/scoreboard-helper/</url>
-    <content><![CDATA[<p>Scoreboard Helper是一个提供Minecraft记分板的额外功能的客户端侧模组。</p>
-<p>你可以在<a class="link"   href="https://modrinth.com/mod/scoreboard-helper" >Modrinth <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载该模组。在<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/issues" >Github Issues <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>反馈漏洞与建议。</p>
-<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><h3 id="记分板侧边栏翻页"><a href="#记分板侧边栏翻页" class="headerlink" title="记分板侧边栏翻页"></a>记分板侧边栏翻页</h3><p>通过记分板翻页功能，你可以查看当前服务器提供的记分板侧边栏中显示的记分项正在追踪的所有玩家的分数。</p>
-<p>默认的向下翻页快捷键为下方向键，向上翻页快捷键为上方向键。</p>
-<h3 id="显示-x2F-隐藏记分板侧边栏"><a href="#显示-x2F-隐藏记分板侧边栏" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏"></a>显示&#x2F;隐藏记分板侧边栏</h3><p>当你认为记分板侧边栏遮挡了屏幕区域时，可以按下快捷键（默认为右方向键）来隐藏记分板侧边栏。</p>
-<p>当你再次需要显示侧边栏时，再按一次该快捷键即可。</p>
-<h3 id="设置记分板侧边栏最大显示数量"><a href="#设置记分板侧边栏最大显示数量" class="headerlink" title="设置记分板侧边栏最大显示数量"></a>设置记分板侧边栏最大显示数量</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
-<p>将记分板侧边栏的最大显示数量设置为count，命令返回值为count的值。</p>
-<p>当count为负数时会报错。</p>
+    <title>Clickable Items 模组</title>
+    <url>/2023/clickable-items/</url>
+    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
+<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
+<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
+<p>执行命令的权限等级始终为2。</p>
+<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
+<p>列表中的命令会按照索引从低到高的顺序执行。</p>
+<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
+<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
+<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
+<p>耐久度的减少会受到耐久附魔的减免影响。</p>
+<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
+<p>对于可堆叠的物品，在使用后只会消失一个。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
       <tags>
         <tag>自制模组</tag>
@@ -457,6 +401,65 @@
 ]]></content>
       <tags>
         <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
+    <url>/2023/dhpfix/</url>
+    <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
+<p>开始之前请确保你将大憨批的命令树版本调为了1.19.4。</p>
+<h2 id="Step-1-查看你的存储路径"><a href="#Step-1-查看你的存储路径" class="headerlink" title="Step 1.查看你的存储路径"></a>Step 1.查看你的存储路径</h2><p>打开VSCode，点击左下角的「问题」，切换到「输出」选项卡，将滚动条滚动到顶部直到看到globalStoragePath &#x3D; ***。将***复制到剪贴板并在资源管理器打开。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix1.png"
+                     
+                ></p>
+<p>打开后的界面如图所示，如果没有1.19.4文件夹则新建一个，然后进入1.19.4文件夹。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix2.png"
+                     
+                ></p>
+<h2 id="Step-2-下载所需文件"><a href="#Step-2-下载所需文件" class="headerlink" title="Step 2.下载所需文件"></a>Step 2.下载所需文件</h2><p>由于国内无法访问raw.githubusercontent.com，所以此处需要的文件我传到了<a class="link"   href="https://xzzz.lanzoum.com/ipgYt0t7yvjg" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，下载压缩包然后把所有文件解压进1.19.4文件夹。解压完毕后的1.19.4文件夹如图所示：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix3.png"
+                     
+                ></p>
+<p>需要注意的是Nbtdoc.json的原文件有一个错误：展示实体的billboard标签为一个复合标签而不是枚举（而在Minecraft里面是一个拥有四个可取值的枚举）。压缩包内的文件夹已修正了这个错误。</p>
+<h2 id="Step-3-完成！"><a href="#Step-3-完成！" class="headerlink" title="Step 3.完成！"></a>Step 3.完成！</h2><p>打开VSCode，发现1.19.4的特性全部都支持啦，甚至还能支持1.20的新物品（</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix4.png"
+                     
+                ></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Scoreboard Helper 模组</title>
+    <url>/2023/scoreboard-helper/</url>
+    <content><![CDATA[<p>Scoreboard Helper是一个提供Minecraft记分板的额外功能的客户端侧模组。</p>
+<p>你可以在<a class="link"   href="https://modrinth.com/mod/scoreboard-helper" >Modrinth <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载该模组。在<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/issues" >Github Issues <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>反馈漏洞与建议。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>你可以通过<a class="link"   href="https://modrinth.com/mod/modmenu" >模组菜单 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或者手动绑定一个快捷键来打开配置屏幕。</p>
+<p>配置文件保存在<code>.minecraft/versions/*你的版本名称*/config/scoreboard-helper.json</code>。</p>
+<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><h3 id="记分板侧边栏翻页"><a href="#记分板侧边栏翻页" class="headerlink" title="记分板侧边栏翻页"></a>记分板侧边栏翻页</h3><p>通过记分板翻页功能，你可以查看当前服务器提供的记分板侧边栏中显示的记分项正在追踪的所有玩家的分数。</p>
+<p>默认的向下翻页快捷键为下方向键，向上翻页快捷键为上方向键。</p>
+<h3 id="显示-x2F-隐藏记分板侧边栏"><a href="#显示-x2F-隐藏记分板侧边栏" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏"></a>显示&#x2F;隐藏记分板侧边栏</h3><p>当你认为记分板侧边栏遮挡了屏幕区域时，可以通过更改配置或按下快捷键（默认<em>未指定</em>）来隐藏记分板侧边栏。</p>
+<p>当你再次需要显示侧边栏时，再按一次该快捷键即可。</p>
+<h3 id="显示-x2F-隐藏记分板侧边栏玩家分数"><a href="#显示-x2F-隐藏记分板侧边栏玩家分数" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏玩家分数"></a>显示&#x2F;隐藏记分板侧边栏玩家分数</h3><p>有些服务器会将记分板侧边栏作为当前信息显示区，此时记分板玩家分数（红色数字）一般是多余的，不需要显示出来。你可通过更改配置来隐藏玩家分数。</p>
+<h3 id="设置记分板侧边栏最大显示数量"><a href="#设置记分板侧边栏最大显示数量" class="headerlink" title="设置记分板侧边栏最大显示数量"></a>设置记分板侧边栏最大显示数量</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
+<p>将记分板侧边栏的最大显示数量设置为<em>count</em>，命令返回值为<em>count</em>的值。</p>
+<p>当<em>count</em>为负数时会报错。</p>
+]]></content>
+      <tags>
+        <tag>自制模组</tag>
       </tags>
   </entry>
   <entry>
