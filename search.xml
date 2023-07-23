@@ -443,6 +443,37 @@
       </tags>
   </entry>
   <entry>
+    <title>Scoreboard Helper 模组</title>
+    <url>/2023/scoreboard-helper/</url>
+    <content><![CDATA[<p>Scoreboard Helper是一个提供Minecraft记分板的额外功能的客户端侧模组。</p>
+<p>你可以在<a class="link"   href="https://modrinth.com/mod/scoreboard-helper" >Modrinth <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载该模组。在<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/issues" >Github Issues <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>反馈漏洞与建议。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>你可以通过<a class="link"   href="https://modrinth.com/mod/modmenu" >模组菜单 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或者手动绑定一个快捷键来打开配置屏幕。</p>
+<p>配置文件保存在<code>.minecraft/versions/*你的版本名称*/config/scoreboard-helper.json</code>。</p>
+<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><h3 id="记分板侧边栏翻页"><a href="#记分板侧边栏翻页" class="headerlink" title="记分板侧边栏翻页"></a>记分板侧边栏翻页</h3><p>通过记分板翻页功能，你可以查看当前服务器提供的记分板侧边栏中显示的记分项正在追踪的所有玩家的分数。</p>
+<p>默认的向下翻页快捷键为下方向键，向上翻页快捷键为上方向键。</p>
+<h3 id="显示-x2F-隐藏记分板侧边栏"><a href="#显示-x2F-隐藏记分板侧边栏" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏"></a>显示&#x2F;隐藏记分板侧边栏</h3><p>当你认为记分板侧边栏遮挡了屏幕区域时，可以通过更改配置或按下快捷键（默认<em>未指定</em>）来隐藏记分板侧边栏。</p>
+<p>当你再次需要显示侧边栏时，再按一次该快捷键即可。</p>
+<h3 id="显示-x2F-隐藏记分板侧边栏玩家分数"><a href="#显示-x2F-隐藏记分板侧边栏玩家分数" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏玩家分数"></a>显示&#x2F;隐藏记分板侧边栏玩家分数</h3><p>有些服务器会将记分板侧边栏作为当前信息显示区，此时记分板玩家分数（红色数字）一般是多余的，不需要显示出来。你可通过更改配置来隐藏玩家分数。</p>
+<h3 id="设置记分板显示位置"><a href="#设置记分板显示位置" class="headerlink" title="设置记分板显示位置"></a>设置记分板显示位置</h3><p>本模组支持六个记分板的预设位置：右（默认）、右上角、右下角、左、左上角、左下角。除此之外，你也可以设置记分板的Y轴偏移来避免遮挡其它HUD组件或被其它HUD组件遮挡（如状态效果栏）</p>
+<h3 id="设置记分板侧边栏最大显示数量"><a href="#设置记分板侧边栏最大显示数量" class="headerlink" title="设置记分板侧边栏最大显示数量"></a>设置记分板侧边栏最大显示数量</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
+<p>将记分板侧边栏的最大显示数量设置为<em>count</em>，命令返回值为<em>count</em>的值。</p>
+<p>当<em>count</em>为负数时会报错。</p>
+<h3 id="设置记分板侧边栏不透明度"><a href="#设置记分板侧边栏不透明度" class="headerlink" title="设置记分板侧边栏不透明度"></a>设置记分板侧边栏不透明度</h3><p>本模组支持分别设置侧边栏标题及分数列表部分的背景和文字不透明度。只需在配置屏幕中设置即可。</p>
+<h3 id="默认使用队内聊天"><a href="#默认使用队内聊天" class="headerlink" title="默认使用队内聊天"></a>默认使用队内聊天</h3><p><em>队伍也是记分板的一部分。旧版本有&#x2F;scoreboard teams，直到现在Mojang还是把Team类放在net.minecraft.scoreboard包里面的。</em></p>
+<p><em>所以往这模组里做个跟队伍有关的东西应该不过分吧。</em></p>
+<p>打开该选项后，客户端在发送聊天消息时会自动调用<code>teammsg</code>命令发送队内聊天消息而非普通聊天消息。如果打开了此选项，且发送的聊天消息以井号’#’开头，则客户端在发送消息前会去掉开头的井号，然后发送普通聊天消息。</p>
+<p>以斜杠’&#x2F;‘开头的命令不受此选项影响。</p>
+<h3 id="导出记分板数据"><a href="#导出记分板数据" class="headerlink" title="导出记分板数据"></a>导出记分板数据</h3><p>使用快捷键（默认*反斜线’\‘*）来打开导出屏幕。点击「记录当前记分板」即可将当前侧边栏显示的记分项的<strong>所有数据</strong>保存在内存中，你可以通过更改当前显示的记分项然后再次点击「记录当前记分板」来记录多个记分项。点击「导出已记录的记分板」会将记录的所有数据导出为一个csv文件：<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/EXPORT-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.csv</code>。本文件按照玩家名字典序排序。</p>
+<div class="note warning"><p>若记录数据后服务器修改了对应记分项的数据，则在你进行重新记录之前，模组不会同步地对记录的数据进行修改。</p>
+</div>
+
+<p>你也可以点击「直接保存当前记分板」来保存当前侧边栏显示的记分项的所有数据到<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/记分项名称.csv</code>。<br><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
+]]></content>
+      <tags>
+        <tag>自制模组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>游艺街 小猪之最改版服</title>
     <url>/2023/server/</url>
     <content><![CDATA[<h2 id="服务器概要"><a href="#服务器概要" class="headerlink" title="服务器概要"></a>服务器概要</h2><p>IP：加群查看。</p>
@@ -459,7 +490,7 @@
 <h2 id="改版服新机制介绍"><a href="#改版服新机制介绍" class="headerlink" title="改版服新机制介绍"></a>改版服新机制介绍</h2><h3 id="轮数调整"><a href="#轮数调整" class="headerlink" title="轮数调整"></a>轮数调整</h3><p>为了让玩家体验到更多的改版游戏内容，游戏轮数由原版的5轮调整为了6轮。第5、6轮生成的奖励物品均只有积分类（山丘之王小游戏除外）。</p>
 <h3 id="游戏模式"><a href="#游戏模式" class="headerlink" title="游戏模式"></a>游戏模式</h3><p>《LTWπ》目前有三种游戏模式：改版模式、经典模式与双倍奖励模式。</p>
 <p><strong>改版模式</strong>为《LTWπ》的默认游戏模式。</p>
-<p><strong>经典模式</strong>与改版模式相比，不包含双倍奖励和地脉异常机制。推荐服务器加入新人时开启此模式来让新人熟悉服务器以及各游戏的基础机制。</p>
+<p><strong>经典模式</strong>与改版模式相比，不包含双倍奖励、终轮投票和地脉异常机制。推荐服务器加入新人时开启此模式来让新人熟悉服务器以及各游戏的基础机制。</p>
 <p>改版模式与经典模式可通过主大厅中的按钮来切换。</p>
 <p><strong>双倍奖励模式</strong>基于改版模式，需要玩家花费2个金块开启且开启后不能通过按钮切换或关闭。开启后下一局所有轮均为双倍奖励轮，且玩家无法在下一局获得「积分猎手」系列进度。</p>
 <div class="note info"><p>当一局游戏结束或服务器重载时，游戏模式会自动切换为改版模式。</p>
@@ -468,6 +499,10 @@
 <h3 id="双倍奖励"><a href="#双倍奖励" class="headerlink" title="双倍奖励"></a>双倍奖励</h3><p>在《LTWπ》的「改版模式」中，每轮有概率为双倍奖励轮。双倍奖励轮中<strong>周期生成</strong>的奖励物资数量会翻倍，且在游戏结束后所有玩家均可以领取两次奖励。</p>
 <p>前五轮游戏中每轮有25%的固定概率为双倍奖励轮，最后一轮有75%的固定概率为双倍奖励轮。</p>
 <div class="note success"><p>若有玩家使用2个金块开启了双倍奖励模式，则下局游戏中每轮必定为双倍奖励轮。</p>
+</div>
+
+<h3 id="终轮投票"><a href="#终轮投票" class="headerlink" title="终轮投票"></a>终轮投票</h3><p>在《LTWπ》的「改版模式」中，第5轮领取奖励后会进入30秒的投票环节。玩家可以通过物品栏最后一格的书，从已完成制作的四个最终轮小游戏中选择一个，来对下一轮将要进行的小游戏进行投票。每个游戏初始的权重为1，每有一名玩家选择一个游戏，这个游戏的权重加3。所有玩家投票完成或30秒倒计时结束后，开始随机抽取游戏，作为最终轮中所有玩家将要游玩的游戏。每个游戏被抽到的概率为<code>该游戏的权重/所有游戏的总权重</code>。玩家在30秒内没有完成投票视为弃权，不会对各个游戏的权重产生任何影响。</p>
+<div class="note info"><p>当游戏处于「经典模式」时，第5轮领取奖励后不会进入投票环节。系统会在已完成制作的四个最终轮小游戏中等概率地随机选择一个作为最终轮中所有玩家将要游玩的游戏。</p>
 </div>
 
 <h3 id="地脉异常"><a href="#地脉异常" class="headerlink" title="地脉异常"></a>地脉异常</h3><blockquote>
@@ -622,37 +657,6 @@
 ]]></content>
       <tags>
         <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Scoreboard Helper 模组</title>
-    <url>/2023/scoreboard-helper/</url>
-    <content><![CDATA[<p>Scoreboard Helper是一个提供Minecraft记分板的额外功能的客户端侧模组。</p>
-<p>你可以在<a class="link"   href="https://modrinth.com/mod/scoreboard-helper" >Modrinth <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载该模组。在<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/issues" >Github Issues <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>反馈漏洞与建议。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>你可以通过<a class="link"   href="https://modrinth.com/mod/modmenu" >模组菜单 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或者手动绑定一个快捷键来打开配置屏幕。</p>
-<p>配置文件保存在<code>.minecraft/versions/*你的版本名称*/config/scoreboard-helper.json</code>。</p>
-<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><h3 id="记分板侧边栏翻页"><a href="#记分板侧边栏翻页" class="headerlink" title="记分板侧边栏翻页"></a>记分板侧边栏翻页</h3><p>通过记分板翻页功能，你可以查看当前服务器提供的记分板侧边栏中显示的记分项正在追踪的所有玩家的分数。</p>
-<p>默认的向下翻页快捷键为下方向键，向上翻页快捷键为上方向键。</p>
-<h3 id="显示-x2F-隐藏记分板侧边栏"><a href="#显示-x2F-隐藏记分板侧边栏" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏"></a>显示&#x2F;隐藏记分板侧边栏</h3><p>当你认为记分板侧边栏遮挡了屏幕区域时，可以通过更改配置或按下快捷键（默认<em>未指定</em>）来隐藏记分板侧边栏。</p>
-<p>当你再次需要显示侧边栏时，再按一次该快捷键即可。</p>
-<h3 id="显示-x2F-隐藏记分板侧边栏玩家分数"><a href="#显示-x2F-隐藏记分板侧边栏玩家分数" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏玩家分数"></a>显示&#x2F;隐藏记分板侧边栏玩家分数</h3><p>有些服务器会将记分板侧边栏作为当前信息显示区，此时记分板玩家分数（红色数字）一般是多余的，不需要显示出来。你可通过更改配置来隐藏玩家分数。</p>
-<h3 id="设置记分板显示位置"><a href="#设置记分板显示位置" class="headerlink" title="设置记分板显示位置"></a>设置记分板显示位置</h3><p>本模组支持六个记分板的预设位置：右（默认）、右上角、右下角、左、左上角、左下角。除此之外，你也可以设置记分板的Y轴偏移来避免遮挡其它HUD组件或被其它HUD组件遮挡（如状态效果栏）</p>
-<h3 id="设置记分板侧边栏最大显示数量"><a href="#设置记分板侧边栏最大显示数量" class="headerlink" title="设置记分板侧边栏最大显示数量"></a>设置记分板侧边栏最大显示数量</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
-<p>将记分板侧边栏的最大显示数量设置为<em>count</em>，命令返回值为<em>count</em>的值。</p>
-<p>当<em>count</em>为负数时会报错。</p>
-<h3 id="设置记分板侧边栏不透明度"><a href="#设置记分板侧边栏不透明度" class="headerlink" title="设置记分板侧边栏不透明度"></a>设置记分板侧边栏不透明度</h3><p>本模组支持分别设置侧边栏标题及分数列表部分的背景和文字不透明度。只需在配置屏幕中设置即可。</p>
-<h3 id="默认使用队内聊天"><a href="#默认使用队内聊天" class="headerlink" title="默认使用队内聊天"></a>默认使用队内聊天</h3><p><em>队伍也是记分板的一部分。旧版本有&#x2F;scoreboard teams，直到现在Mojang还是把Team类放在net.minecraft.scoreboard包里面的。</em></p>
-<p><em>所以往这模组里做个跟队伍有关的东西应该不过分吧。</em></p>
-<p>打开该选项后，客户端在发送聊天消息时会自动调用<code>teammsg</code>命令发送队内聊天消息而非普通聊天消息。如果打开了此选项，且发送的聊天消息以井号’#’开头，则客户端在发送消息前会去掉开头的井号，然后发送普通聊天消息。</p>
-<p>以斜杠’&#x2F;‘开头的命令不受此选项影响。</p>
-<h3 id="导出记分板数据"><a href="#导出记分板数据" class="headerlink" title="导出记分板数据"></a>导出记分板数据</h3><p>使用快捷键（默认*反斜线’\‘*）来打开导出屏幕。点击「记录当前记分板」即可将当前侧边栏显示的记分项的<strong>所有数据</strong>保存在内存中，你可以通过更改当前显示的记分项然后再次点击「记录当前记分板」来记录多个记分项。点击「导出已记录的记分板」会将记录的所有数据导出为一个csv文件：<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/EXPORT-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.csv</code>。本文件按照玩家名字典序排序。</p>
-<div class="note warning"><p>若记录数据后服务器修改了对应记分项的数据，则在你进行重新记录之前，模组不会同步地对记录的数据进行修改。</p>
-</div>
-
-<p>你也可以点击「直接保存当前记分板」来保存当前侧边栏显示的记分项的所有数据到<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/记分项名称.csv</code>。<br><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
-]]></content>
-      <tags>
-        <tag>自制模组</tag>
       </tags>
   </entry>
 </search>
