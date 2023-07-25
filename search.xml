@@ -554,7 +554,7 @@
 <p>倒计时小于等于75秒时，处在地图中央红区的玩家每秒会获得2点能量值，而不是1点。</p>
 <p>当某种条件满足时，游戏内会定期刷新奖励物资，其位于距离中央红区最远的地方。奖励物资除常见的积分、金粒和生存模式物品外，还有当局的能量值奖励，甚至还有能量值翻倍&#x2F;减半这类可能使得玩家「翻盘」的物品。</p>
 <p>倒计时结束后，将依据能量值从大到小排列名次。</p>
-<h3 id="钻石风暴-DIAMOND"><a href="#钻石风暴-DIAMOND" class="headerlink" title="钻石风暴 - DIAMOND"></a>钻石风暴 - DIAMOND</h3><div class="note default"><p>游戏总限时<strong>300秒</strong>，目标是积累尽可能多的能量值，能量值最高的玩家获得胜利。</p>
+<h3 id="钻石风暴-DIAMOND"><a href="#钻石风暴-DIAMOND" class="headerlink" title="钻石风暴 - DIAMOND"></a>钻石风暴 - DIAMOND</h3><div class="note default"><p>游戏总限时<strong>300秒</strong>。</p>
 </div>
 
 <p>将游戏「钢铁狂潮」的需求物品从铁锭改成了钻石，掉落的物品数量为1&#x2F;2而不是1&#x2F;3，其它不变。</p>
@@ -654,6 +654,21 @@
 </ul>
 <p>当玩家距离高塔墙壁过近时，任何「获得能量值」的操作均会失效。</p>
 <p>玩家降落到高塔底部时会进入旁观模式，所有玩家均进入旁观模式后游戏结束。</p>
+<h3 id="三点一线-BINGO"><a href="#三点一线-BINGO" class="headerlink" title="三点一线 - BINGO"></a>三点一线 - BINGO</h3><div class="note success"><p>本游戏的提出者为<a class="link"   href="https://space.bilibili.com/395859132" >passerby_yin <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>，由小猪之最使用数据包实现。</p>
+</div>
+
+<div class="note default"><p>游戏总限时<strong>300秒</strong>。</p>
+</div>
+
+<p>游戏场地为原版钢铁狂潮地图，但在钻石层新增加了红石矿石的生成。初始会随机从36个收集物品中抽取9个作为任务。玩家可以通过手持快捷栏最后一格的蜜脾生成自己的矿车来查看任务。任务以九宫格的方式排列，如图。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/ltwpi/ltwpi3.png"
+                     
+                ></p>
+<p>玩家的目标是在最短的时间内完成九宫格中任一横线或竖线上的三个任务。例如上图中玩家成功合成<strong>漏斗矿车、营火、发射器</strong>或者<strong>淡灰色染色玻璃、发射器、指南针</strong>均视为「完成目标」。前三名完成目标的玩家会进入排行榜。当有三名玩家完成目标后游戏结束。若300秒时间到后仍没有三名玩家完成目标，则剩下的玩家会根据完成的总任务数量从多到少排在完成目标的玩家之后。</p>
+<p>当游戏剩余时间120秒时，会有发光的空投箱（木桶）从空中坠落，落地后不再发光。空投箱内的物品类型与地牢箱子内的相同，但生成数量比地牢箱子略多。</p>
 ]]></content>
       <tags>
         <tag>服务器</tag>
