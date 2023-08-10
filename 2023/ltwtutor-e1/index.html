@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://www.pigest.top/img/ltwtutor/ltwtutor8.png">
 <meta property="og:image" content="https://www.pigest.top/img/ltwtutor/ltwtutor9.png">
 <meta property="article:published_time" content="2023-04-10T15:39:26.000Z">
-<meta property="article:modified_time" content="2023-04-20T16:00:31.203Z">
+<meta property="article:modified_time" content="2023-08-10T04:28:31.847Z">
 <meta property="article:author" content="小猪之最">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
@@ -342,8 +342,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-04-21 00:31</span>
-            <span class="mobile">2023-04-21 00</span>
+            <span class="desktop">2023-08-10 12:28:31</span>
+            <span class="mobile">2023-08-10 12:28</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -390,7 +390,7 @@
 <p>游艺街也出来一段时间了，但是改版里面目前貌似只有我这个版本还在维护……刚好新的最终轮游戏也做出来了，就先写篇教程解析一下龙猫他们写的数据包吧。本教程以《LTW派》的山丘之王游戏为例讲解。</p>
 <p>注意本教程并不负责MC命令和数据包基础知识。</p>
 <p>本教程的修改版数据包存放在<a class="link"   target="_blank" rel="noopener" href="https://github.com/TmallKing1/LTW3-RemakeTutorial" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，包含了我制作的山丘之王小游戏的场景结构。你可以直接将《游艺街》的原版数据包替换为修改后的数据包然后删除原有的山丘之王结构来体验一下这个新的小游戏。<del>白嫖党狂喜</del></p>
-<h2 id="官方的小游戏策划建议"><a href="#官方的小游戏策划建议" class="headerlink" title="官方的小游戏策划建议"></a>官方的小游戏策划建议</h2><p>以下内容来自函数文件<code>data/ltw/functions/main/player_enter.mcfunction</code>内的注释，我将其进行了一定的排版处理。</p>
+<h2 id="官方的小游戏策划建议"><a href="#官方的小游戏策划建议" class="headerlink" title="官方的小游戏策划建议"></a>官方的小游戏策划建议</h2><p>以下内容来自函数文件<code>ltw/functions/main/player_enter.mcfunction</code>内的注释，我将其进行了一定的排版处理。</p>
 <blockquote>
 <p>小游戏最佳实践</p>
 <ul>
@@ -549,30 +549,30 @@
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 初始化</span><br><span class="line">function mini:tntrun/init</span><br><span class="line">function mini:hotpm/init</span><br><span class="line">function mini:phantom/init</span><br><span class="line">## 山丘之王的初始化方法</span><br><span class="line">function mini:koth/init</span><br><span class="line"></span><br><span class="line">function mini:iron/init</span><br><span class="line">function mini:ass/init</span><br><span class="line">function mini:trade/init</span><br></pre></td></tr></table></figure></div>
 
 <p>接下来是伤害管理：</p>
-<p><code>data/mini/functions/main/game_init.mcfunction</code>：</p>
+<p><code>data/mini/functions/koth/game_init.mcfunction</code>：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 伤害管理</span><br><span class="line">## 官方的函数中总有这一条，原本是用来控制消除金苹果/附魔金苹果/不死图腾产生的伤害吸收效果的，但是这个值设为0或1都会清除效果，所以设置这个值似乎并没有什么意义</span><br><span class="line">scoreboard players set $remove_resistance mem 0</span><br><span class="line">## 是否能够对玩家造成伤害与击退</span><br><span class="line">team modify playing friendlyFire true</span><br><span class="line">## 玩家碰撞设定</span><br><span class="line">team modify playing collisionRule always</span><br><span class="line">## 是否显示玩家的死亡信息</span><br><span class="line">team modify playing deathMessageVisibility never</span><br><span class="line">## 火焰伤害是否启用</span><br><span class="line">gamerule fireDamage false</span><br><span class="line">## 摔落伤害是否启用</span><br><span class="line">gamerule fallDamage false</span><br><span class="line">## 溺水伤害是否启用</span><br><span class="line">gamerule drowningDamage false</span><br><span class="line">## 自然生命恢复是否启用</span><br><span class="line">gamerule naturalRegeneration true</span><br></pre></td></tr></table></figure></div>
 
 <p>接下来是剩余的初始化操作，一般是<strong>清理&#x2F;生成实体</strong>和<strong>对地图进行一定的初始化</strong>，放在上述初始化之后0.75秒进行。在山丘之王小游戏中只需要清理实体即可。</p>
-<p><code>data/mini/functions/main/game_init.mcfunction</code>：</p>
+<p><code>data/mini/functions/koth/game_init.mcfunction</code>：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schedule function mini:koth/game_init2 15t replace</span><br></pre></td></tr></table></figure></div>
 
-<p><code>data/mini/functions/main/game_init2.mcfunction</code>：</p>
+<p><code>data/mini/functions/koth/game_init2.mcfunction</code>：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 清理残余实体</span><br><span class="line">## 如果你的游戏中没有出现箭、物品、苦力怕和三叉戟以外的物品，直接调用mini:main中的清理实体方法即可</span><br><span class="line">function mini:main/kill_entity</span><br></pre></td></tr></table></figure></div>
 
 <p>然后是对你的小游戏进行介绍，可以仿照官方写的介绍进行编写。「免疫击退效果在本轮无效」是无奈之举，一般的游戏需要尽量避免这种情况发生。</p>
-<p><code>data/mini/functions/main/player_intro.mcfunction</code>：</p>
+<p><code>data/mini/functions/koth/player_intro.mcfunction</code>：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 向单个玩家展示小游戏介绍</span><br><span class="line">## 给予夜视效果</span><br><span class="line">effect give @s night_vision 1000000 0 true</span><br><span class="line">## 传送玩家到游戏场景</span><br><span class="line">tp @s[team=!debugging] 1001.0 14 9001.0 -45 90</span><br><span class="line">## 向玩家展示介绍</span><br><span class="line">tellraw @s [&quot;&quot;,&#123;&quot;text&quot;:&quot;\n &gt;&gt; 山丘之王 &gt;&gt;\n\n&quot;,&quot;color&quot;:&quot;gold&quot;,&quot;bold&quot;:true&#125;,&quot; 保持在红色区域即可 &quot;,&#123;&quot;text&quot;:&quot;获得能量值&quot;,&quot;color&quot;:&quot;gold&quot;&#125;,&quot;。\n 能量值最多的玩家即可获胜！\n\n&quot;,&#123;&quot;text&quot;: &quot; &lt;只能击退玩家&gt; &quot;,&quot;color&quot;:&quot;yellow&quot;&#125;,&#123;&quot;text&quot;: &quot; &lt;免疫击退效果在本轮无效&gt;&quot;,&quot;color&quot;:&quot;light_purple&quot;&#125;,&quot;\n&quot;]</span><br></pre></td></tr></table></figure></div>
 
 <h3 id="D-游戏开始时的操作"><a href="#D-游戏开始时的操作" class="headerlink" title="D. 游戏开始时的操作"></a>D. 游戏开始时的操作</h3><p>主要包含三个方法。首先是游戏开始时对小游戏整体的修改。</p>
-<p><code>data/mini/functions/main/game_start.mcfunction</code>：</p>
+<p><code>data/mini/functions/koth/game_start.mcfunction</code>：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 游戏结束倒计时，我这里为120秒</span><br><span class="line">scoreboard players set $countdown mem 120</span><br><span class="line"></span><br><span class="line"># HUD，通常为玩家所看到的游戏相关信息</span><br><span class="line">scoreboard objectives setdisplay list power_count</span><br><span class="line">scoreboard objectives setdisplay belowName power_count</span><br><span class="line">scoreboard objectives setdisplay sidebar power_count</span><br><span class="line">## boss栏颜色，1，2，3，4分别代表红、黄、绿、蓝，0代表按照每个玩家在bossbar_color的计分项内的分数对每个玩家显示不同颜色的boss栏（例如炸弹狂魔里面获得炸弹与未获得炸弹的玩家看到的boss栏不一样）</span><br><span class="line">scoreboard players set $bossbar_color mem 4</span><br><span class="line">## boss栏倒计时的最大值</span><br><span class="line">scoreboard players set $countdown_max mem 120</span><br><span class="line">## boss栏类型，0，1，2分别代表关闭boss栏、显示快速倒计时（0.1秒减少1单位）和显示标准倒计时（1秒减少1单位）</span><br><span class="line">scoreboard players set $bossbar_type mem 2</span><br><span class="line">## 调用显示boss栏方法</span><br><span class="line">function lib:bossbar/show</span><br><span class="line">## 更改每种颜色的boss栏的名字</span><br><span class="line">bossbar set mini:red name &quot;剩余时间&quot;</span><br><span class="line">bossbar set mini:yellow name &quot;剩余时间&quot;</span><br><span class="line">bossbar set mini:blue name &quot;剩余时间&quot;</span><br></pre></td></tr></table></figure></div>
 
 <p>接下来是每个玩家进入游戏时的方法。这里的玩家有三种：<strong>参与游戏的玩家</strong>（<code>team=playing,tag=!rejoining</code>）、<strong>未参与游戏的旁观者</strong>（<code>team=watching</code>）和<strong>中途退出而后又加入游戏的玩家</strong>（<code>team=playing,tag=rejoining</code>）。</p>
-<p><code>data/mini/functions/main/player_enter.mcfunction</code>：</p>
+<p><code>data/mini/functions/koth/player_enter.mcfunction</code>：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 单个玩家开始小游戏时执行</span><br><span class="line">## 对自己播放音乐</span><br><span class="line">function lib:sounds/music/mini_middle</span><br><span class="line">## 清理标题显示区</span><br><span class="line">title @s clear</span><br><span class="line">title @s actionbar &quot;&quot;</span><br><span class="line"></span><br><span class="line"># 给予状态效果</span><br><span class="line">effect clear @s</span><br><span class="line">function mini:koth/give_effect</span><br><span class="line"></span><br><span class="line"># 设置玩家生命</span><br><span class="line">attribute @s generic.max_health base set 20</span><br><span class="line"></span><br><span class="line"># 传送玩家</span><br><span class="line">## 此处依据你设定的场景坐标而改。在我的游戏中玩家会出生在空中，因此会有以下这一条给予缓降效果的命令。传送玩家</span><br><span class="line">effect give @s[team=playing] slow_falling 3</span><br><span class="line">tp @s[team=playing] 1001.0 30.0 9001.0</span><br><span class="line"></span><br><span class="line"># 调整模式</span><br><span class="line">## 将调试者以外的玩家调整为旁观模式</span><br><span class="line">gamemode spectator @s[team=!debugging]</span><br><span class="line">## 将参与游戏而非中途重新加入的玩家调整为冒险模式</span><br><span class="line">gamemode adventure @s[team=playing,tag=!rejoining]</span><br><span class="line"></span><br><span class="line"># 解除免疫击退效果</span><br><span class="line">attribute @s[team=playing,tag=!rejoining] generic.knockback_resistance modifier add e0edf3eb-5aea-4a18-9b9e-1bde9df27ab5 &quot;&quot; -1.0 multiply</span><br></pre></td></tr></table></figure></div>
 
 <p>解除免疫击退效果的影响是<strong>永久</strong>的，因此需要在玩家进入游戏时先<strong>取消免疫击退的限制</strong>，然后<strong>如果需要</strong>限制免疫击退才会执行上面的最后一条命令。如果你的游戏中没有这一项则不需要进行任何操作。</p>
-<p><code>data/ltw/functions/main/player_enter.mcfunction</code>：</p>
+<p><code>data/ltw/functions/koth/player_enter.mcfunction</code>：</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 存储UUID</span><br><span class="line">execute store result score @s UUID run data get entity @s UUID[0]</span><br><span class="line"></span><br><span class="line"># 解除限制免疫击退</span><br><span class="line">## 注意是在这里添加</span><br><span class="line">attribute @s[team=playing,tag=!rejoining] generic.knockback_resistance modifier remove e0edf3eb-5aea-4a18-9b9e-1bde9df27ab5</span><br><span class="line"></span><br><span class="line"># 如果是旁观者或局号不对头：开始旁观</span><br><span class="line">execute if entity @s[team=!playing] run function ltw:main/player_enter_watcher</span><br><span class="line">execute if entity @s[team=playing] unless score @s game_id = $ game_id run function ltw:main/player_enter_watcher</span><br><span class="line"># 如果不是旁观且局号正确：游戏中掉线</span><br><span class="line">execute if entity @s[team=playing] if score @s game_id = $ game_id run function ltw:main/player_enter_rejoin</span><br></pre></td></tr></table></figure></div>
 
 <p>最后是给予玩家状态效果：</p>
@@ -712,7 +712,7 @@
         <li><strong>创建于:</strong> 2023-04-10 23:39:26</li>
         
             <li>
-                <strong>更新于:</strong> 2023-04-21 00:00:31
+                <strong>更新于:</strong> 2023-08-10 12:28:31
             </li>
         
         <li>
