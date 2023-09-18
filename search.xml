@@ -1,84 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
-    <url>/2023/dhpfix/</url>
-    <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
-<p>开始之前请确保你将大憨批的命令树版本调为了1.19.4。</p>
-<h2 id="Step-1-查看你的存储路径"><a href="#Step-1-查看你的存储路径" class="headerlink" title="Step 1.查看你的存储路径"></a>Step 1.查看你的存储路径</h2><p>打开VSCode，点击左下角的「问题」，切换到「输出」选项卡，将滚动条滚动到顶部直到看到globalStoragePath &#x3D; ***。将***复制到剪贴板并在资源管理器打开。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix1.png"
-                     
-                ></p>
-<p>打开后的界面如图所示，如果没有1.19.4文件夹则新建一个，然后进入1.19.4文件夹。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix2.png"
-                     
-                ></p>
-<h2 id="Step-2-下载所需文件"><a href="#Step-2-下载所需文件" class="headerlink" title="Step 2.下载所需文件"></a>Step 2.下载所需文件</h2><p>由于国内无法访问raw.githubusercontent.com，所以此处需要的文件我传到了<a class="link"   href="https://xzzz.lanzoum.com/ipgYt0t7yvjg" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，下载压缩包然后把所有文件解压进1.19.4文件夹。解压完毕后的1.19.4文件夹如图所示：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix3.png"
-                     
-                ></p>
-<p>需要注意的是Nbtdoc.json的原文件有一个错误：展示实体的billboard标签为一个复合标签而不是枚举（而在Minecraft里面是一个拥有四个可取值的枚举）。压缩包内的文件夹已修正了这个错误。</p>
-<h2 id="Step-3-完成！"><a href="#Step-3-完成！" class="headerlink" title="Step 3.完成！"></a>Step 3.完成！</h2><p>打开VSCode，发现1.19.4的特性全部都支持啦，甚至还能支持1.20的新物品（</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/dhpfix/dhpfix4.png"
-                     
-                ></p>
-]]></content>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Clickable Items 模组</title>
-    <url>/2023/clickable-items/</url>
-    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
-<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
-<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
-<p>执行命令的权限等级始终为2。</p>
-<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
-<p>列表中的命令会按照索引从低到高的顺序执行。</p>
-<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
-<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
-<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
-<p>耐久度的减少会受到耐久附魔的减免影响。</p>
-<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
-<p>对于可堆叠的物品，在使用后只会消失一个。</p>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>自制模组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Disable the End 模组</title>
     <url>/2023/disable-the-end/</url>
     <content><![CDATA[<p>本模组提供了一些在fabric服务器上较为常用的功能，如禁用末地传送门、禁用带名生物死亡日志、禁言玩家等。</p>
@@ -121,31 +43,39 @@
       </tags>
   </entry>
   <entry>
-    <title>Scoreboard Helper 模组</title>
-    <url>/2023/scoreboard-helper/</url>
-    <content><![CDATA[<p>Scoreboard Helper是一个提供Minecraft记分板的额外功能的客户端侧模组。</p>
-<p>你可以在<a class="link"   href="https://modrinth.com/mod/scoreboard-helper" >Modrinth <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载该模组。在<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/issues" >Github Issues <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>反馈漏洞与建议。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>你可以通过<a class="link"   href="https://modrinth.com/mod/modmenu" >模组菜单 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或者手动绑定一个快捷键来打开配置屏幕。</p>
-<p>配置文件保存在<code>.minecraft/versions/*你的版本名称*/config/scoreboard-helper.json</code>。</p>
-<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><h3 id="记分板侧边栏翻页"><a href="#记分板侧边栏翻页" class="headerlink" title="记分板侧边栏翻页"></a>记分板侧边栏翻页</h3><p>通过记分板翻页功能，你可以查看当前服务器提供的记分板侧边栏中显示的记分项正在追踪的所有玩家的分数。</p>
-<p>默认的向下翻页快捷键为下方向键，向上翻页快捷键为上方向键。</p>
-<h3 id="显示-x2F-隐藏记分板侧边栏"><a href="#显示-x2F-隐藏记分板侧边栏" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏"></a>显示&#x2F;隐藏记分板侧边栏</h3><p>当你认为记分板侧边栏遮挡了屏幕区域时，可以通过更改配置或按下快捷键（默认<em>未指定</em>）来隐藏记分板侧边栏。</p>
-<p>当你再次需要显示侧边栏时，再按一次该快捷键即可。</p>
-<h3 id="显示-x2F-隐藏记分板侧边栏玩家分数"><a href="#显示-x2F-隐藏记分板侧边栏玩家分数" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏玩家分数"></a>显示&#x2F;隐藏记分板侧边栏玩家分数</h3><p>有些服务器会将记分板侧边栏作为当前信息显示区，此时记分板玩家分数（红色数字）一般是多余的，不需要显示出来。你可通过更改配置来隐藏玩家分数。</p>
-<h3 id="设置记分板显示位置"><a href="#设置记分板显示位置" class="headerlink" title="设置记分板显示位置"></a>设置记分板显示位置</h3><p>本模组支持六个记分板的预设位置：右（默认）、右上角、右下角、左、左上角、左下角。除此之外，你也可以设置记分板的Y轴偏移来避免遮挡其它HUD组件或被其它HUD组件遮挡（如状态效果栏）</p>
-<h3 id="设置记分板侧边栏最大显示数量"><a href="#设置记分板侧边栏最大显示数量" class="headerlink" title="设置记分板侧边栏最大显示数量"></a>设置记分板侧边栏最大显示数量</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
-<p>将记分板侧边栏的最大显示数量设置为<em>count</em>，命令返回值为<em>count</em>的值。</p>
-<p>当<em>count</em>为负数时会报错。</p>
-<h3 id="设置记分板侧边栏不透明度"><a href="#设置记分板侧边栏不透明度" class="headerlink" title="设置记分板侧边栏不透明度"></a>设置记分板侧边栏不透明度</h3><p>本模组支持分别设置侧边栏标题及分数列表部分的背景和文字不透明度。只需在配置屏幕中设置即可。</p>
-<h3 id="默认使用队内聊天"><a href="#默认使用队内聊天" class="headerlink" title="默认使用队内聊天"></a>默认使用队内聊天</h3><p><em>队伍也是记分板的一部分。旧版本有&#x2F;scoreboard teams，直到现在Mojang还是把Team类放在net.minecraft.scoreboard包里面的。</em></p>
-<p><em>所以往这模组里做个跟队伍有关的东西应该不过分吧。</em></p>
-<p>打开该选项后，客户端在发送聊天消息时会自动调用<code>teammsg</code>命令发送队内聊天消息而非普通聊天消息。如果打开了此选项，且发送的聊天消息以井号’#’开头，则客户端在发送消息前会去掉开头的井号，然后发送普通聊天消息。</p>
-<p>以斜杠’&#x2F;‘开头的命令不受此选项影响。</p>
-<h3 id="导出记分板数据"><a href="#导出记分板数据" class="headerlink" title="导出记分板数据"></a>导出记分板数据</h3><p>使用快捷键（默认*反斜线’\‘*）来打开导出屏幕。点击「记录当前记分板」即可将当前侧边栏显示的记分项的<strong>所有数据</strong>保存在内存中，你可以通过更改当前显示的记分项然后再次点击「记录当前记分板」来记录多个记分项。点击「导出已记录的记分板」会将记录的所有数据导出为一个csv文件：<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/EXPORT-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.csv</code>。本文件按照玩家名字典序排序。</p>
-<div class="note warning"><p>若记录数据后服务器修改了对应记分项的数据，则在你进行重新记录之前，模组不会同步地对记录的数据进行修改。</p>
-</div>
+    <title>Clickable Items 模组</title>
+    <url>/2023/clickable-items/</url>
+    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
+<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
+<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p>你也可以点击「直接保存当前记分板」来保存当前侧边栏显示的记分项的所有数据到<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/记分项名称.csv</code>。<br><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
+<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
+<p>执行命令的权限等级始终为2。</p>
+<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
+<p>列表中的命令会按照索引从低到高的顺序执行。</p>
+<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
+<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
+<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
+<p>耐久度的减少会受到耐久附魔的减免影响。</p>
+<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
+<p>对于可堆叠的物品，在使用后只会消失一个。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
       <tags>
         <tag>自制模组</tag>
@@ -474,6 +404,37 @@
       </tags>
   </entry>
   <entry>
+    <title>Scoreboard Helper 模组</title>
+    <url>/2023/scoreboard-helper/</url>
+    <content><![CDATA[<p>Scoreboard Helper是一个提供Minecraft记分板的额外功能的客户端侧模组。</p>
+<p>你可以在<a class="link"   href="https://modrinth.com/mod/scoreboard-helper" >Modrinth <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载该模组。在<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/issues" >Github Issues <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>反馈漏洞与建议。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>你可以通过<a class="link"   href="https://modrinth.com/mod/modmenu" >模组菜单 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或者手动绑定一个快捷键来打开配置屏幕。</p>
+<p>配置文件保存在<code>.minecraft/versions/*你的版本名称*/config/scoreboard-helper.json</code>。</p>
+<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><h3 id="记分板侧边栏翻页"><a href="#记分板侧边栏翻页" class="headerlink" title="记分板侧边栏翻页"></a>记分板侧边栏翻页</h3><p>通过记分板翻页功能，你可以查看当前服务器提供的记分板侧边栏中显示的记分项正在追踪的所有玩家的分数。</p>
+<p>默认的向下翻页快捷键为下方向键，向上翻页快捷键为上方向键。</p>
+<h3 id="显示-x2F-隐藏记分板侧边栏"><a href="#显示-x2F-隐藏记分板侧边栏" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏"></a>显示&#x2F;隐藏记分板侧边栏</h3><p>当你认为记分板侧边栏遮挡了屏幕区域时，可以通过更改配置或按下快捷键（默认<em>未指定</em>）来隐藏记分板侧边栏。</p>
+<p>当你再次需要显示侧边栏时，再按一次该快捷键即可。</p>
+<h3 id="显示-x2F-隐藏记分板侧边栏玩家分数"><a href="#显示-x2F-隐藏记分板侧边栏玩家分数" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏玩家分数"></a>显示&#x2F;隐藏记分板侧边栏玩家分数</h3><p>有些服务器会将记分板侧边栏作为当前信息显示区，此时记分板玩家分数（红色数字）一般是多余的，不需要显示出来。你可通过更改配置来隐藏玩家分数。</p>
+<h3 id="设置记分板显示位置"><a href="#设置记分板显示位置" class="headerlink" title="设置记分板显示位置"></a>设置记分板显示位置</h3><p>本模组支持六个记分板的预设位置：右（默认）、右上角、右下角、左、左上角、左下角。除此之外，你也可以设置记分板的Y轴偏移来避免遮挡其它HUD组件或被其它HUD组件遮挡（如状态效果栏）</p>
+<h3 id="设置记分板侧边栏最大显示数量"><a href="#设置记分板侧边栏最大显示数量" class="headerlink" title="设置记分板侧边栏最大显示数量"></a>设置记分板侧边栏最大显示数量</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
+<p>将记分板侧边栏的最大显示数量设置为<em>count</em>，命令返回值为<em>count</em>的值。</p>
+<p>当<em>count</em>为负数时会报错。</p>
+<h3 id="设置记分板侧边栏不透明度"><a href="#设置记分板侧边栏不透明度" class="headerlink" title="设置记分板侧边栏不透明度"></a>设置记分板侧边栏不透明度</h3><p>本模组支持分别设置侧边栏标题及分数列表部分的背景和文字不透明度。只需在配置屏幕中设置即可。</p>
+<h3 id="默认使用队内聊天"><a href="#默认使用队内聊天" class="headerlink" title="默认使用队内聊天"></a>默认使用队内聊天</h3><p><em>队伍也是记分板的一部分。旧版本有&#x2F;scoreboard teams，直到现在Mojang还是把Team类放在net.minecraft.scoreboard包里面的。</em></p>
+<p><em>所以往这模组里做个跟队伍有关的东西应该不过分吧。</em></p>
+<p>打开该选项后，客户端在发送聊天消息时会自动调用<code>teammsg</code>命令发送队内聊天消息而非普通聊天消息。如果打开了此选项，且发送的聊天消息以井号’#’开头，则客户端在发送消息前会去掉开头的井号，然后发送普通聊天消息。</p>
+<p>以斜杠’&#x2F;‘开头的命令不受此选项影响。</p>
+<h3 id="导出记分板数据"><a href="#导出记分板数据" class="headerlink" title="导出记分板数据"></a>导出记分板数据</h3><p>使用快捷键（默认*反斜线’\‘*）来打开导出屏幕。点击「记录当前记分板」即可将当前侧边栏显示的记分项的<strong>所有数据</strong>保存在内存中，你可以通过更改当前显示的记分项然后再次点击「记录当前记分板」来记录多个记分项。点击「导出已记录的记分板」会将记录的所有数据导出为一个csv文件：<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/EXPORT-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.csv</code>。本文件按照玩家名字典序排序。</p>
+<div class="note warning"><p>若记录数据后服务器修改了对应记分项的数据，则在你进行重新记录之前，模组不会同步地对记录的数据进行修改。</p>
+</div>
+
+<p>你也可以点击「直接保存当前记分板」来保存当前侧边栏显示的记分项的所有数据到<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/记分项名称.csv</code>。<br><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
+]]></content>
+      <tags>
+        <tag>自制模组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>游艺街 小猪之最改版服</title>
     <url>/2023/server/</url>
     <content><![CDATA[<h2 id="服务器概要"><a href="#服务器概要" class="headerlink" title="服务器概要"></a>服务器概要</h2><p>IP：加群查看。</p>
@@ -727,73 +688,6 @@
       </tags>
   </entry>
   <entry>
-    <title>借由「赫卡」一事，说说自己的性格、习惯与想法</title>
-    <url>/2023/social/</url>
-    <content><![CDATA[<p>本文将从我的服务器的开服缘由开始讲起，借由「赫卡」一事说一说自己一直想说的事情。</p>
-<h2 id="「游艺街-小猪之最改版服」开服缘由（2023-3-29）"><a href="#「游艺街-小猪之最改版服」开服缘由（2023-3-29）" class="headerlink" title="「游艺街 小猪之最改版服」开服缘由（2023.3.29）"></a>「游艺街 小猪之最改版服」开服缘由（2023.3.29）</h2><p>大家好，这里是小猪之最。 </p>
-<p>这篇文章的起因是隔壁 JK 服群的一次小冲突。虽然这冲突比较小，我也不打算对其进行过多的解释。但是，或许我需要以另外一种方式来描述一下我自己的一些经历。 </p>
-<blockquote>
-<p>2023.9.17补充：时间过去了这么久，本人认为还是有必要解释一下。</p>
-<p>某天本人在 JK 服群发送了自己的一次考试成绩（即下文倒数第三自然段的「一个月后的联考」），其中物理考了 68 分。本人认为物理 68 分对于本人来说，或者对于整个班来说，都是非常差的成绩。</p>
-<p>JK 服群的一位管理者（以下称「祂」），当时跟本人一样是高三。祂在看了本人的成绩以及本人对物理 68 分的解释后，认为本人是在凡尔赛，并对群里的其他人说意思与「你知道高中物理考 68 分有多难」相近的话。祂以此为由对本人进行禁言处理，这是本人与祂发生的第一次冲突，也是本文提到的冲突。</p>
-<p>随后的一段很长的时间内，本人在 JK 服内见到祂时会下意识躲避、退出服务器。期间本人与祂发生了第二次冲突，原因是祂认为「游艺街 小猪之最改版服」的部分内容构成了对《JK 魔改竞技场》的抄袭（但实际上并没有），最终以本人的一封道歉信和解。</p>
-<p>在暑假期间，本人与祂发生了第三次冲突，原因是祂反对本人使用 JK 服的开源代码开设《JK 魔改竞技场》私服的行为。但 JK 服服主 JK137 并未对此事持反对态度，且本人使用《JK 魔改竞技场》源代码的行为均在开源协议允许范围内。这次冲突之后，祂开始以个人名义针对本人在 JK 服群的活动，包括但不限于无视本人的帮助请求、对本人在 JK 服群的发言施加各种额外限制、在本人看似违反了 JK 服群的管理条例时对本人进行嘲讽等等。</p>
-<p>本人认为祂在此事（以及其他很多事）的处理方式不甚恰当，且本人并不认为自己能够在短时间内再次跟祂和解并不再产生冲突。事不过三，本人决定退出 JK 服。退群一天后，本人被剥夺进入《JK 魔改竞技场》服务器的权限。</p>
-</blockquote>
-<p>所以，这篇文章的标题是： <strong>从抑郁而生的 MC 服务器</strong>。</p>
-<p>我现在正在读高三，也意味着 70 天后我将参加一次对绝大多数人都很重要的考试——高考。不过这并不是我参加的第一次高考。在去年的六月份，我参加了一次提前高考（新高考 I 卷），那一次考试的成绩在我的 B 站动态里找到。而在参加提前高考与学考之后的不久，我们就已经进入了高三阶段。</p>
-<p>偏偏是在这个时候，我自己突然对自己的能力表现出了极大的怀疑。我在我们年级物化生选科最好的班级（以下称其为 S 班）上，但在这个时候，我有一种强烈的渴望，就是脱离这个「最好的班级」，转到楼下的一个层次相对低一些的班级（以下称其为 A 班）上。其原因非常复杂，其中一点是我认 自己的能力不适合待在 S 班上；另外一个原因是，我的许多高一班上的朋友都在 A 班。当然，最大的问题还是前者，因为虽然我将转班的流程进行到了最后一步，但最终我又放弃和 A 班的班主任进行最后的确认。直到现在，我仍然在 S 班上学习，在这个过程中，我认为我的一位叫做赫卡（化名）的朋友帮了我很大的忙。 </p>
-<p>赫卡是 A 班学生，同时也是我高一班上的同学，性别女。她从高一入学自我介绍之后开始就关注了我的 B 站频道，同时她自己也是 MC 玩家。我高中所经历的两个班上，对 MC 以及我的 B 站感兴趣的同学都很少（高一还好，S 班都在卷，哪有人玩 MC）。我自己在现实中是一个非常内向的人，这或许与我小时候家长的教育方式有关系。我不敢在家长和老师面前说话，也不会经常主动跟和我关系不是很好的同学打交道。赫卡是我在高中为数不多的一个能够聊得来的朋友，也成为了我在高中阶段最好的朋友。《原神》坑是她带我入的，高三的每天放学之后我们都是一起回家的。除此之外我们还经常互相交换 S 班和 A 班发的数学资料做，因此我在高三上学期的数学成绩还算不错，甚至排到了 S 班上的前列。</p>
-<p>但在去年的 12 月初月考第一天，中午回家后，我的家长告诉我，赫卡对她的家长说我每天放学后都尾随她，并且她的家长认为我跟赫卡有恋爱倾向（我对此的解释在文尾），要求我不再跟赫卡交往。那天中午我的心情非常复杂，导致下午以及第二天的考试状态都不怎么好。在考试前一天晚上放学后我还跟赫卡很正常地一起同行，第二天中午就出现了这种情况。对她们家的要求我无法拒绝，又因为我跟赫卡家里的距离本来就很近，我会下意识地避开赫卡的出校时间和路线，并且会在赫卡在场时以最快速度逃离，防止再次招致嫌疑。</p>
-<p>12 月份，因为赫卡的绝交，加上新冠和网课，我过得非常难受，如果读者无法理解这一点，可以将《原神》中旅行者的视角代入我自己，而把赫卡看成派蒙，然后再次尝试理解这个过程。12 月份的第二次网课结束前一天，我感染了新冠，但我在家里待得比其他人更久。不仅是赫卡的离去让我变得如此，我又一次感觉自己「不行了」。但这次我不想转班，只是单纯地抑郁。我尝试摆脱朋友的离去对自己的影响，但自身性格决定了我找不到能够倾诉这些事情的人（赫卡绝交的具体细节比上文所描述的要复杂得多）。我的家长问我什么时候返校，我没有回答。「要不要到 1 月份全市联考的时候去考一下，然后这个学期就不去学校了吧。」我的家长说。我想，大概考完了之后就会好些吧。因为我不愿见 S 班上的人，所以我认可了家长的提议。</p>
-<p>在联考的前几天，我虽能学进一些东西，但状态总归没有之前好。某天我偶然发现了一个已有几年没有聊过的群，其中的成员大多是我初中时在籽岷的直播间认识的，一起给籽岷做直播用的 MC 基岩版地图的朋友。那个时候群主每天都会开临时的 MC 整合包生存服务器。那天我进群，刚好服务器开了，我就把整合包下载了下来并且加入了服务器。群主是认识我的，并且对我加入服务器感到很惊喜。 我就暂时在这个服务器里面玩了下去。</p>
-<p>几天后再联考时，虽然最后的成绩比 12 月份的那次月考更差，但我发觉自己的状态已经改善了很多。考试之后的几天我也去了学校上课，一直上到寒假（腊月廿七），只是没上晚自习。那个群里的生存服务器被暂时关掉了，取而代之的是群主为群员准备除夕活动的服务器。我再一次进入了服务器，发现他们在做跑酷。我首先体验了他们已经做完的部分，然后一个人包下了所有剩余部分的跑酷关卡制作（不负责装饰）。除此之外，群主还在和群员商量有关幸运方块的事情，在选择一个合适的幸运方块模组的问题上停了很久。我首先是开玩笑地说，「要不然就自己写个幸运方块吧？」但随后当我再一次打开了放在电脑里吃灰了很久的 VSCode，我发现我写数据包的这一个过程已经停不下来了。对于我而言，写数据包不仅是写一个能让大家玩得开心的原版幸运方块，更是一种缓解抑郁的手段， 即常见的「转移注意」方法（因为我自己本身是很喜欢写代码的，所以写数据包就理所当然地成了我转移注意的方式）。除夕那天我把写好的幸运方块提交给群主之后，那天晚上大家都玩得很开心，我自己也获得了「短暂的快乐」。 </p>
-<p>开学之后的入学考试，虽说是我整个高中阶段考得最差的一次，但此时我的心态已完全不同（入学考试能考好就见了鬼了）。我仍然用写数据包来调节情绪，不仅是赫卡绝交带来的影响，而且还有自身的性格决定的抑郁倾向。至于我选择改游艺街这个地图，是因为在游艺街还是 LTW 的时候，我就很喜欢玩这个服务器，包括《疯狂的石粒 3》的玩法显示都是仿照 LTW 做的。因此改游艺街的数据包对我而言就是理所应当的了。</p>
-<p>一个月后的联考，也就是最近的一次联考，我的成绩又恢复到了高三上学期的水平。也就是说对我而言，考试时的心态最重要，高三的这几次月考都证明了这一点。当然，在管理服务器的同时，学校的课也是要认真听的。不过高考之后我是否还有时间做改版也说不清楚，因为那个时候我可能更多地会将自己的时间用在 B 站频道上。到时候我也会为自己的改版做视频，宣传和实况应该都会有。</p>
-<p>至于物理 68 分的事情，这个我不多做评价。在 S 班这种层次的班级上，物理 68 分已经要排到很后面去了。班主任都在提醒我要提高物理，我每次做物理试卷都感觉非常头疼，各种公式老是记不住……所以对于物理 68 分凡尔赛这个评价，我只能说这并非我本意，如何理解还看自己情况。</p>
-<p>最后是关于赫卡的。我是没觉得我想跟赫卡谈恋爱了，相反我越是跟一个女生关系好就越不想将关系发展到恋爱的程度，因为这不是我的本意。对于我这个性格而言，我只是想找一个能够聊得来的朋友，而不会去将女性朋友视为恋爱对象。现在这件事发生过后，我可以说，我更加不想谈恋爱了。如果你想跟我做朋友，我会很高兴；但如果你已经是我很好的朋友，并且你还想跟我谈恋爱，那我恐怕很难接受。</p>
-<p>以上。</p>
-<p>小猪之最 Thepig</p>
-<p>于 2023 年 3 月 29 日星期三完成</p>
-<h2 id="高考之后发生了什么？"><a href="#高考之后发生了什么？" class="headerlink" title="高考之后发生了什么？"></a>高考之后发生了什么？</h2><p>直到高考结束那天，赫卡都没有再跟我产生联系。</p>
-<p>高考之后的第二天晚上，我在外参加毕业晚会时，向赫卡发送了一条语音消息，内容是如下的一条绕口令：</p>
-<blockquote>
-<p>打南边来了个兰拉娜，兰拉娜练着兰迦拉梨。打北边来了个那菈拉娜，那菈拉娜捧着帕蒂沙兰。捧着帕蒂沙兰的那菈拉娜想带练着兰迦拉梨的兰拉娜去酒馆找兰巴德，练着兰迦拉梨的兰拉娜想带捧着帕蒂沙兰的那菈拉娜去桓那兰那。那菈拉娜拗不过兰拉娜，和兰拉娜去桓那兰那见到了叫兰罗摩的兰那罗。</p>
-</blockquote>
-<p>赫卡随后跟我开玩笑地说：「你也喝醉了？」（为什么是「也」？）仿佛瞬间回到了发生矛盾之前的良好状态，甚至感觉从来没有发生过那一次矛盾。没错，恢复关系就在这么一瞬间。</p>
-<p>暑假期间，我和赫卡共同出席了很多高中同学举行的活动，也一起联机玩过《原神》，这个过程无疑是快乐且令人印象深刻的。之前甚至打算一起去上海BW，但是因为没有抢到票，再加上当时两个人都未成年，所以就没去。我打算明年BW时再去一次，但到时候是否有人作伴，就说不定了。</p>
-<p>截止到现在，我与赫卡仍然处于非常良好的关系之中。</p>
-<p><em><strong>与此同时，另一边……</strong></em></p>
-<p>暑假期间我在 B 站上开始了直播，都是 Minecraft 服务器的直播。其中绝大多数都是在上述的《JK 魔改竞技场》（即 JK 服）参加的友谊赛直播。比赛的成绩很不错，拿到了三人组队赛的团体第一名成绩，单挑赛的第四名。这是比较好的一面。</p>
-<p>但是，我在 JK 服友谊赛未开始时，与上文提到的 JK 服管理员进行常规游戏的过程中，多次使用苦力怕技能对祂进行了攻击，且命中率较高，基本上能做到秒杀。再加上祂也经常被其他人集火，所以祂在聊天栏说出了「都针对我是吧」类似意思的话。</p>
-<p>竞技类游戏普遍的道理就是，大家都渴望成为那个 MVP。而祂在 K&#x2F;D （击杀数比死亡数）等数据上与其他玩家拉开了很大的差距，稳居排行榜第一。服务器内玩家「死」于祂手下的次数多到离谱，你说不针对祂还能针对谁？虽然这是一个公平的竞技游戏，但玩家的水平是有差距的。</p>
-<p>结合我开私服这件事，所以就开始被祂在各种事情上针对。虽然我非常喜欢 JK 和其他协助者为服务器添加的各种新特性，但既然被管理者（也是下任服主）针对，那末就没有继续待在 JK 服群的意义，因此我选择了退服。「祂」这个字就是我对这个管理者的最终印象。</p>
-<p>之后的生活中我或许还会遇到更多祂这样的人，希望自己能够更早察觉出来，不再与这些人建立太深的关系。</p>
-<h2 id="为什么不想要-Object？"><a href="#为什么不想要-Object？" class="headerlink" title="为什么不想要 Object？"></a>为什么不想要 Object？</h2><p>上文说到我只想将赫卡视为一个「朋友」，instead of an “Object”（<em>对象，没错吧</em>）。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Object Hecatia; <span class="comment">//うそです</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>可能说得激动了点，因为那是三月份写的文章。下面的文字或许更能表达我自己的真实想法。</p>
-<p>除了赫卡以外，我高一班上的另一个同学，我将其称为「纯狐」。关于纯狐的事情，我不想讲太多，只讲以下几点。</p>
-<ul>
-<li>纯狐喜欢唱歌，并且是某歌手的忠实粉丝。</li>
-<li>在排座位时，纯狐有几次座位距离我在 2 格以内。</li>
-<li>纯狐经常委托我为她做一些事情，向我请教题目，甚至让我教她日语（虽然我自己都没系统地学过日语）。</li>
-<li>在高二寒假，纯狐经常让我为她干一些在我看来已经超出了「普通朋友」范围内的请求。</li>
-</ul>
-<p>后来，直到高二下学期的 5 月份，因为各种内在因素与外来因素的共同影响，我<strong>主动</strong>选择了与纯狐绝交。</p>
-<p>在绝交之后我也独自悲伤了很长时间。不过之后再想起来，纯狐跟我并没有什么共通之处，有些行为也令我不快，但终究还是产生了一年半的「沉淀」，也算是我一个重要的朋友。</p>
-<p>我虽然在网络上能够与他人较好地交流，但是现实中我是个社恐，因此我<strong>并未</strong>在现实生活中交到很多令我印象深刻的朋友。因此我十分重视每一段「与你同行的回忆」，不论「你」的性别。因此，一旦「失去」了某个自己重视的朋友，那末伤心与抑郁就难以避免。</p>
-<p><em>我与赫卡有一个「契约」，赫卡当时并未打算与我绝交，因为「契约」没有被还到我的手上。直到现在，赫卡应该还完好地保存着那份「契约」吧。</em></p>
-<p>由此可见，我不想要 Object 的原因也显而易见了，其正是因为失去 Object 比失去普通朋友会让我更加不可避免地<del>陷入99层「怀疑」状态</del>（什么鬼啊）产生抑郁情绪。如果我本来就不太喜欢那个朋友的某些属性（例如上面的纯狐），而她又对我提出了在我看来已经是「越界」的要求的话，我会适当地减少与她的交往（但是不会随随便便绝交，与纯狐绝交有很大一部分是因为<strong>有外来因素的影响</strong>）。如果我本来就对那个朋友有好感，我会设法一直将自己与她的关系维持在一个合理的限度之内。</p>
-<p>上述只是「不想要 Object」的根本原因。除此之外，我对任何朋友有一个最根本的要求，就是「尊重我的个人隐私」。我并不认为我会找到能够同时满足「失去的可能性很小」和「尊重我的个人隐私」两个条件的 Object。而且有 Object 之后会发生什么，我也无法想象，更无法知道自己能否承担。<em>其实我应该是对 Object 有个「刻板印象」，就是当一个女性朋友成为甲的 Object 之后，就不是那末尊重甲的个人隐私了</em>。</p>
-<p><em>因此，对我而言，能够拥有一个聊得来，并且重视自己的朋友，就已经很满足了。找一个 Object，反而是加重了自己和别人的负担。</em></p>
-<p>完。</p>
-]]></content>
-      <tags>
-        <tag>闲谈</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>为什么使用「小猪之最」这个名称，以及一些 MC 往事</title>
     <url>/2023/why-thepig/</url>
     <content><![CDATA[<p>其实几年之前我在B站发过一篇类似的文章，不过那个时候是为了完成B站的投稿任务而水的一篇，现在已经删掉了。至于为什么现在又想写这一篇文章，起因是现在很多实况主使用的是两个音节或三个音节的称呼，而「小猪之最」有四个音节。但最重要的不是音节数的问题，是因为这四个字如果读快了会比较拗口，而如果使用简称「猪最」作为开场白的介绍的话又会比较别扭。所以我就觉得有必要解释一下这个名字的由来了。</p>
@@ -837,6 +731,45 @@
 ]]></content>
       <tags>
         <tag>闲谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
+    <url>/2023/dhpfix/</url>
+    <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
+<p>开始之前请确保你将大憨批的命令树版本调为了1.19.4。</p>
+<h2 id="Step-1-查看你的存储路径"><a href="#Step-1-查看你的存储路径" class="headerlink" title="Step 1.查看你的存储路径"></a>Step 1.查看你的存储路径</h2><p>打开VSCode，点击左下角的「问题」，切换到「输出」选项卡，将滚动条滚动到顶部直到看到globalStoragePath &#x3D; ***。将***复制到剪贴板并在资源管理器打开。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix1.png"
+                     
+                ></p>
+<p>打开后的界面如图所示，如果没有1.19.4文件夹则新建一个，然后进入1.19.4文件夹。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix2.png"
+                     
+                ></p>
+<h2 id="Step-2-下载所需文件"><a href="#Step-2-下载所需文件" class="headerlink" title="Step 2.下载所需文件"></a>Step 2.下载所需文件</h2><p>由于国内无法访问raw.githubusercontent.com，所以此处需要的文件我传到了<a class="link"   href="https://xzzz.lanzoum.com/ipgYt0t7yvjg" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>上，下载压缩包然后把所有文件解压进1.19.4文件夹。解压完毕后的1.19.4文件夹如图所示：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix3.png"
+                     
+                ></p>
+<p>需要注意的是Nbtdoc.json的原文件有一个错误：展示实体的billboard标签为一个复合标签而不是枚举（而在Minecraft里面是一个拥有四个可取值的枚举）。压缩包内的文件夹已修正了这个错误。</p>
+<h2 id="Step-3-完成！"><a href="#Step-3-完成！" class="headerlink" title="Step 3.完成！"></a>Step 3.完成！</h2><p>打开VSCode，发现1.19.4的特性全部都支持啦，甚至还能支持1.20的新物品（</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/dhpfix/dhpfix4.png"
+                     
+                ></p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
       </tags>
   </entry>
 </search>
