@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Clickable Items 模组</title>
-    <url>/2023/clickable-items/</url>
-    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
-<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
-<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
-<p>执行命令的权限等级始终为2。</p>
-<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
-<p>列表中的命令会按照索引从低到高的顺序执行。</p>
-<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
-<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
-<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
-<p>耐久度的减少会受到耐久附魔的减免影响。</p>
-<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
-<p>对于可堆叠的物品，在使用后只会消失一个。</p>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>自制模组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Disable the End 模组</title>
     <url>/2023/disable-the-end/</url>
     <content><![CDATA[<p>本模组提供了一些在fabric服务器上较为常用的功能，如禁用末地传送门、禁用带名生物死亡日志、禁言玩家等。</p>
@@ -121,6 +82,45 @@
       </tags>
   </entry>
   <entry>
+    <title>Clickable Items 模组</title>
+    <url>/2023/clickable-items/</url>
+    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
+<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
+<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
+<p>执行命令的权限等级始终为2。</p>
+<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
+<p>列表中的命令会按照索引从低到高的顺序执行。</p>
+<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
+<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
+<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
+<p>耐久度的减少会受到耐久附魔的减免影响。</p>
+<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
+<p>对于可堆叠的物品，在使用后只会消失一个。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <tags>
+        <tag>自制模组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Scoreboard Helper 模组</title>
     <url>/2023/scoreboard-helper/</url>
     <content><![CDATA[<p>Scoreboard Helper是一个提供Minecraft记分板的额外功能的客户端侧模组。</p>
@@ -149,55 +149,6 @@
 ]]></content>
       <tags>
         <tag>自制模组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Social Pro Max</title>
-    <url>/2023/social-reload/</url>
-    <content><![CDATA[<p><strong>声明：本文具有非常强烈的主观色彩，不喜勿喷。</strong></p>
-<h2 id="public-static-void-main-String-args"><a href="#public-static-void-main-String-args" class="headerlink" title="public static void main(String[] args)"></a>public static void main(String[] args)</h2><p>好吧，让我们从这里开始，直接进入正题。</p>
-<p>一直以来，相比在现实生活中社交，我更加擅长于在网上聊天。<em>俗话说的好，现实中唯唯诺诺，网络上重拳出击。</em>当然我在网上社交的时候也很少攻击别人，相反自己往往是被攻击的那个。网络上的一些人在说话时具备很高的攻击性，即便在正常聊天的时候没有表现出来，他们在需要的时候也能用于把那些具有攻击性的文字发送出去。</p>
-<p>而对于我来说，我根本无法让自己去痛痛快快地「攻击」一个人。换句话说，现实中唯唯诺诺，网络上一样唯唯诺诺。具体表现就是当自己在被攻击时，甚至被他人剽窃隐私的时候，我都没有能力、并且不敢有效地去反驳这个人。一切我发起的攻击行为都是滞后的——在别人攻击我之后，我通常要花很长时间去盘逻辑，然后才能反击他&#x2F;她&#x2F;它&#x2F;祂，甚至我根本没有反击的机会。</p>
-<p>在网络上，除非是跟自己<strong>特别熟</strong>的朋友（这样的朋友屈指可数），我在交流过程中都会习惯性地使用敬语「您」称呼，并且会非常在意这个人在看到我发的消息之后，心里是什么感受。比如「他会不会觉得我想要讨好他」「他看到消息之后，是否能够发自内心地接受我的请求」「他会不会因为我发消息的频率太高而直接把我免打扰&#x2F;屏蔽掉」。我会经常习惯性地在等待他人回复的过程中思考这些问题。而当这些人过了很久都没有回复时，我会思考「他只是简单地没有看到」还是「他看到了，但是对我有意见，所以没有回」。</p>
-<p>我很少使用语音转文字的输入方式，因为除非是跟自己<strong>特别熟</strong>的朋友，我在完成了一段打招呼以外的文字时，会反复检查这段文字有没有错误，是否使用了通俗易懂，并且相对友善的表达方式，并且也没有冒犯到对方。</p>
-<p>在准备添加一个好友，并且这个好友不是我在现实生活中<strong>特别熟</strong>或者<strong>比较熟</strong>的朋友时，我都会犹豫一段时间，之后我可能会<em>发送请求</em>，也可能在验证信息都填写完毕的情况下<em>取消请求</em>，可能这种操作还会循环很多次。因为我很在意别人在看到我发的好友请求时，会不会有什么想法。</p>
-<p>而对于那些跟自己<strong>特别熟</strong>的朋友，那就没有什么好担心的，直接按照自己本来的想法畅聊就是。而对于<strong>比较熟</strong>的朋友，我虽然也放得比较开，但是在网上聊天的过程中也会或多或少地纠结以上的问题。</p>
-<p>正因为我通常会花很长时间纠结这些问题，所以我很少会说出攻击性很强的话——这些问题都是想让自己尽可能「友善」，完全没有要与别人作对的想法。真正要攻击一个人的时候，我只能去尽可能地获得一些对自己有利的信息，然后用比较长的文字去反驳别人。虽然这种方式往往能让自己的文字逻辑严密，但缺点也同样明显——耗时太长。而对于一些不讲道理的网友，这种方法就是纯粹的费力不讨好。</p>
-<p>当然，即便是一个跟自己<strong>不太熟</strong>的朋友，如果我在与他的<em>聊天</em>（特指网上，因为在现实生活中我根本没有勇气与跟自己<strong>不太熟</strong>的朋友闲聊）中感受到了他的友善，那么通常情况下我在与他聊天过程中也不会产生那么大的压力了。</p>
-<p>除此之外，还有一类特殊的群体，这通常是在现实生活中地位比我要高，或者在特定的群聊中管理权限比我要高的人。相比其他群体，我在与这些人交流的过程中会更加注意他&#x2F;她&#x2F;它&#x2F;祂的感受和调整自己的表达，因为他们能够利用自己的权限优势对我进行限制（即便他们通常可能并不会这样做）。这一点在<a href="https://www.pigest.top/2023/why-no-admin/">我的上一篇闲谈</a>中有提到。</p>
-<h2 id="烤太久了"><a href="#烤太久了" class="headerlink" title="烤太久了"></a>烤太久了</h2><p>我自己是一个内向的人，但是无论对于跟自己<strong>特别熟</strong>还是<strong>比较熟</strong>的人，我都非常乐意给予自己能力范围内的帮助。并且这样的「帮助」通常都是无偿的，我似乎<strong>还没有</strong>收钱帮别人干事的经历。因此，除非是需要我帮忙制作一个<strong>明显</strong>需要用于商业用途的项目，否则我基本上都会无偿帮忙。<em>当然，如果真的有什么事情需要我帮忙的，最好还是直接在线上说，因为我线下交际能力实在不太行。</em></p>
-<p>但是这个前提就是我跟被帮助者至少要到<strong>比较熟</strong>的程度，并且对面不是被盗号或者在炸片。</p>
-<p>我高一班上有个同学，我将其称为「爱因斯坦·纯狐」（以下简称纯狐）。她在还跟我<strong>不太熟</strong>的时候，因为周末留宿生不方便的缘故，就<em>非常激动地</em>委托我帮她在网易云上下载歌曲。虽然我跟纯狐<strong>不太熟</strong>，并且实在也没什么共通爱好，但她起码是我同学。我在愣了一会之后同意了她的请求。<em>如果当时我不同意会怎么样呢？</em></p>
-<p>自从那次委托之后，我跟纯狐之间的关系日渐亲密。渐渐就从<strong>不太熟</strong>变成了<strong>比较熟</strong>。在高一下学期，她几乎每天都会让我教她做物理、数学甚至化学的题目。本着乐于助人的精神，我一次次不厌其烦地（<em>我知道你很急，但是你先别急</em>）跟她解释那些题目是怎么做的。之后她因为某些原因（具体什么原因我忘了）写了封信想要跟我「绝交」，但是实际上是虚晃一枪，我们之间关系还是<strong>比较熟</strong>。</p>
-<p>高二时候，虽然纯狐跟我被分到了不同的班上，但是我们之间关系却变成了<strong>特别熟</strong>。我不知道自己的高二是怎么过的，但是我很清楚地记得，纯狐在高二的寒假期间对我提了很多，<strong><em>在我看来</em>超出了正常交往范围</strong>的要求。</p>
-<p>虽然我很享受与纯狐成为朋友的那段时间，但是她跟我实在没有什么共通的地方，再加上某些外界因素的影响，我在高二下学期期中<strong>主动</strong>向纯狐发起绝交。高三期间有尝试复合，但自从那次尝试后一段时间之后直到现在，我仍未再次与纯狐取得联系。在这种情况下，一个跟我<strong>特别熟</strong>的朋友变得<strong>完全不熟</strong>了。</p>
-<p>虽然是我主动发起的绝交，但是绝交之后很长一段时间，我都无法脱离「失去」纯狐所造成的抑郁之中。毕竟纯狐还是跟我有两年的<strong>特别熟</strong>的经历。</p>
-<h2 id="独立性检验是个谎言"><a href="#独立性检验是个谎言" class="headerlink" title="独立性检验是个谎言"></a>独立性检验是个谎言</h2><p>而另一位从高一到高三上学期期中跟我关系都很好的朋友，我称其为「赫卡提亚·拉碧斯拉祖利」（<em>没错，是东方角色，并且赫卡跟上文的纯狐关系很好</em>）。跟纯狐相比，赫卡与我的爱好重合度就高多了。她对MC感兴趣，并且我入坑《原神》也有赫卡的因素在里面。但赫卡在高三上学期期中过后就像变了一个人，逐渐地跟我（<em>貌似是仅跟我</em>）疏远，并在第三次月考期间和我<em>暂时</em>完全断开了联系。</p>
-<p>我跟赫卡之间有一个象征「绝交」的物品，一旦赫卡将那个物品还给我，就代表跟我绝交（不管是赫卡还是我发起的）。在上述断联的时候，赫卡并未把这个象征物还给我，不过在期中到第三次月考这段时间里赫卡已经完全不像我在高一和高二时候打交道的那个「赫卡」，因此我就认为她是跟我绝交了。那个时候2022年12月份刚好是疫情，我在家里面可以说除了受到新冠的影响，还要受到「失去」赫卡造成的影响（当时我根本没想过高考结束后还能复合）。除此之外，我的家长还在这件事情上给我施加了压力，因此网课期间我在家里感觉非常难受。</p>
-<blockquote>
-<p>就算身处 流逝的时光里<br>也只有倦怠 在原地打转不停<br>从我身边 渐行渐远的心<br>再也模糊不清 你明白吗<br>我的身体 已经动弹不得<br>在时间的狭缝里 随波逐流<br>周围的一切 都与我无关<br>我就是我 仅此而已<br>我在做梦吗？什么都没在看<br>出口也是枉然 自怜自艾的废话<br>悲伤什么的 只会徒增疲倦啊<br>干脆就这样 在麻木中度日吧<br>就算被灌以 喧嚣的闲言碎语<br>我的心也已经 不再起一丝涟漪<br>如果我能够 驱使自己的话<br>就让这一切 被黑暗所吞没吧<br>空虚的时光 会通往未来吗<br>这种地方 允许我的存在吗<br>如果要描述我 将我的一切<br>付诸言语的话 那就是「废物」<br>这种地方 允许我的存在吗<br>这种时光 允许我的存在吗<br>如果这样的我 还能改变的话<br>还能改变的话 可以化为空白吗</p>
-</blockquote>
-<p>网课结束后我还在家里休整了几天，因为我还未完全克服抑郁。在这几天里，我重拾了高三期间一直没有机会玩的Minecraft，并且找到了一个群——一个自己很久没有活跃的游戏群。群主是我在初中阶段，在籽岷的直播间一起玩MC的时候认识的网友。当时那个群刚好在玩Minecraft整合包，我就加入了。与此同时群主正在策划一个过年的Minecraft联机活动，包括跑酷和幸运方块。</p>
-<p>于是我直接包下了跑酷的大部分内容和幸运方块数据包的全部内容（<em>没错，幸运方块是我自己写的</em>）。在跟群友玩Minecraft的时候，我心态改善了很多。除夕夜能看到十人联机游玩这个由我和几位地图作者共同创作的作品，我感到非常高兴，全然忘记了赫卡跟自己「绝交」的事情。</p>
-<a class="button  center large" href='https://www.bilibili.com/video/BV1g84y177FY' title='你问我有没有录视频？当然录了！'><i class='fa-solid fa-video'></i> 你问我有没有录视频？当然录了！</a>
-
-<p>后来高三下学期我开了游艺街服务器，且一直在修改其数据包，并且有高强度做数学题。可以肯定，<strong>努力地完成一件我想做的事的过程会让我自己逐步脱离抑郁</strong>。</p>
-<p>高考结束之后第二天，我再次跟赫卡取得了联系，并且没有经过任何的拐弯抹角。在我发出第一条消息之后，赫卡就开始与我像往常一样交流了。直到现在，赫卡仍然是跟我<strong>特别熟</strong>的朋友之一。</p>
-<h2 id="你说的对，但是"><a href="#你说的对，但是" class="headerlink" title="你说的对，但是"></a>你说的对，但是</h2><p>有读者可能会质疑我跟纯狐或者赫卡的关系。纯狐目前已经跟我绝交，不必多说。而跟纯狐的绝交，让我看到了一个非常重要的事实：<strong>我必须尽力让自己不要失去朋友。</strong></p>
-<p>因此，我会尝试主动控制一切可能引发进一步异性关系的因素，换种方式说，就是我通常会避免主动实例化一个 Object（对象）。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">hecatia</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>(); <span class="comment">//うそです</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>事实上，这大概只是我自己的主观刻板印象，主要有以下两点：</p>
-<ul>
-<li>如果一个朋友成为了 Object，那末他&#x2F;她比普通的朋友会更容易失去。而经过纯狐和赫卡两件事，我唯一希望的，<em><strong>就是不要再次「失去」。</strong></em></li>
-<li>如果一个朋友成为了 Object，他&#x2F;她通常会不那么尊重我的个人隐私，进而做出令我反感的事情，以至于我需要多加防备。</li>
-</ul>
-<p>我非常希望自己能够有更多关系亲密的朋友，比<strong>特别熟</strong>还要熟的那种（<em>来份全熟的</em>），也会主动去增进或改进人际关系。但是我实在无法想象失去了一个 Object 之后会陷入怎样的困境。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我可能确实更适合线上聊天，但我也确实渴望能有更多的在现实中的互动时间，无论是和<strong>特别熟</strong>的朋友出去玩玩，还是和<strong>比较熟</strong>的朋友探讨问题，又或是跟<strong>不太熟</strong>的朋友增进关系……</p>
-<p>总之，希望自己能把社交这块处理得更好吧……</p>
-]]></content>
-      <tags>
-        <tag>闲谈</tag>
       </tags>
   </entry>
   <entry>
@@ -520,6 +471,55 @@
 ]]></content>
       <tags>
         <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Social Pro Max</title>
+    <url>/2023/social-reload/</url>
+    <content><![CDATA[<p><strong>声明：本文具有非常强烈的主观色彩，不喜勿喷。</strong></p>
+<h2 id="public-static-void-main-String-args"><a href="#public-static-void-main-String-args" class="headerlink" title="public static void main(String[] args)"></a>public static void main(String[] args)</h2><p>好吧，让我们从这里开始，直接进入正题。</p>
+<p>一直以来，相比在现实生活中社交，我更加擅长于在网上聊天。<em>俗话说的好，现实中唯唯诺诺，网络上重拳出击。</em>当然我在网上社交的时候也很少攻击别人，相反自己往往是被攻击的那个。网络上的一些人在说话时具备很高的攻击性，即便在正常聊天的时候没有表现出来，他们在需要的时候也能用于把那些具有攻击性的文字发送出去。</p>
+<p>而对于我来说，我根本无法让自己去痛痛快快地「攻击」一个人。换句话说，现实中唯唯诺诺，网络上一样唯唯诺诺。具体表现就是当自己在被攻击时，甚至被他人剽窃隐私的时候，我都没有能力、并且不敢有效地去反驳这个人。一切我发起的攻击行为都是滞后的——在别人攻击我之后，我通常要花很长时间去盘逻辑，然后才能反击他&#x2F;她&#x2F;它&#x2F;祂，甚至我根本没有反击的机会。</p>
+<p>在网络上，除非是跟自己<strong>特别熟</strong>的朋友（这样的朋友屈指可数），我在交流过程中都会习惯性地使用敬语「您」称呼，并且会非常在意这个人在看到我发的消息之后，心里是什么感受。比如「他会不会觉得我想要讨好他」「他看到消息之后，是否能够发自内心地接受我的请求」「他会不会因为我发消息的频率太高而直接把我免打扰&#x2F;屏蔽掉」。我会经常习惯性地在等待他人回复的过程中思考这些问题。而当这些人过了很久都没有回复时，我会思考「他只是简单地没有看到」还是「他看到了，但是对我有意见，所以没有回」。</p>
+<p>我很少使用语音转文字的输入方式，因为除非是跟自己<strong>特别熟</strong>的朋友，我在完成了一段打招呼以外的文字时，会反复检查这段文字有没有错误，是否使用了通俗易懂，并且相对友善的表达方式，并且也没有冒犯到对方。</p>
+<p>在准备添加一个好友，并且这个好友不是我在现实生活中<strong>特别熟</strong>或者<strong>比较熟</strong>的朋友时，我都会犹豫一段时间，之后我可能会<em>发送请求</em>，也可能在验证信息都填写完毕的情况下<em>取消请求</em>，可能这种操作还会循环很多次。因为我很在意别人在看到我发的好友请求时，会不会有什么想法。</p>
+<p>而对于那些跟自己<strong>特别熟</strong>的朋友，那就没有什么好担心的，直接按照自己本来的想法畅聊就是。而对于<strong>比较熟</strong>的朋友，我虽然也放得比较开，但是在网上聊天的过程中也会或多或少地纠结以上的问题。</p>
+<p>正因为我通常会花很长时间纠结这些问题，所以我很少会说出攻击性很强的话——这些问题都是想让自己尽可能「友善」，完全没有要与别人作对的想法。真正要攻击一个人的时候，我只能去尽可能地获得一些对自己有利的信息，然后用比较长的文字去反驳别人。虽然这种方式往往能让自己的文字逻辑严密，但缺点也同样明显——耗时太长。而对于一些不讲道理的网友，这种方法就是纯粹的费力不讨好。</p>
+<p>当然，即便是一个跟自己<strong>不太熟</strong>的朋友，如果我在与他的<em>聊天</em>（特指网上，因为在现实生活中我根本没有勇气与跟自己<strong>不太熟</strong>的朋友闲聊）中感受到了他的友善，那么通常情况下我在与他聊天过程中也不会产生那么大的压力了。</p>
+<p>除此之外，还有一类特殊的群体，这通常是在现实生活中地位比我要高，或者在特定的群聊中管理权限比我要高的人。相比其他群体，我在与这些人交流的过程中会更加注意他&#x2F;她&#x2F;它&#x2F;祂的感受和调整自己的表达，因为他们能够利用自己的权限优势对我进行限制（即便他们通常可能并不会这样做）。这一点在<a href="https://www.pigest.top/2023/why-no-admin/">我的上一篇闲谈</a>中有提到。</p>
+<h2 id="烤太久了"><a href="#烤太久了" class="headerlink" title="烤太久了"></a>烤太久了</h2><p>我自己是一个内向的人，但是无论对于跟自己<strong>特别熟</strong>还是<strong>比较熟</strong>的人，我都非常乐意给予自己能力范围内的帮助。并且这样的「帮助」通常都是无偿的，我似乎<strong>还没有</strong>收钱帮别人干事的经历。因此，除非是需要我帮忙制作一个<strong>明显</strong>需要用于商业用途的项目，否则我基本上都会无偿帮忙。<em>当然，如果真的有什么事情需要我帮忙的，最好还是直接在线上说，因为我线下交际能力实在不太行。</em></p>
+<p>但是这个前提就是我跟被帮助者至少要到<strong>比较熟</strong>的程度，并且对面不是被盗号或者在炸片。</p>
+<p>我高一班上有个同学，我将其称为「爱因斯坦·纯狐」（以下简称纯狐）。她在还跟我<strong>不太熟</strong>的时候，因为周末留宿生不方便的缘故，就<em>非常激动地</em>委托我帮她在网易云上下载歌曲。虽然我跟纯狐<strong>不太熟</strong>，并且实在也没什么共通爱好，但她起码是我同学。我在愣了一会之后同意了她的请求。<em>如果当时我不同意会怎么样呢？</em></p>
+<p>自从那次委托之后，我跟纯狐之间的关系日渐亲密。渐渐就从<strong>不太熟</strong>变成了<strong>比较熟</strong>。在高一下学期，她几乎每天都会让我教她做物理、数学甚至化学的题目。本着乐于助人的精神，我一次次不厌其烦地（<em>我知道你很急，但是你先别急</em>）跟她解释那些题目是怎么做的。之后她因为某些原因（具体什么原因我忘了）写了封信想要跟我「绝交」，但是实际上是虚晃一枪，我们之间关系还是<strong>比较熟</strong>。</p>
+<p>高二时候，虽然纯狐跟我被分到了不同的班上，但是我们之间关系却变成了<strong>特别熟</strong>。我不知道自己的高二是怎么过的，但是我很清楚地记得，纯狐在高二的寒假期间对我提了很多，<strong><em>在我看来</em>超出了正常交往范围</strong>的要求。</p>
+<p>虽然我很享受与纯狐成为朋友的那段时间，但是她跟我实在没有什么共通的地方，再加上某些外界因素的影响，我在高二下学期期中<strong>主动</strong>向纯狐发起绝交。高三期间有尝试复合，但自从那次尝试后一段时间之后直到现在，我仍未再次与纯狐取得联系。在这种情况下，一个跟我<strong>特别熟</strong>的朋友变得<strong>完全不熟</strong>了。</p>
+<p>虽然是我主动发起的绝交，但是绝交之后很长一段时间，我都无法脱离「失去」纯狐所造成的抑郁之中。毕竟纯狐还是跟我有两年的<strong>特别熟</strong>的经历。</p>
+<h2 id="独立性检验是个谎言"><a href="#独立性检验是个谎言" class="headerlink" title="独立性检验是个谎言"></a>独立性检验是个谎言</h2><p>而另一位从高一到高三上学期期中跟我关系都很好的朋友，我称其为「赫卡提亚·拉碧斯拉祖利」（<em>没错，是东方角色，并且赫卡跟上文的纯狐关系很好</em>）。跟纯狐相比，赫卡与我的爱好重合度就高多了。她对MC感兴趣，并且我入坑《原神》也有赫卡的因素在里面。但赫卡在高三上学期期中过后就像变了一个人，逐渐地跟我（<em>貌似是仅跟我</em>）疏远，并在第三次月考期间和我<em>暂时</em>完全断开了联系。</p>
+<p>我跟赫卡之间有一个象征「绝交」的物品，一旦赫卡将那个物品还给我，就代表跟我绝交（不管是赫卡还是我发起的）。在上述断联的时候，赫卡并未把这个象征物还给我，不过在期中到第三次月考这段时间里赫卡已经完全不像我在高一和高二时候打交道的那个「赫卡」，因此我就认为她是跟我绝交了。那个时候2022年12月份刚好是疫情，我在家里面可以说除了受到新冠的影响，还要受到「失去」赫卡造成的影响（当时我根本没想过高考结束后还能复合）。除此之外，我的家长还在这件事情上给我施加了压力，因此网课期间我在家里感觉非常难受。</p>
+<blockquote>
+<p>就算身处 流逝的时光里<br>也只有倦怠 在原地打转不停<br>从我身边 渐行渐远的心<br>再也模糊不清 你明白吗<br>我的身体 已经动弹不得<br>在时间的狭缝里 随波逐流<br>周围的一切 都与我无关<br>我就是我 仅此而已<br>我在做梦吗？什么都没在看<br>出口也是枉然 自怜自艾的废话<br>悲伤什么的 只会徒增疲倦啊<br>干脆就这样 在麻木中度日吧<br>就算被灌以 喧嚣的闲言碎语<br>我的心也已经 不再起一丝涟漪<br>如果我能够 驱使自己的话<br>就让这一切 被黑暗所吞没吧<br>空虚的时光 会通往未来吗<br>这种地方 允许我的存在吗<br>如果要描述我 将我的一切<br>付诸言语的话 那就是「废物」<br>这种地方 允许我的存在吗<br>这种时光 允许我的存在吗<br>如果这样的我 还能改变的话<br>还能改变的话 可以化为空白吗</p>
+</blockquote>
+<p>网课结束后我还在家里休整了几天，因为我还未完全克服抑郁。在这几天里，我重拾了高三期间一直没有机会玩的Minecraft，并且找到了一个群——一个自己很久没有活跃的游戏群。群主是我在初中阶段，在籽岷的直播间一起玩MC的时候认识的网友。当时那个群刚好在玩Minecraft整合包，我就加入了。与此同时群主正在策划一个过年的Minecraft联机活动，包括跑酷和幸运方块。</p>
+<p>于是我直接包下了跑酷的大部分内容和幸运方块数据包的全部内容（<em>没错，幸运方块是我自己写的</em>）。在跟群友玩Minecraft的时候，我心态改善了很多。除夕夜能看到十人联机游玩这个由我和几位地图作者共同创作的作品，我感到非常高兴，全然忘记了赫卡跟自己「绝交」的事情。</p>
+<a class="button  center large" href='https://www.bilibili.com/video/BV1g84y177FY' title='你问我有没有录视频？当然录了！'><i class='fa-solid fa-video'></i> 你问我有没有录视频？当然录了！</a>
+
+<p>后来高三下学期我开了游艺街服务器，且一直在修改其数据包，并且有高强度做数学题。可以肯定，<strong>努力地完成一件我想做的事的过程会让我自己逐步脱离抑郁</strong>。</p>
+<p>高考结束之后第二天，我再次跟赫卡取得了联系，并且没有经过任何的拐弯抹角。在我发出第一条消息之后，赫卡就开始与我像往常一样交流了。直到现在，赫卡仍然是跟我<strong>特别熟</strong>的朋友之一。</p>
+<h2 id="你说的对，但是"><a href="#你说的对，但是" class="headerlink" title="你说的对，但是"></a>你说的对，但是</h2><p>有读者可能会质疑我跟纯狐或者赫卡的关系。纯狐目前已经跟我绝交，不必多说。而跟纯狐的绝交，让我看到了一个非常重要的事实：<strong>我必须尽力让自己不要失去朋友。</strong></p>
+<p>因此，我会尝试主动控制一切可能引发进一步异性关系的因素，换种方式说，就是我通常会避免主动实例化一个 Object（对象）。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">hecatia</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>(); <span class="comment">//うそです</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>事实上，这大概只是我自己的主观刻板印象，主要有以下两点：</p>
+<ul>
+<li>如果一个朋友成为了 Object，那末他&#x2F;她比普通的朋友会更容易失去。而经过纯狐和赫卡两件事，我唯一希望的，<em><strong>就是不要再次「失去」。</strong></em></li>
+<li>如果一个朋友成为了 Object，他&#x2F;她通常会不那么尊重我的个人隐私，进而做出令我反感的事情，以至于我需要多加防备。</li>
+</ul>
+<p>我非常希望自己能够有更多关系亲密的朋友，比<strong>特别熟</strong>还要熟的那种（<em>来份全熟的</em>），也会主动去增进或改进人际关系。但是我实在无法想象失去了一个 Object 之后会陷入怎样的困境。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我可能确实更适合线上聊天，但我也确实渴望能有更多的在现实中的互动时间，无论是和<strong>特别熟</strong>的朋友出去玩玩，还是和<strong>比较熟</strong>的朋友探讨问题，又或是跟<strong>不太熟</strong>的朋友增进关系……</p>
+<p>总之，希望自己能把社交这块处理得更好吧……</p>
+]]></content>
+      <tags>
+        <tag>闲谈</tag>
       </tags>
   </entry>
   <entry>
