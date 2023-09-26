@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Clickable Items 模组</title>
+    <url>/2023/clickable-items/</url>
+    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
+<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
+<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
+<p>执行命令的权限等级始终为2。</p>
+<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
+<p>列表中的命令会按照索引从低到高的顺序执行。</p>
+<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
+<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
+<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
+<p>耐久度的减少会受到耐久附魔的减免影响。</p>
+<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
+<p>对于可堆叠的物品，在使用后只会消失一个。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <tags>
+        <tag>自制模组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Disable the End 模组</title>
+    <url>/2023/disable-the-end/</url>
+    <content><![CDATA[<p>本模组提供了一些在fabric服务器上较为常用的功能，如禁用末地传送门、禁用带名生物死亡日志、禁言玩家等。</p>
+<p>模组名为「Disable the End」，是因为这个模组最初仅仅是为了禁用末地传送门而写的。</p>
+<h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><p>请在<a class="link"   href="https://github.com/TmallKing1/DisableTheEnd/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载最新版本的模组。测试过的Minecraft版本为1.20.1，无法确定是否可以运行在其它版本的Minecraft上。</p>
+<p>模组仅可被装在带有Fabric loader与Fabric API专用服务端（Dedicated Server）的mods文件夹里。装在客户端侧很有可能会出现bug。</p>
+<h2 id="功能介绍与配置说明"><a href="#功能介绍与配置说明" class="headerlink" title="功能介绍与配置说明"></a>功能介绍与配置说明</h2><p>第一次启动服务器时，模组会在「<code>服务端根目录/config/disabletheend</code>」处生成一个名为<code>disable_the_end.json</code>的配置文件。任何对配置文件做出的修改均可在服务端控制台或最高等级权限管理员使用命令<code>/dte reload</code>来重载。</p>
+<h3 id="禁用末地传送门（默认开启）"><a href="#禁用末地传送门（默认开启）" class="headerlink" title="禁用末地传送门（默认开启）"></a>禁用末地传送门（默认开启）</h3><p>在配置文件中的<code>disable_end_portal</code>键进行配置。true为禁用末地传送门，false为不做变化。</p>
+<p>当此键对应的值为true时，所有玩家无法通过末地传送门进入末路之地维度（返回传送门同理）。</p>
+<h3 id="禁用带名生物死亡日志（默认开启）"><a href="#禁用带名生物死亡日志（默认开启）" class="headerlink" title="禁用带名生物死亡日志（默认开启）"></a>禁用带名生物死亡日志（默认开启）</h3><p>在配置文件中的<code>disable_named_entity_log</code>键进行配置。true为禁用，false为不做变化。</p>
+<p>当此键对应的值为true时，命名过的生物死亡后不会在服务器控制台产生日志。</p>
+<p>一般用于使用纯数据包实现的玩法的服务器。</p>
+<h3 id="禁用服务器玩家匿名（默认关闭）"><a href="#禁用服务器玩家匿名（默认关闭）" class="headerlink" title="禁用服务器玩家匿名（默认关闭）"></a>禁用服务器玩家匿名（默认关闭）</h3><p>在配置文件中的<code>anti_anonymous</code>键进行配置。true为禁用，false为不做变化。</p>
+<p>当此键对应的值为true时，玩家客户端的「允许列入服务器玩家列表」设置会被忽略，即服务器在接受到玩家列表查询请求时，总是显示所有的玩家名（包括上述设置为「关」的玩家）。</p>
+<h3 id="强制玩家出生点（默认关闭）"><a href="#强制玩家出生点（默认关闭）" class="headerlink" title="强制玩家出生点（默认关闭）"></a>强制玩家出生点（默认关闭）</h3><p>有两种配置方法：在配置文件中的<code>force_spawn</code>键进行配置，或在游戏内使用命令配置。此处介绍后一种。</p>
+<p>当<code>force_spawn.enabled</code>键对应的值为true时，玩家每次进入服务器时的位置总是在设定的位置上。</p>
+<p>强制玩家出生点的默认位置是世界原点(0,0,0)，若需开启此功能请修改强制出生点位置。</p>
+<h4 id="命令（需要权限等级2）"><a href="#命令（需要权限等级2）" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/forcespawn enable</code></p>
+<p>启用强制玩家出生点功能。</p>
+<p><code>/forcespawn disable</code></p>
+<p>禁用强制玩家出生点功能。</p>
+<p><code>/forcespawn setpos &lt;location: vec3&gt;</code></p>
+<p>设置强制玩家出生点的位置。此命令不会改变玩家进入服务器时的视角朝向。可以使用相对坐标与局部坐标。</p>
+<p><code>/forcespawn setrotation &lt;rotation: rotation&gt;</code></p>
+<p>设置强制玩家出生点的朝向。可以使用相对朝向。</p>
+<h3 id="记分板记分项复制"><a href="#记分板记分项复制" class="headerlink" title="记分板记分项复制"></a>记分板记分项复制</h3><h4 id="命令（需要权限等级2）-1"><a href="#命令（需要权限等级2）-1" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/scoreboard objectives copy &lt;from&gt; &lt;to&gt; [displayName]</code></p>
+<p>将一个记分项追踪的所有分数复制到一个新的记分项，并为新的记分项指定显示名称。</p>
+<p><code>&lt;from&gt;</code>：要复制分数的记分项名称。</p>
+<p><code>&lt;to&gt;</code>：将要复制到的新记分项的名称，不能与已有的记分项重合。</p>
+<p><code>[displayname]</code>：一个JSON文本，新记分项的显示名称。</p>
+<h3 id="玩家禁言"><a href="#玩家禁言" class="headerlink" title="玩家禁言"></a>玩家禁言</h3><p>本模组可实现不会自动解除永久禁言与可自动解除的临时禁言。禁言后的玩家不能发送聊天消息且无法使用<code>/say</code>与<code>/me</code>命令。</p>
+<p>禁言的玩家列表保存在「<code>服务器根目录/muted-players.json</code>」处。当有一名玩家的禁言时间已到且尝试发送聊天消息或使用上述命令时，系统会自动将该玩家从禁言列表中移除，并允许该玩家的此次操作。</p>
+<h4 id="命令（需要权限等级2）-2"><a href="#命令（需要权限等级2）-2" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/mute &lt;player&gt; [time] [reason]</code></p>
+<p>将玩家以指定的原因禁言指定的时间。原因和时间会在玩家尝试发送聊天消息或使用<code>/say</code>与<code>/me</code>命令时对发送者显示。如果未指定时间则为永久禁言。</p>
+<p><code>/unmute &lt;player&gt;</code></p>
+<p>取消禁言一名玩家。当且仅当该玩家的临时禁言时间未到或被永久禁言时可用。</p>
+]]></content>
+      <tags>
+        <tag>自制模组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
     <url>/2023/dhpfix/</url>
     <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
@@ -40,42 +121,83 @@
       </tags>
   </entry>
   <entry>
-    <title>Clickable Items 模组</title>
-    <url>/2023/clickable-items/</url>
-    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
-<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
-<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
+    <title>Scoreboard Helper 模组</title>
+    <url>/2023/scoreboard-helper/</url>
+    <content><![CDATA[<p>Scoreboard Helper是一个提供Minecraft记分板的额外功能的客户端侧模组。</p>
+<p>你可以在<a class="link"   href="https://modrinth.com/mod/scoreboard-helper" >Modrinth <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载该模组。在<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/issues" >Github Issues <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>反馈漏洞与建议。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>你可以通过<a class="link"   href="https://modrinth.com/mod/modmenu" >模组菜单 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或者手动绑定一个快捷键来打开配置屏幕。</p>
+<p>配置文件保存在<code>.minecraft/versions/*你的版本名称*/config/scoreboard-helper.json</code>。</p>
+<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><h3 id="记分板侧边栏翻页"><a href="#记分板侧边栏翻页" class="headerlink" title="记分板侧边栏翻页"></a>记分板侧边栏翻页</h3><p>通过记分板翻页功能，你可以查看当前服务器提供的记分板侧边栏中显示的记分项正在追踪的所有玩家的分数。</p>
+<p>默认的向下翻页快捷键为下方向键，向上翻页快捷键为上方向键。</p>
+<h3 id="显示-x2F-隐藏记分板侧边栏"><a href="#显示-x2F-隐藏记分板侧边栏" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏"></a>显示&#x2F;隐藏记分板侧边栏</h3><p>当你认为记分板侧边栏遮挡了屏幕区域时，可以通过更改配置或按下快捷键（默认<em>未指定</em>）来隐藏记分板侧边栏。</p>
+<p>当你再次需要显示侧边栏时，再按一次该快捷键即可。</p>
+<h3 id="显示-x2F-隐藏记分板侧边栏玩家分数"><a href="#显示-x2F-隐藏记分板侧边栏玩家分数" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏玩家分数"></a>显示&#x2F;隐藏记分板侧边栏玩家分数</h3><p>有些服务器会将记分板侧边栏作为当前信息显示区，此时记分板玩家分数（红色数字）一般是多余的，不需要显示出来。你可通过更改配置来隐藏玩家分数。</p>
+<h3 id="设置记分板显示位置"><a href="#设置记分板显示位置" class="headerlink" title="设置记分板显示位置"></a>设置记分板显示位置</h3><p>本模组支持六个记分板的预设位置：右（默认）、右上角、右下角、左、左上角、左下角。除此之外，你也可以设置记分板的Y轴偏移来避免遮挡其它HUD组件或被其它HUD组件遮挡（如状态效果栏）</p>
+<h3 id="设置记分板侧边栏最大显示数量"><a href="#设置记分板侧边栏最大显示数量" class="headerlink" title="设置记分板侧边栏最大显示数量"></a>设置记分板侧边栏最大显示数量</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
+<p>将记分板侧边栏的最大显示数量设置为<em>count</em>，命令返回值为<em>count</em>的值。</p>
+<p>当<em>count</em>为负数时会报错。</p>
+<h3 id="设置记分板侧边栏不透明度"><a href="#设置记分板侧边栏不透明度" class="headerlink" title="设置记分板侧边栏不透明度"></a>设置记分板侧边栏不透明度</h3><p>本模组支持分别设置侧边栏标题及分数列表部分的背景和文字不透明度。只需在配置屏幕中设置即可。</p>
+<h3 id="默认使用队内聊天"><a href="#默认使用队内聊天" class="headerlink" title="默认使用队内聊天"></a>默认使用队内聊天</h3><p><em>队伍也是记分板的一部分。旧版本有&#x2F;scoreboard teams，直到现在Mojang还是把Team类放在net.minecraft.scoreboard包里面的。</em></p>
+<p><em>所以往这模组里做个跟队伍有关的东西应该不过分吧。</em></p>
+<p>打开该选项后，客户端在发送聊天消息时会自动调用<code>teammsg</code>命令发送队内聊天消息而非普通聊天消息。如果打开了此选项，且发送的聊天消息以井号’#’开头，则客户端在发送消息前会去掉开头的井号，然后发送普通聊天消息。</p>
+<p>以斜杠’&#x2F;‘开头的命令不受此选项影响。</p>
+<h3 id="导出记分板数据"><a href="#导出记分板数据" class="headerlink" title="导出记分板数据"></a>导出记分板数据</h3><p>使用快捷键（默认*反斜线’\‘*）来打开导出屏幕。点击「记录当前记分板」即可将当前侧边栏显示的记分项的<strong>所有数据</strong>保存在内存中，你可以通过更改当前显示的记分项然后再次点击「记录当前记分板」来记录多个记分项。点击「导出已记录的记分板」会将记录的所有数据导出为一个csv文件：<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/EXPORT-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.csv</code>。本文件按照玩家名字典序排序。</p>
+<div class="note warning"><p>若记录数据后服务器修改了对应记分项的数据，则在你进行重新记录之前，模组不会同步地对记录的数据进行修改。</p>
+</div>
 
-<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
-<p>执行命令的权限等级始终为2。</p>
-<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
-<p>列表中的命令会按照索引从低到高的顺序执行。</p>
-<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
-<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
-<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
-<p>耐久度的减少会受到耐久附魔的减免影响。</p>
-<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
-<p>对于可堆叠的物品，在使用后只会消失一个。</p>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>你也可以点击「直接保存当前记分板」来保存当前侧边栏显示的记分项的所有数据到<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/记分项名称.csv</code>。<br><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
 ]]></content>
       <tags>
         <tag>自制模组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Social Pro Max</title>
+    <url>/2023/social-reload/</url>
+    <content><![CDATA[<p><strong>声明：本文具有非常强烈的主观色彩，不喜勿喷。</strong></p>
+<h2 id="public-static-void-main-String-args"><a href="#public-static-void-main-String-args" class="headerlink" title="public static void main(String[] args)"></a>public static void main(String[] args)</h2><p>好吧，让我们从这里开始，直接进入正题。</p>
+<p>一直以来，相比在现实生活中社交，我更加擅长于在网上聊天。<em>俗话说的好，现实中唯唯诺诺，网络上重拳出击。</em>当然我在网上社交的时候也很少攻击别人，相反自己往往是被攻击的那个。网络上的一些人在说话时具备很高的攻击性，即便在正常聊天的时候没有表现出来，他们在需要的时候也能用于把那些具有攻击性的文字发送出去。</p>
+<p>而对于我来说，我根本无法让自己去痛痛快快地「攻击」一个人。换句话说，现实中唯唯诺诺，网络上一样唯唯诺诺。具体表现就是当自己在被攻击时，甚至被他人剽窃隐私的时候，我都没有能力、并且不敢有效地去反驳这个人。一切我发起的攻击行为都是滞后的——在别人攻击我之后，我通常要花很长时间去盘逻辑，然后才能反击他&#x2F;她&#x2F;它&#x2F;祂，甚至我根本没有反击的机会。</p>
+<p>在网络上，除非是跟自己<strong>特别熟</strong>的朋友（这样的朋友屈指可数），我在交流过程中都会习惯性地使用敬语「您」称呼，并且会非常在意这个人在看到我发的消息之后，心里是什么感受。比如「他会不会觉得我想要讨好他」「他看到消息之后，是否能够发自内心地接受我的请求」「他会不会因为我发消息的频率太高而直接把我免打扰&#x2F;屏蔽掉」。我会经常习惯性地在等待他人回复的过程中思考这些问题。而当这些人过了很久都没有回复时，我会思考「他只是简单地没有看到」还是「他看到了，但是对我有意见，所以没有回」。</p>
+<p>我很少使用语音转文字的输入方式，因为除非是跟自己<strong>特别熟</strong>的朋友，我在完成了一段打招呼以外的文字时，会反复检查这段文字有没有错误，是否使用了通俗易懂，并且相对友善的表达方式，并且也没有冒犯到对方。</p>
+<p>在准备添加一个好友，并且这个好友不是我在现实生活中<strong>特别熟</strong>或者<strong>比较熟</strong>的朋友时，我都会犹豫一段时间，之后我可能会<em>发送请求</em>，也可能在验证信息都填写完毕的情况下<em>取消请求</em>，可能这种操作还会循环很多次。因为我很在意别人在看到我发的好友请求时，会不会有什么想法。</p>
+<p>而对于那些跟自己<strong>特别熟</strong>的朋友，那就没有什么好担心的，直接按照自己本来的想法畅聊就是。而对于<strong>比较熟</strong>的朋友，我虽然也放得比较开，但是在网上聊天的过程中也会或多或少地纠结以上的问题。</p>
+<p>正因为我通常会花很长时间纠结这些问题，所以我很少会说出攻击性很强的话——这些问题都是想让自己尽可能「友善」，完全没有要与别人作对的想法。真正要攻击一个人的时候，我只能去尽可能地获得一些对自己有利的信息，然后用比较长的文字去反驳别人。虽然这种方式往往能让自己的文字逻辑严密，但缺点也同样明显——耗时太长。而对于一些不讲道理的网友，这种方法就是纯粹的费力不讨好。</p>
+<p>当然，即便是一个跟自己<strong>不太熟</strong>的朋友，如果我在与他的<em>聊天</em>（特指网上，因为在现实生活中我根本没有勇气与跟自己<strong>不太熟</strong>的朋友闲聊）中感受到了他的友善，那么通常情况下我在与他聊天过程中也不会产生那么大的压力了。</p>
+<p>除此之外，还有一类特殊的群体，这通常是在现实生活中地位比我要高，或者在特定的群聊中管理权限比我要高的人。相比其他群体，我在与这些人交流的过程中会更加注意他&#x2F;她&#x2F;它&#x2F;祂的感受和调整自己的表达，因为他们能够利用自己的权限优势对我进行限制（即便他们通常可能并不会这样做）。这一点在<a href="https://www.pigest.top/2023/why-no-admin/">我的上一篇闲谈</a>中有提到。</p>
+<h2 id="烤太久了"><a href="#烤太久了" class="headerlink" title="烤太久了"></a>烤太久了</h2><p>我自己是一个内向的人，但是无论对于跟自己<strong>特别熟</strong>还是<strong>比较熟</strong>的人，我都非常乐意给予自己能力范围内的帮助。并且这样的「帮助」通常都是无偿的，我似乎<strong>还没有</strong>收钱帮别人干事的经历。因此，除非是需要我帮忙制作一个<strong>明显</strong>需要用于商业用途的项目，否则我基本上都会无偿帮忙。<em>当然，如果真的有什么事情需要我帮忙的，最好还是直接在线上说，因为我线下交际能力实在不太行。</em></p>
+<p>但是这个前提就是我跟被帮助者至少要到<strong>比较熟</strong>的程度，并且对面不是被盗号或者在炸片。</p>
+<p>我高一班上有个同学，我将其称为「爱因斯坦·纯狐」（以下简称纯狐）。她在还跟我<strong>不太熟</strong>的时候，因为周末留宿生不方便的缘故，就<em>非常激动地</em>委托我帮她在网易云上下载歌曲。虽然我跟纯狐<strong>不太熟</strong>，并且实在也没什么共通爱好，但她起码是我同学。我在愣了一会之后同意了她的请求。<em>如果当时我不同意会怎么样呢？</em></p>
+<p>自从那次委托之后，我跟纯狐之间的关系日渐亲密。渐渐就从<strong>不太熟</strong>变成了<strong>比较熟</strong>。在高一下学期，她几乎每天都会让我教她做物理、数学甚至化学的题目。本着乐于助人的精神，我一次次不厌其烦地（<em>我知道你很急，但是你先别急</em>）跟她解释那些题目是怎么做的。之后她因为某些原因（具体什么原因我忘了）写了封信想要跟我「绝交」，但是实际上是虚晃一枪，我们之间关系还是<strong>比较熟</strong>。</p>
+<p>高二时候，虽然纯狐跟我被分到了不同的班上，但是我们之间关系却变成了<strong>特别熟</strong>。我不知道自己的高二是怎么过的，但是我很清楚地记得，纯狐在高二的寒假期间对我提了很多，<strong><em>在我看来</em>超出了正常交往范围</strong>的要求。</p>
+<p>虽然我很享受与纯狐成为朋友的那段时间，但是她跟我实在没有什么共通的地方，再加上某些外界因素的影响，我在高二下学期期中<strong>主动</strong>向纯狐发起绝交。高三期间有尝试复合，但自从那次尝试后一段时间之后直到现在，我仍未再次与纯狐取得联系。在这种情况下，一个跟我<strong>特别熟</strong>的朋友变得<strong>完全不熟</strong>了。</p>
+<p>虽然是我主动发起的绝交，但是绝交之后很长一段时间，我都无法脱离「失去」纯狐所造成的抑郁之中。毕竟纯狐还是跟我有两年的<strong>特别熟</strong>的经历。</p>
+<h2 id="独立性检验是个谎言"><a href="#独立性检验是个谎言" class="headerlink" title="独立性检验是个谎言"></a>独立性检验是个谎言</h2><p>而另一位从高一到高三上学期期中跟我关系都很好的朋友，我称其为「赫卡提亚·拉碧斯拉祖利」（<em>没错，是东方角色，并且赫卡跟上文的纯狐关系很好</em>）。跟纯狐相比，赫卡与我的爱好重合度就高多了。她对MC感兴趣，并且我入坑《原神》也有赫卡的因素在里面。但赫卡在高三上学期期中过后就像变了一个人，逐渐地跟我（<em>貌似是仅跟我</em>）疏远，并在第三次月考期间和我<em>暂时</em>完全断开了联系。</p>
+<p>我跟赫卡之间有一个象征「绝交」的物品，一旦赫卡将那个物品还给我，就代表跟我绝交（不管是赫卡还是我发起的）。在上述断联的时候，赫卡并未把这个象征物还给我，不过在期中到第三次月考这段时间里赫卡已经完全不像我在高一和高二时候打交道的那个「赫卡」，因此我就认为她是跟我绝交了。那个时候2022年12月份刚好是疫情，我在家里面可以说除了受到新冠的影响，还要受到「失去」赫卡造成的影响（当时我根本没想过高考结束后还能复合）。除此之外，我的家长还在这件事情上给我施加了压力，因此网课期间我在家里感觉非常难受。</p>
+<blockquote>
+<p>就算身处 流逝的时光里<br>也只有倦怠 在原地打转不停<br>从我身边 渐行渐远的心<br>再也模糊不清 你明白吗<br>我的身体 已经动弹不得<br>在时间的狭缝里 随波逐流<br>周围的一切 都与我无关<br>我就是我 仅此而已<br>我在做梦吗？什么都没在看<br>出口也是枉然 自怜自艾的废话<br>悲伤什么的 只会徒增疲倦啊<br>干脆就这样 在麻木中度日吧<br>就算被灌以 喧嚣的闲言碎语<br>我的心也已经 不再起一丝涟漪<br>如果我能够 驱使自己的话<br>就让这一切 被黑暗所吞没吧<br>空虚的时光 会通往未来吗<br>这种地方 允许我的存在吗<br>如果要描述我 将我的一切<br>付诸言语的话 那就是「废物」<br>这种地方 允许我的存在吗<br>这种时光 允许我的存在吗<br>如果这样的我 还能改变的话<br>还能改变的话 可以化为空白吗</p>
+</blockquote>
+<p>网课结束后我还在家里休整了几天，因为我还未完全克服抑郁。在这几天里，我重拾了高三期间一直没有机会玩的Minecraft，并且找到了一个群——一个自己很久没有活跃的游戏群。群主是我在初中阶段，在籽岷的直播间一起玩MC的时候认识的网友。当时那个群刚好在玩Minecraft整合包，我就加入了。与此同时群主正在策划一个过年的Minecraft联机活动，包括跑酷和幸运方块。</p>
+<p>于是我直接包下了跑酷的大部分内容和幸运方块数据包的全部内容（<em>没错，幸运方块是我自己写的</em>）。在跟群友玩Minecraft的时候，我心态改善了很多。除夕夜能看到十人联机游玩这个由我和几位地图作者共同创作的作品，我感到非常高兴，全然忘记了赫卡跟自己「绝交」的事情。</p>
+<a class="button  center large" href='https://www.bilibili.com/video/BV1g84y177FY' title='你问我有没有录视频？当然录了！'><i class='fa-solid fa-video'></i> 你问我有没有录视频？当然录了！</a>
+
+<p>后来高三下学期我开了游艺街服务器，且一直在修改其数据包，并且有高强度做数学题。可以肯定，<strong>努力地完成一件我想做的事的过程会让我自己逐步脱离抑郁</strong>。</p>
+<p>高考结束之后第二天，我再次跟赫卡取得了联系，并且没有经过任何的拐弯抹角。在我发出第一条消息之后，赫卡就开始与我像往常一样交流了。直到现在，赫卡仍然是跟我<strong>特别熟</strong>的朋友之一。</p>
+<h2 id="你说的对，但是"><a href="#你说的对，但是" class="headerlink" title="你说的对，但是"></a>你说的对，但是</h2><p>有读者可能会质疑我跟纯狐或者赫卡的关系。纯狐目前已经跟我绝交，不必多说。而跟纯狐的绝交，让我看到了一个非常重要的事实：<strong>我必须尽力让自己不要失去朋友。</strong></p>
+<p>因此，我会尝试主动控制一切可能引发进一步异性关系的因素，换种方式说，就是我通常会避免主动实例化一个 Object（对象）。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">hecatia</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>(); <span class="comment">//うそです</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>事实上，这大概只是我自己的主观刻板印象，主要有以下两点：</p>
+<ul>
+<li>如果一个朋友成为了 Object，那末他&#x2F;她比普通的朋友会更容易失去。而经过纯狐和赫卡两件事，我唯一希望的，<em><strong>就是不要再次「失去」。</strong></em></li>
+<li>如果一个朋友成为了 Object，他&#x2F;她通常会不那么尊重我的个人隐私，进而做出令我反感的事情，以至于我需要多加防备。</li>
+</ul>
+<p>我非常希望自己能够有更多关系亲密的朋友，比<strong>特别熟</strong>还要熟的那种（<em>来份全熟的</em>），也会主动去增进或改进人际关系。但是我实在无法想象失去了一个 Object 之后会陷入怎样的困境。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我可能确实更适合线上聊天，但我也确实渴望能有更多的在现实中的互动时间，无论是和<strong>特别熟</strong>的朋友出去玩玩，还是和<strong>比较熟</strong>的朋友探讨问题，又或是跟<strong>不太熟</strong>的朋友增进关系……</p>
+<p>总之，希望自己能把社交这块处理得更好吧……</p>
+]]></content>
+      <tags>
+        <tag>闲谈</tag>
       </tags>
   </entry>
   <entry>
@@ -401,79 +523,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Disable the End 模组</title>
-    <url>/2023/disable-the-end/</url>
-    <content><![CDATA[<p>本模组提供了一些在fabric服务器上较为常用的功能，如禁用末地传送门、禁用带名生物死亡日志、禁言玩家等。</p>
-<p>模组名为「Disable the End」，是因为这个模组最初仅仅是为了禁用末地传送门而写的。</p>
-<h2 id="下载与安装"><a href="#下载与安装" class="headerlink" title="下载与安装"></a>下载与安装</h2><p>请在<a class="link"   href="https://github.com/TmallKing1/DisableTheEnd/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载最新版本的模组。测试过的Minecraft版本为1.20.1，无法确定是否可以运行在其它版本的Minecraft上。</p>
-<p>模组仅可被装在带有Fabric loader与Fabric API专用服务端（Dedicated Server）的mods文件夹里。装在客户端侧很有可能会出现bug。</p>
-<h2 id="功能介绍与配置说明"><a href="#功能介绍与配置说明" class="headerlink" title="功能介绍与配置说明"></a>功能介绍与配置说明</h2><p>第一次启动服务器时，模组会在「<code>服务端根目录/config/disabletheend</code>」处生成一个名为<code>disable_the_end.json</code>的配置文件。任何对配置文件做出的修改均可在服务端控制台或最高等级权限管理员使用命令<code>/dte reload</code>来重载。</p>
-<h3 id="禁用末地传送门（默认开启）"><a href="#禁用末地传送门（默认开启）" class="headerlink" title="禁用末地传送门（默认开启）"></a>禁用末地传送门（默认开启）</h3><p>在配置文件中的<code>disable_end_portal</code>键进行配置。true为禁用末地传送门，false为不做变化。</p>
-<p>当此键对应的值为true时，所有玩家无法通过末地传送门进入末路之地维度（返回传送门同理）。</p>
-<h3 id="禁用带名生物死亡日志（默认开启）"><a href="#禁用带名生物死亡日志（默认开启）" class="headerlink" title="禁用带名生物死亡日志（默认开启）"></a>禁用带名生物死亡日志（默认开启）</h3><p>在配置文件中的<code>disable_named_entity_log</code>键进行配置。true为禁用，false为不做变化。</p>
-<p>当此键对应的值为true时，命名过的生物死亡后不会在服务器控制台产生日志。</p>
-<p>一般用于使用纯数据包实现的玩法的服务器。</p>
-<h3 id="禁用服务器玩家匿名（默认关闭）"><a href="#禁用服务器玩家匿名（默认关闭）" class="headerlink" title="禁用服务器玩家匿名（默认关闭）"></a>禁用服务器玩家匿名（默认关闭）</h3><p>在配置文件中的<code>anti_anonymous</code>键进行配置。true为禁用，false为不做变化。</p>
-<p>当此键对应的值为true时，玩家客户端的「允许列入服务器玩家列表」设置会被忽略，即服务器在接受到玩家列表查询请求时，总是显示所有的玩家名（包括上述设置为「关」的玩家）。</p>
-<h3 id="强制玩家出生点（默认关闭）"><a href="#强制玩家出生点（默认关闭）" class="headerlink" title="强制玩家出生点（默认关闭）"></a>强制玩家出生点（默认关闭）</h3><p>有两种配置方法：在配置文件中的<code>force_spawn</code>键进行配置，或在游戏内使用命令配置。此处介绍后一种。</p>
-<p>当<code>force_spawn.enabled</code>键对应的值为true时，玩家每次进入服务器时的位置总是在设定的位置上。</p>
-<p>强制玩家出生点的默认位置是世界原点(0,0,0)，若需开启此功能请修改强制出生点位置。</p>
-<h4 id="命令（需要权限等级2）"><a href="#命令（需要权限等级2）" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/forcespawn enable</code></p>
-<p>启用强制玩家出生点功能。</p>
-<p><code>/forcespawn disable</code></p>
-<p>禁用强制玩家出生点功能。</p>
-<p><code>/forcespawn setpos &lt;location: vec3&gt;</code></p>
-<p>设置强制玩家出生点的位置。此命令不会改变玩家进入服务器时的视角朝向。可以使用相对坐标与局部坐标。</p>
-<p><code>/forcespawn setrotation &lt;rotation: rotation&gt;</code></p>
-<p>设置强制玩家出生点的朝向。可以使用相对朝向。</p>
-<h3 id="记分板记分项复制"><a href="#记分板记分项复制" class="headerlink" title="记分板记分项复制"></a>记分板记分项复制</h3><h4 id="命令（需要权限等级2）-1"><a href="#命令（需要权限等级2）-1" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/scoreboard objectives copy &lt;from&gt; &lt;to&gt; [displayName]</code></p>
-<p>将一个记分项追踪的所有分数复制到一个新的记分项，并为新的记分项指定显示名称。</p>
-<p><code>&lt;from&gt;</code>：要复制分数的记分项名称。</p>
-<p><code>&lt;to&gt;</code>：将要复制到的新记分项的名称，不能与已有的记分项重合。</p>
-<p><code>[displayname]</code>：一个JSON文本，新记分项的显示名称。</p>
-<h3 id="玩家禁言"><a href="#玩家禁言" class="headerlink" title="玩家禁言"></a>玩家禁言</h3><p>本模组可实现不会自动解除永久禁言与可自动解除的临时禁言。禁言后的玩家不能发送聊天消息且无法使用<code>/say</code>与<code>/me</code>命令。</p>
-<p>禁言的玩家列表保存在「<code>服务器根目录/muted-players.json</code>」处。当有一名玩家的禁言时间已到且尝试发送聊天消息或使用上述命令时，系统会自动将该玩家从禁言列表中移除，并允许该玩家的此次操作。</p>
-<h4 id="命令（需要权限等级2）-2"><a href="#命令（需要权限等级2）-2" class="headerlink" title="命令（需要权限等级2）"></a>命令（需要权限等级2）</h4><p><code>/mute &lt;player&gt; [time] [reason]</code></p>
-<p>将玩家以指定的原因禁言指定的时间。原因和时间会在玩家尝试发送聊天消息或使用<code>/say</code>与<code>/me</code>命令时对发送者显示。如果未指定时间则为永久禁言。</p>
-<p><code>/unmute &lt;player&gt;</code></p>
-<p>取消禁言一名玩家。当且仅当该玩家的临时禁言时间未到或被永久禁言时可用。</p>
-]]></content>
-      <tags>
-        <tag>自制模组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Scoreboard Helper 模组</title>
-    <url>/2023/scoreboard-helper/</url>
-    <content><![CDATA[<p>Scoreboard Helper是一个提供Minecraft记分板的额外功能的客户端侧模组。</p>
-<p>你可以在<a class="link"   href="https://modrinth.com/mod/scoreboard-helper" >Modrinth <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/releases" >Github Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>下载该模组。在<a class="link"   href="https://github.com/TmallKing1/ScoreboardHelper/issues" >Github Issues <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>反馈漏洞与建议。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>你可以通过<a class="link"   href="https://modrinth.com/mod/modmenu" >模组菜单 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>或者手动绑定一个快捷键来打开配置屏幕。</p>
-<p>配置文件保存在<code>.minecraft/versions/*你的版本名称*/config/scoreboard-helper.json</code>。</p>
-<h2 id="功能介绍"><a href="#功能介绍" class="headerlink" title="功能介绍"></a>功能介绍</h2><h3 id="记分板侧边栏翻页"><a href="#记分板侧边栏翻页" class="headerlink" title="记分板侧边栏翻页"></a>记分板侧边栏翻页</h3><p>通过记分板翻页功能，你可以查看当前服务器提供的记分板侧边栏中显示的记分项正在追踪的所有玩家的分数。</p>
-<p>默认的向下翻页快捷键为下方向键，向上翻页快捷键为上方向键。</p>
-<h3 id="显示-x2F-隐藏记分板侧边栏"><a href="#显示-x2F-隐藏记分板侧边栏" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏"></a>显示&#x2F;隐藏记分板侧边栏</h3><p>当你认为记分板侧边栏遮挡了屏幕区域时，可以通过更改配置或按下快捷键（默认<em>未指定</em>）来隐藏记分板侧边栏。</p>
-<p>当你再次需要显示侧边栏时，再按一次该快捷键即可。</p>
-<h3 id="显示-x2F-隐藏记分板侧边栏玩家分数"><a href="#显示-x2F-隐藏记分板侧边栏玩家分数" class="headerlink" title="显示&#x2F;隐藏记分板侧边栏玩家分数"></a>显示&#x2F;隐藏记分板侧边栏玩家分数</h3><p>有些服务器会将记分板侧边栏作为当前信息显示区，此时记分板玩家分数（红色数字）一般是多余的，不需要显示出来。你可通过更改配置来隐藏玩家分数。</p>
-<h3 id="设置记分板显示位置"><a href="#设置记分板显示位置" class="headerlink" title="设置记分板显示位置"></a>设置记分板显示位置</h3><p>本模组支持六个记分板的预设位置：右（默认）、右上角、右下角、左、左上角、左下角。除此之外，你也可以设置记分板的Y轴偏移来避免遮挡其它HUD组件或被其它HUD组件遮挡（如状态效果栏）</p>
-<h3 id="设置记分板侧边栏最大显示数量"><a href="#设置记分板侧边栏最大显示数量" class="headerlink" title="设置记分板侧边栏最大显示数量"></a>设置记分板侧边栏最大显示数量</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
-<p>将记分板侧边栏的最大显示数量设置为<em>count</em>，命令返回值为<em>count</em>的值。</p>
-<p>当<em>count</em>为负数时会报错。</p>
-<h3 id="设置记分板侧边栏不透明度"><a href="#设置记分板侧边栏不透明度" class="headerlink" title="设置记分板侧边栏不透明度"></a>设置记分板侧边栏不透明度</h3><p>本模组支持分别设置侧边栏标题及分数列表部分的背景和文字不透明度。只需在配置屏幕中设置即可。</p>
-<h3 id="默认使用队内聊天"><a href="#默认使用队内聊天" class="headerlink" title="默认使用队内聊天"></a>默认使用队内聊天</h3><p><em>队伍也是记分板的一部分。旧版本有&#x2F;scoreboard teams，直到现在Mojang还是把Team类放在net.minecraft.scoreboard包里面的。</em></p>
-<p><em>所以往这模组里做个跟队伍有关的东西应该不过分吧。</em></p>
-<p>打开该选项后，客户端在发送聊天消息时会自动调用<code>teammsg</code>命令发送队内聊天消息而非普通聊天消息。如果打开了此选项，且发送的聊天消息以井号’#’开头，则客户端在发送消息前会去掉开头的井号，然后发送普通聊天消息。</p>
-<p>以斜杠’&#x2F;‘开头的命令不受此选项影响。</p>
-<h3 id="导出记分板数据"><a href="#导出记分板数据" class="headerlink" title="导出记分板数据"></a>导出记分板数据</h3><p>使用快捷键（默认*反斜线’\‘*）来打开导出屏幕。点击「记录当前记分板」即可将当前侧边栏显示的记分项的<strong>所有数据</strong>保存在内存中，你可以通过更改当前显示的记分项然后再次点击「记录当前记分板」来记录多个记分项。点击「导出已记录的记分板」会将记录的所有数据导出为一个csv文件：<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/EXPORT-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.csv</code>。本文件按照玩家名字典序排序。</p>
-<div class="note warning"><p>若记录数据后服务器修改了对应记分项的数据，则在你进行重新记录之前，模组不会同步地对记录的数据进行修改。</p>
-</div>
-
-<p>你也可以点击「直接保存当前记分板」来保存当前侧边栏显示的记分项的所有数据到<code>.minecraft/versions/*你的版本名称*/scoreboard-exports/记分项名称.csv</code>。<br><code>/sbhelper maxDisplayCount &lt;count: Integer&gt; </code></p>
-]]></content>
-      <tags>
-        <tag>自制模组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>游艺街 小猪之最改版服</title>
     <url>/2023/server/</url>
     <content><![CDATA[<h2 id="服务器概要"><a href="#服务器概要" class="headerlink" title="服务器概要"></a>服务器概要</h2><p>IP：加群查看。</p>
@@ -672,55 +721,6 @@
 ]]></content>
       <tags>
         <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Social Pro Max</title>
-    <url>/2023/social-reload/</url>
-    <content><![CDATA[<p><strong>声明：本文具有非常强烈的主观色彩，不喜勿喷。</strong></p>
-<h2 id="public-static-void-main-String-args"><a href="#public-static-void-main-String-args" class="headerlink" title="public static void main(String[] args)"></a>public static void main(String[] args)</h2><p>好吧，让我们从这里开始，直接进入正题。</p>
-<p>一直以来，相比在现实生活中社交，我更加擅长于在网上聊天。<em>俗话说的好，现实中唯唯诺诺，网络上重拳出击。</em>当然我在网上社交的时候也很少攻击别人，相反自己往往是被攻击的那个。网络上的一些人在说话时具备很高的攻击性，即便在正常聊天的时候没有表现出来，他们在需要的时候也能用于把那些具有攻击性的文字发送出去。</p>
-<p>而对于我来说，我根本无法让自己去痛痛快快地「攻击」一个人。换句话说，现实中唯唯诺诺，网络上一样唯唯诺诺。具体表现就是当自己在被攻击时，甚至被他人剽窃隐私的时候，我都没有能力、并且不敢有效地去反驳这个人。一切我发起的攻击行为都是滞后的——在别人攻击我之后，我通常要花很长时间去盘逻辑，然后才能反击他&#x2F;她&#x2F;它&#x2F;祂，甚至我根本没有反击的机会。</p>
-<p>在网络上，除非是跟自己<strong>特别熟</strong>的朋友（这样的朋友屈指可数），我在交流过程中都会习惯性地使用敬语「您」称呼，并且会非常在意这个人在看到我发的消息之后，心里是什么感受。比如「他会不会觉得我想要讨好他」「他看到消息之后，是否能够发自内心地接受我的请求」「他会不会因为我发消息的频率太高而直接把我免打扰&#x2F;屏蔽掉」。我会经常习惯性地在等待他人回复的过程中思考这些问题。而当这些人过了很久都没有回复时，我会思考「他只是简单地没有看到」还是「他看到了，但是对我有意见，所以没有回」。</p>
-<p>我很少使用语音转文字的输入方式，因为除非是跟自己<strong>特别熟</strong>的朋友，我在完成了一段打招呼以外的文字时，会反复检查这段文字有没有错误，是否使用了通俗易懂，并且相对友善的表达方式，并且也没有冒犯到对方。</p>
-<p>在准备添加一个好友，并且这个好友不是我在现实生活中<strong>特别熟</strong>或者<strong>比较熟</strong>的朋友时，我都会犹豫一段时间，之后我可能会<em>发送请求</em>，也可能在验证信息都填写完毕的情况下<em>取消请求</em>，可能这种操作还会循环很多次。因为我很在意别人在看到我发的好友请求时，会不会有什么想法。</p>
-<p>而对于那些跟自己<strong>特别熟</strong>的朋友，那就没有什么好担心的，直接按照自己本来的想法畅聊就是。而对于<strong>比较熟</strong>的朋友，我虽然也放得比较开，但是在网上聊天的过程中也会或多或少地纠结以上的问题。</p>
-<p>正因为我通常会花很长时间纠结这些问题，所以我很少会说出攻击性很强的话——这些问题都是想让自己尽可能「友善」，完全没有要与别人作对的想法。真正要攻击一个人的时候，我只能去尽可能地获得一些对自己有利的信息，然后用比较长的文字去反驳别人。虽然这种方式往往能让自己的文字逻辑严密，但缺点也同样明显——耗时太长。而对于一些不讲道理的网友，这种方法就是纯粹的费力不讨好。</p>
-<p>当然，即便是一个跟自己<strong>不太熟</strong>的朋友，如果我在与他的<em>聊天</em>（特指网上，因为在现实生活中我根本没有勇气与跟自己<strong>不太熟</strong>的朋友闲聊）中感受到了他的友善，那么通常情况下我在与他聊天过程中也不会产生那么大的压力了。</p>
-<p>除此之外，还有一类特殊的群体，这通常是在现实生活中地位比我要高，或者在特定的群聊中管理权限比我要高的人。相比其他群体，我在与这些人交流的过程中会更加注意他&#x2F;她&#x2F;它&#x2F;祂的感受和调整自己的表达，因为他们能够利用自己的权限优势对我进行限制（即便他们通常可能并不会这样做）。这一点在<a href="https://www.pigest.top/2023/why-no-admin/">我的上一篇闲谈</a>中有提到。</p>
-<h2 id="烤太久了"><a href="#烤太久了" class="headerlink" title="烤太久了"></a>烤太久了</h2><p>我自己是一个内向的人，但是无论对于跟自己<strong>特别熟</strong>还是<strong>比较熟</strong>的人，我都非常乐意给予自己能力范围内的帮助。并且这样的「帮助」通常都是无偿的，我似乎<strong>还没有</strong>收钱帮别人干事的经历。因此，除非是需要我帮忙制作一个<strong>明显</strong>需要用于商业用途的项目，否则我基本上都会无偿帮忙。<em>当然，如果真的有什么事情需要我帮忙的，最好还是直接在线上说，因为我线下交际能力实在不太行。</em></p>
-<p>但是这个前提就是我跟被帮助者至少要到<strong>比较熟</strong>的程度，并且对面不是被盗号或者在炸片。</p>
-<p>我高一班上有个同学，我将其称为「爱因斯坦·纯狐」（以下简称纯狐）。她在还跟我<strong>不太熟</strong>的时候，因为周末留宿生不方便的缘故，就<em>非常激动地</em>委托我帮她在网易云上下载歌曲。虽然我跟纯狐<strong>不太熟</strong>，并且实在也没什么共通爱好，但她起码是我同学。我在愣了一会之后同意了她的请求。<em>如果当时我不同意会怎么样呢？</em></p>
-<p>自从那次委托之后，我跟纯狐之间的关系日渐亲密。渐渐就从<strong>不太熟</strong>变成了<strong>比较熟</strong>。在高一下学期，她几乎每天都会让我教她做物理、数学甚至化学的题目。本着乐于助人的精神，我一次次不厌其烦地（<em>我知道你很急，但是你先别急</em>）跟她解释那些题目是怎么做的。之后她因为某些原因（具体什么原因我忘了）写了封信想要跟我「绝交」，但是实际上是虚晃一枪，我们之间关系还是<strong>比较熟</strong>。</p>
-<p>高二时候，虽然纯狐跟我被分到了不同的班上，但是我们之间关系却变成了<strong>特别熟</strong>。我不知道自己的高二是怎么过的，但是我很清楚地记得，纯狐在高二的寒假期间对我提了很多，<strong><em>在我看来</em>超出了正常交往范围</strong>的要求。</p>
-<p>虽然我很享受与纯狐成为朋友的那段时间，但是她跟我实在没有什么共通的地方，再加上某些外界因素的影响，我在高二下学期期中<strong>主动</strong>向纯狐发起绝交。高三期间有尝试复合，但自从那次尝试后一段时间之后直到现在，我仍未再次与纯狐取得联系。在这种情况下，一个跟我<strong>特别熟</strong>的朋友变得<strong>完全不熟</strong>了。</p>
-<p>虽然是我主动发起的绝交，但是绝交之后很长一段时间，我都无法脱离「失去」纯狐所造成的抑郁之中。毕竟纯狐还是跟我有两年的<strong>特别熟</strong>的经历。</p>
-<h2 id="独立性检验是个谎言"><a href="#独立性检验是个谎言" class="headerlink" title="独立性检验是个谎言"></a>独立性检验是个谎言</h2><p>而另一位从高一到高三上学期期中跟我关系都很好的朋友，我称其为「赫卡提亚·拉碧斯拉祖利」（<em>没错，是东方角色，并且赫卡跟上文的纯狐关系很好</em>）。跟纯狐相比，赫卡与我的爱好重合度就高多了。她对MC感兴趣，并且我入坑《原神》也有赫卡的因素在里面。但赫卡在高三上学期期中过后就像变了一个人，逐渐地跟我（<em>貌似是仅跟我</em>）疏远，并在第三次月考期间和我<em>暂时</em>完全断开了联系。</p>
-<p>我跟赫卡之间有一个象征「绝交」的物品，一旦赫卡将那个物品还给我，就代表跟我绝交（不管是赫卡还是我发起的）。在上述断联的时候，赫卡并未把这个象征物还给我，不过在期中到第三次月考这段时间里赫卡已经完全不像我在高一和高二时候打交道的那个「赫卡」，因此我就认为她是跟我绝交了。那个时候2022年12月份刚好是疫情，我在家里面可以说除了受到新冠的影响，还要受到「失去」赫卡造成的影响（当时我根本没想过高考结束后还能复合）。除此之外，我的家长还在这件事情上给我施加了压力，因此网课期间我在家里感觉非常难受。</p>
-<blockquote>
-<p>就算身处 流逝的时光里<br>也只有倦怠 在原地打转不停<br>从我身边 渐行渐远的心<br>再也模糊不清 你明白吗<br>我的身体 已经动弹不得<br>在时间的狭缝里 随波逐流<br>周围的一切 都与我无关<br>我就是我 仅此而已<br>我在做梦吗？什么都没在看<br>出口也是枉然 自怜自艾的废话<br>悲伤什么的 只会徒增疲倦啊<br>干脆就这样 在麻木中度日吧<br>就算被灌以 喧嚣的闲言碎语<br>我的心也已经 不再起一丝涟漪<br>如果我能够 驱使自己的话<br>就让这一切 被黑暗所吞没吧<br>空虚的时光 会通往未来吗<br>这种地方 允许我的存在吗<br>如果要描述我 将我的一切<br>付诸言语的话 那就是「废物」<br>这种地方 允许我的存在吗<br>这种时光 允许我的存在吗<br>如果这样的我 还能改变的话<br>还能改变的话 可以化为空白吗</p>
-</blockquote>
-<p>网课结束后我还在家里休整了几天，因为我还未完全克服抑郁。在这几天里，我重拾了高三期间一直没有机会玩的Minecraft，并且找到了一个群——一个自己很久没有活跃的游戏群。群主是我在初中阶段，在籽岷的直播间一起玩MC的时候认识的网友。当时那个群刚好在玩Minecraft整合包，我就加入了。与此同时群主正在策划一个过年的Minecraft联机活动，包括跑酷和幸运方块。</p>
-<p>于是我直接包下了跑酷的大部分内容和幸运方块数据包的全部内容（<em>没错，幸运方块是我自己写的</em>）。在跟群友玩Minecraft的时候，我心态改善了很多。除夕夜能看到十人联机游玩这个由我和几位地图作者共同创作的作品，我感到非常高兴，全然忘记了赫卡跟自己「绝交」的事情。</p>
-<a class="button  center large" href='https://www.bilibili.com/video/BV1g84y177FY' title='你问我有没有录视频？当然录了！'><i class='fa-solid fa-video'></i> 你问我有没有录视频？当然录了！</a>
-
-<p>后来高三下学期我开了游艺街服务器，且一直在修改其数据包，并且有高强度做数学题。可以肯定，<strong>努力地完成一件我想做的事的过程会让我自己逐步脱离抑郁</strong>。</p>
-<p>高考结束之后第二天，我再次跟赫卡取得了联系，并且没有经过任何的拐弯抹角。在我发出第一条消息之后，赫卡就开始与我像往常一样交流了。直到现在，赫卡仍然是跟我<strong>特别熟</strong>的朋友之一。</p>
-<h2 id="你说的对，但是"><a href="#你说的对，但是" class="headerlink" title="你说的对，但是"></a>你说的对，但是</h2><p>有读者可能会质疑我跟纯狐或者赫卡的关系。纯狐目前已经跟我绝交，不必多说。而跟纯狐的绝交，让我看到了一个非常重要的事实：<strong>我必须尽力让自己不要失去朋友。</strong></p>
-<p>因此，我会尝试主动控制一切可能引发进一步异性关系的因素，换种方式说，就是我通常会避免主动实例化一个 Object（对象）。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Object</span> <span class="variable">hecatia</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>(); <span class="comment">//うそです</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>事实上，这大概只是我自己的主观刻板印象，主要有以下两点：</p>
-<ul>
-<li>如果一个朋友成为了 Object，那末他&#x2F;她比普通的朋友会更容易失去。而经过纯狐和赫卡两件事，我唯一希望的，<em><strong>就是不要再次「失去」。</strong></em></li>
-<li>如果一个朋友成为了 Object，他&#x2F;她通常会不那么尊重我的个人隐私，进而做出令我反感的事情，以至于我需要多加防备。</li>
-</ul>
-<p>我非常希望自己能够有更多关系亲密的朋友，比<strong>特别熟</strong>还要熟的那种（<em>来份全熟的</em>），也会主动去增进或改进人际关系。但是我实在无法想象失去了一个 Object 之后会陷入怎样的困境。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>我可能确实更适合线上聊天，但我也确实渴望能有更多的在现实中的互动时间，无论是和<strong>特别熟</strong>的朋友出去玩玩，还是和<strong>比较熟</strong>的朋友探讨问题，又或是跟<strong>不太熟</strong>的朋友增进关系……</p>
-<p>总之，希望自己能把社交这块处理得更好吧……</p>
-]]></content>
-      <tags>
-        <tag>闲谈</tag>
       </tags>
   </entry>
   <entry>
