@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Clickable Items 模组</title>
-    <url>/2023/clickable-items/</url>
-    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
-<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
-<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
-<p>执行命令的权限等级始终为2。</p>
-<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
-<p>列表中的命令会按照索引从低到高的顺序执行。</p>
-<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
-<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
-<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
-<p>耐久度的减少会受到耐久附魔的减免影响。</p>
-<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
-<p>例子：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
-<p>对于可堆叠的物品，在使用后只会消失一个。</p>
-<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-      <tags>
-        <tag>自制模组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>临时解决Datapack Helper Plus在1.20.2更新后未应用1.20.2对药水相关NBT键的更改</title>
-    <url>/2023/dhpfixagain/</url>
-    <content><![CDATA[<p>1.20.2更新了，我在重构LTWπ代码的时候，发现1.20.2把药水相关的NBT键全改了，从驼峰命名改成了小写单词加下划线的形式（例如<strong>CustomPotionEffects</strong>-&gt;<strong>custom_potion_effects</strong>。</p>
-<p>但是大憨批（Datapack Helper Plus）似乎并没有更改，因此我把大憨批调用的Nbtdoc手动改了一下，使用新的Nbtdoc替换原有的Nbtdoc后，就能正常补全custom_potion_effects、active_effects这些键了。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img%5Cdhpfixagain%5Cdhpfixagain-1.png"
-                     
-                ></p>
-<p><em>实际上是Nbtdoc的所有者没更新吧……</em></p>
-<p>Nbtdoc.json下载：<a class="link"   href="https://xzzz.lanzouq.com/iUMhE1c1u74b" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>将压缩包内文件解压到<code>C:\Users\你的用户名\AppData\Roaming\Code\User\globalStorage\spgoding.datapack-language-server\1.20.2</code>路径下，若已有一个Nbtdoc.json则替换。</p>
-]]></content>
-      <tags>
-        <tag>教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Data-pack Helper Plus无法支持1.19.4新特性的临时解决方案</title>
     <url>/2023/dhpfix/</url>
     <content><![CDATA[<p>VSCode的Data-pack Helper Plus（以下简称大憨批）插件中，把命令树版本调为1.19.4却不支持1.19.4添加的新特性。这是网络问题以及相关的链接404导致的。以下为出现此问题的临时解决方案。</p>
@@ -143,6 +85,45 @@
 ]]></content>
       <tags>
         <tag>年度总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clickable Items 模组</title>
+    <url>/2023/clickable-items/</url>
+    <content><![CDATA[<p>本模组为服务器添加了一种通过为物品添加NBT标签来使得物品在被「使用」（默认右键点击）时运行命令的方法。</p>
+<p>具体的使用方法为：在使用<code>give</code>命令（或<code>item</code>命令、可以生成物品实体的命令等）给予玩家物品时，在物品的NBT中添加一个<code>Interaction</code>标签。</p>
+<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&quot;/gamemode creative&quot;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以将自己的游戏模式切换为创造模式的钻石。</p>
+<p>执行命令的权限等级始终为2。</p>
+<h2 id="执行多条命令"><a href="#执行多条命令" class="headerlink" title="执行多条命令"></a>执行多条命令</h2><p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Commands:[&quot;/effect give @s speed infinite 0&quot;,&quot;/effect give @s jump_boost infinite 0&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗右键使用时可以获得无限时间的速度&amp;跳跃提升效果的钻石。</p>
+<p>列表中的命令会按照索引从低到高的顺序执行。</p>
+<h2 id="附加设置"><a href="#附加设置" class="headerlink" title="附加设置"></a>附加设置</h2><h3 id="挥手"><a href="#挥手" class="headerlink" title="挥手"></a>挥手</h3><p>原版的很多可使用物品在被使用时都会有一个挥手动画。而安装本模组后，你也可以通过在<code>Interaction</code>标签内添加一个<code>Wave: 1b</code>标签来让任何物品在被右键使用时产生挥手动画。</p>
+<p>可以与<code>Commands</code>标签一起使用，也可以单独使用。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond&#123;Interaction:&#123;Wave: 1b,Commands:[&quot;/gamemode creative&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一颗使用后会产生挥手动画并将自己的游戏模式更改为创造模式的钻石。</p>
+<h3 id="减少耐久"><a href="#减少耐久" class="headerlink" title="减少耐久"></a>减少耐久</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Damage</code>标签来实现物品被使用时减少物品的耐久度。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Damage: 114,Commands:[&quot;/effect give @s strength 20 2&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会消耗其114点耐久度，同时会给予使用者20秒的力量III效果。</p>
+<p>耐久度的减少会受到耐久附魔的减免影响。</p>
+<h3 id="消耗物品"><a href="#消耗物品" class="headerlink" title="消耗物品"></a>消耗物品</h3><p>你可以通过在<code>Interaction</code>标签内添加一个<code>Consume: 1b</code>标签来实现物品在被非创造模式的玩家使用时会被消耗掉。</p>
+<p>例子：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">give @s diamond_sword&#123;Interaction:&#123;Consume: 1b,Commands:[&quot;/effect give @s strength 20 4&quot;]&#125;&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>给予自己一把钻石剑。这把钻石剑在使用时会给予使用者20秒的力量V效果。若使用者的游戏模式非创造模式，则使用后钻石剑会消失。</p>
+<p>对于可堆叠的物品，在使用后只会消失一个。</p>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>GitHub：<a class="link"   href="https://github.com/TmallKing1/ClickableItems/releases" >Releases <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <tags>
+        <tag>自制模组</tag>
       </tags>
   </entry>
   <entry>
@@ -268,6 +249,25 @@
       </tags>
   </entry>
   <entry>
+    <title>临时解决Datapack Helper Plus在1.20.2更新后未应用1.20.2对药水相关NBT键的更改</title>
+    <url>/2023/dhpfixagain/</url>
+    <content><![CDATA[<p>1.20.2更新了，我在重构LTWπ代码的时候，发现1.20.2把药水相关的NBT键全改了，从驼峰命名改成了小写单词加下划线的形式（例如<strong>CustomPotionEffects</strong>-&gt;<strong>custom_potion_effects</strong>。</p>
+<p>但是大憨批（Datapack Helper Plus）似乎并没有更改，因此我把大憨批调用的Nbtdoc手动改了一下，使用新的Nbtdoc替换原有的Nbtdoc后，就能正常补全custom_potion_effects、active_effects这些键了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img%5Cdhpfixagain%5Cdhpfixagain-1.png"
+                     
+                ></p>
+<p><em>实际上是Nbtdoc的所有者没更新吧……</em></p>
+<p>Nbtdoc.json下载：<a class="link"   href="https://xzzz.lanzouq.com/iUMhE1c1u74b" >蓝奏云 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>将压缩包内文件解压到<code>C:\Users\你的用户名\AppData\Roaming\Code\User\globalStorage\spgoding.datapack-language-server\1.20.2</code>路径下，若已有一个Nbtdoc.json则替换。</p>
+]]></content>
+      <tags>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>为什么我开的服务器没有管理员，以及自己与 MC 服务器的一些往事</title>
     <url>/2023/why-no-admin/</url>
     <content><![CDATA[<p>**<a href="https://www.pigest.top/2023/server/">游艺街 小猪之最改版服</a>**马上要公测了。这是我开的时间最长，状态最稳定，同时游玩玩家数量也最多的一个服务器。我并未在这个服务器里设置除我以外的OP，也没在服务器群里设置任何真人管理员（指有标识的那种）。本篇文章主要谈谈自己与「开服」的故事。</p>
@@ -320,18 +320,69 @@
       </tags>
   </entry>
   <entry>
+    <title>为什么使用「小猪之最」这个名称，以及一些 MC 往事</title>
+    <url>/2023/why-thepig/</url>
+    <content><![CDATA[<p>其实几年之前我在B站发过一篇类似的文章，不过那个时候是为了完成B站的投稿任务而水的一篇，现在已经删掉了。至于为什么现在又想写这一篇文章，起因是现在很多实况主使用的是两个音节或三个音节的称呼，而「小猪之最」有四个音节。但最重要的不是音节数的问题，是因为这四个字如果读快了会比较拗口，而如果使用简称「猪最」作为开场白的介绍的话又会比较别扭。所以我就觉得有必要解释一下这个名字的由来了。</p>
+<h2 id="多玩盒子"><a href="#多玩盒子" class="headerlink" title="多玩盒子"></a>多玩盒子</h2><p>我相信有相当一部分MC玩家在入坑的时候玩的是携带版，并且接触过一款叫做《多玩我的世界盒子》（以下简称「多玩盒子」）的辅助工具。在多玩盒子推出电脑版之前，我一直是在手机上玩的MC携带版。虽然期间我在电脑上查找过一些MC电脑版（那个时候还没有Java版和携带版&#x2F;基岩版的意识，只有「电脑版」「手机版」）的资源，但是却卡在了安装这一步。如你所见，网上的资源良莠不齐，找到一些被破解的资源也是正常现象。在那时我甚至不知道为什么玩电脑版本的MC需要安装Java这么一个东西，因为那个时候还没接触编程。</p>
+<p>多玩盒子的电脑版出来之后的不久我就在电脑上下了一个，虽然Java还是要装的，但这次安装MC的过程比之前在网上找的那些资源要顺利很多。多玩盒子没有正版登录途径，我当时也不知道Java版正版登录和离线模式的概念，因为多玩盒子只有离线模式。</p>
+<h2 id="故事模式与服务器"><a href="#故事模式与服务器" class="headerlink" title="故事模式与服务器"></a>故事模式与服务器</h2><p>大概是2016-2017年，我在用多玩盒子下载了《我的世界：故事模式》并完成第四章之后，Reuben，一只猪，牺牲了。当时过剧情的时候是很沉浸在里面的，所以我第一时间就被刀到了。之后又屡次想起来这段Reuben牺牲的剧情，越想就越难受。于是我把自己多玩盒子上的玩家名改成了「Thepig」。当时取这个名字仅仅是因为Reuben是只猪，我自己也不知道是出于什么心理没有在「The」和「pig」之间没加下划线，可能是自己当时根本不知道下划线可以写进玩家名吧。</p>
+<p>随后是第一次接触多人游戏，我百度了一个能找MC服务器的网站，然后随便找，找到了个叫「华夏之梦」的服务器。虽说是个离线服务器，但是它启用了正版皮肤。MC的玩家名是不分大小写的，我在服务器中的皮肤就是一个戴墨镜的猪——也就是正版玩家名「ThePig」对应的皮肤。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/why-thepig/why-thepig1.png"
+                     
+                ></p>
+<p>那是个RPG服务器，说明上是这么写的，但实际上就是个能刷副本武器和装备的生存服罢了。生存服有地皮世界，我在自己地皮上建了个商店。因为我每天高强度游玩该服务器，所以很快就跟服务器里面另一个叫xiaokuwei的玩家平起平坐了（人家好像是重度课金玩家）。我觉得自己有必要给自己整个中文名，刚好再次想到了Reuben，一只拯救了世界的幼年猪。于是我就给自己私底下起了「小猪之最」这个名字，但是服务器里很多地方我仍然用的是「Thepig」，而不是「小猪之最」，但「小猪之最」的起源确实是在这个叫做「华夏之梦」的服务器。</p>
+<p>现在这个服务器已经不复存在，但是其服务端还可以在<a class="link"   href="https://www.mcbbs.net/thread-781287-1-1.html" >MCBBS <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>找到。除此之外我也在自己百度网盘上存了这个服务端。</p>
+<h2 id="入正的艰难历程"><a href="#入正的艰难历程" class="headerlink" title="入正的艰难历程"></a>入正的艰难历程</h2><p>大概是小升初的那段时间，网易MC中国版发布。而也大概是那段时间，我听说了hypixel服务器，并知晓了其连接地址mc.hypixel.net。但是你懂的，「登录失败：无效会话（请尝试重启游戏及启动器）」。遇事不决就找百度，我也因此知道了MC是有需要花钱买的「正版」的。但是我抽不出钱买正版，因为家长把我的钱管得死死的，并且他们根本不知道买断制游戏。</p>
+<p>初二的国庆节，我开始再次在百度上寻找入正的方法，并找到了PointsPrizes这个网站。在那时，你可以通过做网站上的任务来获取积分，获得3750积分就可以获得一个Minecraft正版的兑换码。</p>
+<p>在中国能做的任务只有在线调查。每个在线调查可以获得的平均积分在80左右，大部分的调查时长为10-15分钟。但是绝大多数的调查是没有办法成功的，因为你在一开始的资格筛选问题就会被筛掉，尤其是刚开始做调查的一段时间。我大概是做了20几个调查被筛选出去之后才成功做完了第一个调查（但是很苦逼，那个调查做了40分钟，而且给的积分好像还不到100）。</p>
+<p>白嫖MC用了两个多月。前面一个多月我一直在寻找成功通过调查的秘诀并攒够3750分，后面就是等平台发货了（没错，发货用了十几天）。发货的当时我就用给的兑换码激活了我的Mojang账户，给自己取了名字「Xiaozhu_Zhizui」。后来因为有些服务器不支持大写字母的玩家名，于是我把x和z都改成了小写……</p>
+<details class="red" data-header-exclude><summary><i class="fa-solid fa-chevron-right"></i>PointsPrizes现状与白嫖方法建议 </summary>
+              <div class='content'>
+              <p>PointsPrizes网站虽然现在仍可访问，但实质上它已经成了一个骗钱骗时间的网站，你可以攒积分但无法用积分兑换任何物品。</p><p>如果想要通过类似的方法白嫖MC正版，请寻找其他网站，此处推荐<a class="button " href='https://gametame.com/?join=2195649/' title='GameTame'>GameTame</a>，但是无论在什么网站上做任务，都需要掌握一定的刷分方法。</p><p>根据此前在Gametame上白嫖Steam礼品卡的经验，Gametame的发货速度比PointsPrizes要快一些，并且现在Gametame上的MC仅需2400积分，还是很好攒的（在调查成功率高的情况下）。</p><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/img/why-thepig/why-thepig2.png"
+                     
+                ></p><p>如果想了解更多关于做任务白嫖MC或者其它内容的信息，请私下联系我。</p>
+              </div>
+            </details>
+
+<h2 id="籽岷直播与我的基岩版地图"><a href="#籽岷直播与我的基岩版地图" class="headerlink" title="籽岷直播与我的基岩版地图"></a>籽岷直播与我的基岩版地图</h2><p>入正一段时间后，我发现籽岷在斗鱼上直播，并且直播时可以有30人联机玩地图。而我又恰好发现自己的Java正版免费送了一个Windows基岩版（现在是捆绑购买，很久之前是买一送一，但是之前确实有一段时间买Java版是不送Win基岩版的）。</p>
+<p>基岩版Xbox联机支持「好友的好友」进入，所以我加了几个直播间的活跃用户并且尝试挤进30人联机。岷叔直播一般是玩的粉丝发给他的跑酷地图，偶尔也会玩小游戏地图。</p>
+<p>之后我就开始做基岩版的地图，跑酷和小游戏都有。第一张是「死亡跑酷」（Death Run），属于小游戏地图。第二张地图是一张超难的跑酷地图，而且我记得岷叔只跑了不到一半就跑不下去了……</p>
+<p>我总共给岷叔做了近二十几张基岩版地图，并且有两张地图他还发了直播剪辑。</p>
+<a class="button  center large" href='https://share.weiyun.com/5yjsBbU' title='小猪之最所制作的基岩版地图集合'><i class='fa-solid fa-download'></i> 小猪之最所制作的基岩版地图集合</a>
+
+<a class="button  center large" href='https://www.bilibili.com/video/BV1E441197VX' title='通天跑酷第三季视频'><i class='fa-solid fa-video'></i> 通天跑酷第三季视频</a>
+
+<p>直播间里我认识了很多一起玩MC、做地图的朋友，算是填补了现实中身边没有什么人玩MC的空白……</p>
+<p>从那时起，我在网络上注册的账号用户名都会使用「小猪之最Thepig」「xiaozhu_zhizui」「小猪之最」「Thepig」之类的名字，除了一个地方——MC基岩版，也就是Xbox，使用的是「TmallKing1」，「天猫大王」的意思。这是我小学时候对某位同学的一个称呼。</p>
+]]></content>
+      <tags>
+        <tag>闲谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>游艺街 小猪之最改版服</title>
     <url>/2023/server/</url>
-    <content><![CDATA[<h2 id="服务器概要"><a href="#服务器概要" class="headerlink" title="服务器概要"></a>服务器概要</h2><p>IP：加群查看。</p>
-<p>服务器版本：1.20.2，目前暂无法使用低于1.20.2的版本进入。</p>
-<p>服务器要求正版验证，无特殊情况不关（改东西或者调试机器人时除外）</p>
-<p>小猪之最·服务器群：<a class="link"   href="https://jq.qq.com/?_wv=1027&k=riOZLTPw" >607471033 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+    <content><![CDATA[<h2 id="服务器概要"><a href="#服务器概要" class="headerlink" title="服务器概要"></a>服务器概要</h2><p>IP：加群查看。小猪之最·服务器群：<a class="link"   href="https://jq.qq.com/?_wv=1027&k=riOZLTPw" >607471033 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p><strong>加群后需要在六小时内登录一次服务器来完成身份验证，请确保自己在能登录服务器的情况下加入。</strong></p>
+<p>当前版本：1.2 版本「原龙叹惋之街」</p>
+<p>服务器要求 Minecraft 版本：1.20.4。使用低于1.20.4的版本加入服务器很有可能会出现异常掉线的问题。</p>
+<p>服务器要求正版验证，无特殊情况不关（版本更新维护期间除外）</p>
 <h3 id="加群被拒绝的可能原因"><a href="#加群被拒绝的可能原因" class="headerlink" title="加群被拒绝的可能原因"></a>加群被拒绝的可能原因</h3><p>服务器群采用自动审批，若加群请求被拒绝，原因可能为下面几条中的一条或多条：</p>
 <ul>
 <li>输入的玩家名不符合Minecraft玩家名规范</li>
 <li>输入的玩家名在Minecraft正版玩家列表中不存在</li>
 <li>输入的玩家名已被其他用户绑定（如果你认为你的玩家名被他人误绑，请联系小猪之最）</li>
+</ul>
+<p>若加群请求没有被自动回应，原因可能为下面几条中的一条：</p>
+<ul>
+<li>机器人处于宕机状态</li>
+<li>您在提交加群请求前使用相同的QQ号入群然后<strong>主动退了群</strong>或者被群主因为违规踢出。</li>
 </ul>
 <h2 id="改版服新机制介绍"><a href="#改版服新机制介绍" class="headerlink" title="改版服新机制介绍"></a>改版服新机制介绍</h2><h3 id="轮数调整"><a href="#轮数调整" class="headerlink" title="轮数调整"></a>轮数调整</h3><p>为了让玩家体验到更多的改版游戏内容，游戏轮数由原版的5轮调整为了6轮。第5、6轮生成的奖励物品均只有积分类（山丘之王小游戏除外）。</p>
 <h3 id="游戏模式"><a href="#游戏模式" class="headerlink" title="游戏模式"></a>游戏模式</h3><p>《LTWπ》目前有三种游戏模式：改版模式、经典模式与双倍奖励模式。</p>
@@ -366,8 +417,12 @@
 
 <p>赌场的二十面骰抽出「大成功」时除奖励1金块外，还会奖励1个魔法符咒。「大失败」的触发点数由1改为了19，原来的1触发的事件为「一无所获」。</p>
 <p>在赌场可花费9个金块购买传送卷轴。购买后玩家可以通过主手持有传送卷轴时按切换主副手物品按键（默认为<code>f</code>）来快速传送到赌场。</p>
+<h3 id="盔甲纹饰"><a href="#盔甲纹饰" class="headerlink" title="盔甲纹饰"></a>盔甲纹饰</h3><p>在《LTWπ》中，玩家可以为自己在游戏内奖励物品中获得的盔甲自定义盔甲纹饰。</p>
+<p>盔甲纹饰拥有两个组成要素：「锻造模板」与「材料」。「锻造模板」可以通过幻境抽取获得；「材料」的获得方式多样，例如完成彩蛋进度、完成活动、使用金块或钻石购买等等。</p>
+<p>当你同时拥有一种或以上的「锻造模板」与「材料」后，就可以前往大厅内的「盔甲纹饰编辑区」（请自行寻找），选择锻造模板与材料，并点击保存按钮为各种盔甲保存你的盔甲纹饰设定。目前仅支持对不同盔甲材料制成的盔甲应用不同的盔甲纹饰设定方案（例如无法对「钻石胸甲」与「钻石护腿」应用不同的盔甲纹饰设定方案）。</p>
+<p><strong>注意</strong>：盔甲纹饰设定仅适用于游戏内获得的奖励物品，在最后一轮中合成的盔甲不会应用盔甲纹饰。</p>
 <h3 id="幻境抽取"><a href="#幻境抽取" class="headerlink" title="幻境抽取"></a>幻境抽取</h3><p>《LTWπ》的每一局游戏结束后，玩家会获得数量与自己积分数相等的魔法精华，每64个魔法精华会自动合成为1个魔法符咒。玩家还可以通过游戏内奖励物品、使用2个金锭购买、赌场等途径获得魔法符咒。魔法符咒可用于在原版制作人员聚集地（请自行寻找）进行幻境抽取。</p>
-<p>奖池物品分为五星、四星和三星三种稀有度。五星物品为一些有少量游戏内加成的玩家头颅，四星物品为无游戏内加成的方块。这些物品都可以在商店内的「头戴物品更换处」更换，更换后会在每局游戏开始前和每局最后一轮游戏结束后的选择奖励前自动戴在自己头上。三星物品为若干个金粒。</p>
+<p>奖池物品分为五星、四星和三星三种稀有度。五星物品为一些有少量游戏内加成的玩家头颅与青金石盔甲纹饰材料，四星物品为无游戏内加成的方块与盔甲纹饰锻造模板。玩家头颅和方块都可以在商店内的「头戴物品更换处」更换，更换后会在每局游戏开始前和每局最后一轮游戏结束后的选择奖励前自动戴在自己头上。三星物品为若干个金粒。</p>
 <div class="note-large blue"><div class="notel-title"><p>幻境抽取规则</p>
 </div><div class="notel-content"><p>每次抽取获得五星物品的基础概率为0.6%，综合概率（含保底）为1.6%。最多90次幻境抽取必定能通过保底获得五星物品。</p>
 <p>每次抽取获得四星物品的基础概率为5.1%，综合概率（含保底）为13%。最多10次幻境抽取必定能通过保底获得四星以上物品，通过保底获得四星物品的概率为99.4%，获得五星物品的概率为0.6%。</p>
@@ -375,8 +430,8 @@
 </div></div>
 
 <h3 id="限时活动"><a href="#限时活动" class="headerlink" title="限时活动"></a>限时活动</h3><p>「游艺街 小猪之最改版服」会不定期举办限时活动，多数活动为特殊的小游戏。参加限时活动并达成相应进度可以获得魔法精华与金锭奖励。</p>
-<p>目前正在举办的活动有：<strong>会心一击</strong>（1.0版本「幻境流转」活动游戏）</p>
-<p>目前已成功举办的活动有：<strong>鸭子快跑</strong>（「丰饶测试」2023年愚人节活动）、<strong>元素战争</strong>（「丰饶测试」2023年劳动节活动）。</p>
+<p>目前正在举办的活动有：<em>无</em>。</p>
+<p>目前已成功举办的活动有：<strong>鸭子快跑</strong>（「丰饶测试」2023年愚人节活动）、<strong>元素战争</strong>（「丰饶测试」2023年劳动节活动）、<strong>会心一击</strong>（1.0版本「幻境流转」活动游戏）。</p>
 <div class="note warning"><p>限时活动进度会在活动结束后对没有达成相应进度的玩家隐藏。</p>
 </div>
 
@@ -516,57 +571,31 @@
 </div>
 
 <p>最后未被淘汰的玩家胜利。</p>
+<h3 id="破罐之王-VASE"><a href="#破罐之王-VASE" class="headerlink" title="破罐之王 - VASE"></a>破罐之王 - VASE</h3><div class="note default"><p>游戏最多持续10个回合，每个回合限时<strong>20秒</strong>。游戏的目标是打碎尽可能多的普通罐子，打碎普通罐子最多的玩家获得胜利。</p>
+</div>
+
+<p>每个回合开始，场地上会生成可打碎的罐子，其数量受当前存活玩家数影响。玩家可以使用快捷栏最后一格的雪球通过直接挖掘（左键）或远程投掷（右键）的方式破坏罐子。雪球的使用冷却为<strong>0.3</strong>秒（扔出雪球或者使用雪球左键打碎一个罐子时开始计算冷却）。</p>
+<p>罐子根据纹饰的不同具有不同的效果。<strong>注意</strong>：除了普通罐子以外，其他罐子均不计算分数。</p>
+<ul>
+<li>普通罐子：打碎罐子的玩家在记分板上+1分。</li>
+<li>爆炸罐子：被打碎后对罐子周围的玩家造成4点伤害。</li>
+<li>生命恢复罐子：打碎罐子的玩家获得1秒生命恢复Ⅲ效果，可恢复3点生命值。</li>
+<li>攻击罐子：打碎罐子的玩家获得1个附魔雪球。使用附魔雪球恰好命中其他玩家时，对命中的玩家造成3点伤害。</li>
+<li>奖励物品罐子：被打碎后生成1个（双倍奖励模式下是2个）奖励物品。奖励物品在生成2秒后才能被拾取。</li>
+</ul>
+<p>玩家初始生命上限为20点，从第二个回合起，每个回合开始时所有玩家的生命上限会减少2点。</p>
+<p>每有一个玩家死亡，场上所有<strong>存活</strong>的玩家都会获得10次普通罐子击破数的奖励分数。</p>
+<p>游戏将在以下几种情况下结束，并记录玩家分数得出排名：</p>
+<ul>
+<li>第10回合结束</li>
+<li>场上仅剩一个玩家，且当前回合结束</li>
+<li>场上所有玩家死亡</li>
+</ul>
 <h2 id="赞助-x2F-相关链接"><a href="#赞助-x2F-相关链接" class="headerlink" title="赞助 &#x2F; 相关链接"></a>赞助 &#x2F; 相关链接</h2><p><a class="link"   href="https://afdian.net/a/xiaozhuzhizui" >爱发电 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p><a class="link"   href="https://space.bilibili.com/381671770" >哔哩哔哩 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
       <tags>
         <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>为什么使用「小猪之最」这个名称，以及一些 MC 往事</title>
-    <url>/2023/why-thepig/</url>
-    <content><![CDATA[<p>其实几年之前我在B站发过一篇类似的文章，不过那个时候是为了完成B站的投稿任务而水的一篇，现在已经删掉了。至于为什么现在又想写这一篇文章，起因是现在很多实况主使用的是两个音节或三个音节的称呼，而「小猪之最」有四个音节。但最重要的不是音节数的问题，是因为这四个字如果读快了会比较拗口，而如果使用简称「猪最」作为开场白的介绍的话又会比较别扭。所以我就觉得有必要解释一下这个名字的由来了。</p>
-<h2 id="多玩盒子"><a href="#多玩盒子" class="headerlink" title="多玩盒子"></a>多玩盒子</h2><p>我相信有相当一部分MC玩家在入坑的时候玩的是携带版，并且接触过一款叫做《多玩我的世界盒子》（以下简称「多玩盒子」）的辅助工具。在多玩盒子推出电脑版之前，我一直是在手机上玩的MC携带版。虽然期间我在电脑上查找过一些MC电脑版（那个时候还没有Java版和携带版&#x2F;基岩版的意识，只有「电脑版」「手机版」）的资源，但是却卡在了安装这一步。如你所见，网上的资源良莠不齐，找到一些被破解的资源也是正常现象。在那时我甚至不知道为什么玩电脑版本的MC需要安装Java这么一个东西，因为那个时候还没接触编程。</p>
-<p>多玩盒子的电脑版出来之后的不久我就在电脑上下了一个，虽然Java还是要装的，但这次安装MC的过程比之前在网上找的那些资源要顺利很多。多玩盒子没有正版登录途径，我当时也不知道Java版正版登录和离线模式的概念，因为多玩盒子只有离线模式。</p>
-<h2 id="故事模式与服务器"><a href="#故事模式与服务器" class="headerlink" title="故事模式与服务器"></a>故事模式与服务器</h2><p>大概是2016-2017年，我在用多玩盒子下载了《我的世界：故事模式》并完成第四章之后，Reuben，一只猪，牺牲了。当时过剧情的时候是很沉浸在里面的，所以我第一时间就被刀到了。之后又屡次想起来这段Reuben牺牲的剧情，越想就越难受。于是我把自己多玩盒子上的玩家名改成了「Thepig」。当时取这个名字仅仅是因为Reuben是只猪，我自己也不知道是出于什么心理没有在「The」和「pig」之间没加下划线，可能是自己当时根本不知道下划线可以写进玩家名吧。</p>
-<p>随后是第一次接触多人游戏，我百度了一个能找MC服务器的网站，然后随便找，找到了个叫「华夏之梦」的服务器。虽说是个离线服务器，但是它启用了正版皮肤。MC的玩家名是不分大小写的，我在服务器中的皮肤就是一个戴墨镜的猪——也就是正版玩家名「ThePig」对应的皮肤。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/why-thepig/why-thepig1.png"
-                     
-                ></p>
-<p>那是个RPG服务器，说明上是这么写的，但实际上就是个能刷副本武器和装备的生存服罢了。生存服有地皮世界，我在自己地皮上建了个商店。因为我每天高强度游玩该服务器，所以很快就跟服务器里面另一个叫xiaokuwei的玩家平起平坐了（人家好像是重度课金玩家）。我觉得自己有必要给自己整个中文名，刚好再次想到了Reuben，一只拯救了世界的幼年猪。于是我就给自己私底下起了「小猪之最」这个名字，但是服务器里很多地方我仍然用的是「Thepig」，而不是「小猪之最」，但「小猪之最」的起源确实是在这个叫做「华夏之梦」的服务器。</p>
-<p>现在这个服务器已经不复存在，但是其服务端还可以在<a class="link"   href="https://www.mcbbs.net/thread-781287-1-1.html" >MCBBS <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>找到。除此之外我也在自己百度网盘上存了这个服务端。</p>
-<h2 id="入正的艰难历程"><a href="#入正的艰难历程" class="headerlink" title="入正的艰难历程"></a>入正的艰难历程</h2><p>大概是小升初的那段时间，网易MC中国版发布。而也大概是那段时间，我听说了hypixel服务器，并知晓了其连接地址mc.hypixel.net。但是你懂的，「登录失败：无效会话（请尝试重启游戏及启动器）」。遇事不决就找百度，我也因此知道了MC是有需要花钱买的「正版」的。但是我抽不出钱买正版，因为家长把我的钱管得死死的，并且他们根本不知道买断制游戏。</p>
-<p>初二的国庆节，我开始再次在百度上寻找入正的方法，并找到了PointsPrizes这个网站。在那时，你可以通过做网站上的任务来获取积分，获得3750积分就可以获得一个Minecraft正版的兑换码。</p>
-<p>在中国能做的任务只有在线调查。每个在线调查可以获得的平均积分在80左右，大部分的调查时长为10-15分钟。但是绝大多数的调查是没有办法成功的，因为你在一开始的资格筛选问题就会被筛掉，尤其是刚开始做调查的一段时间。我大概是做了20几个调查被筛选出去之后才成功做完了第一个调查（但是很苦逼，那个调查做了40分钟，而且给的积分好像还不到100）。</p>
-<p>白嫖MC用了两个多月。前面一个多月我一直在寻找成功通过调查的秘诀并攒够3750分，后面就是等平台发货了（没错，发货用了十几天）。发货的当时我就用给的兑换码激活了我的Mojang账户，给自己取了名字「Xiaozhu_Zhizui」。后来因为有些服务器不支持大写字母的玩家名，于是我把x和z都改成了小写……</p>
-<details class="red" data-header-exclude><summary><i class="fa-solid fa-chevron-right"></i>PointsPrizes现状与白嫖方法建议 </summary>
-              <div class='content'>
-              <p>PointsPrizes网站虽然现在仍可访问，但实质上它已经成了一个骗钱骗时间的网站，你可以攒积分但无法用积分兑换任何物品。</p><p>如果想要通过类似的方法白嫖MC正版，请寻找其他网站，此处推荐<a class="button " href='https://gametame.com/?join=2195649/' title='GameTame'>GameTame</a>，但是无论在什么网站上做任务，都需要掌握一定的刷分方法。</p><p>根据此前在Gametame上白嫖Steam礼品卡的经验，Gametame的发货速度比PointsPrizes要快一些，并且现在Gametame上的MC仅需2400积分，还是很好攒的（在调查成功率高的情况下）。</p><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/img/why-thepig/why-thepig2.png"
-                     
-                ></p><p>如果想了解更多关于做任务白嫖MC或者其它内容的信息，请私下联系我。</p>
-              </div>
-            </details>
-
-<h2 id="籽岷直播与我的基岩版地图"><a href="#籽岷直播与我的基岩版地图" class="headerlink" title="籽岷直播与我的基岩版地图"></a>籽岷直播与我的基岩版地图</h2><p>入正一段时间后，我发现籽岷在斗鱼上直播，并且直播时可以有30人联机玩地图。而我又恰好发现自己的Java正版免费送了一个Windows基岩版（现在是捆绑购买，很久之前是买一送一，但是之前确实有一段时间买Java版是不送Win基岩版的）。</p>
-<p>基岩版Xbox联机支持「好友的好友」进入，所以我加了几个直播间的活跃用户并且尝试挤进30人联机。岷叔直播一般是玩的粉丝发给他的跑酷地图，偶尔也会玩小游戏地图。</p>
-<p>之后我就开始做基岩版的地图，跑酷和小游戏都有。第一张是「死亡跑酷」（Death Run），属于小游戏地图。第二张地图是一张超难的跑酷地图，而且我记得岷叔只跑了不到一半就跑不下去了……</p>
-<p>我总共给岷叔做了近二十几张基岩版地图，并且有两张地图他还发了直播剪辑。</p>
-<a class="button  center large" href='https://share.weiyun.com/5yjsBbU' title='小猪之最所制作的基岩版地图集合'><i class='fa-solid fa-download'></i> 小猪之最所制作的基岩版地图集合</a>
-
-<a class="button  center large" href='https://www.bilibili.com/video/BV1E441197VX' title='通天跑酷第三季视频'><i class='fa-solid fa-video'></i> 通天跑酷第三季视频</a>
-
-<p>直播间里我认识了很多一起玩MC、做地图的朋友，算是填补了现实中身边没有什么人玩MC的空白……</p>
-<p>从那时起，我在网络上注册的账号用户名都会使用「小猪之最Thepig」「xiaozhu_zhizui」「小猪之最」「Thepig」之类的名字，除了一个地方——MC基岩版，也就是Xbox，使用的是「TmallKing1」，「天猫大王」的意思。这是我小学时候对某位同学的一个称呼。</p>
-]]></content>
-      <tags>
-        <tag>闲谈</tag>
       </tags>
   </entry>
   <entry>
